@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="Uvraag">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="../js/mcAddSection.js"></script>
+	<script src="../js/mcAdd.js"></script>
+	<script src="../js/mcSubSolve.js"></script>
+	<script src="../js/mcSubSection.js"></script>
+	<title>Addition</title>
+</head>
+<body>
+	<p>Enter Value</p>
+	<input type="number" id="in1" value="" autofocus>
+	<input type="number" id="in2" value="">
+	<input type="button" value="Click" onclick="start()">
+	<p id="show" style="font-size:50px"></p>
+<script>
+function start(){
+	var temp = mcAddSection( document.getElementById( "in1" ).value, document.getElementById( "in2" ).value );
+	document.getElementById( "show" ).innerHTML = temp;
+}
+</script>
+</body>
+</html>

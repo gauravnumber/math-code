@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>math-code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/w3-4.css">
+<link rel="stylesheet" href="../css/w3-theme-teal.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="../js/mcAddSection.js"></script>
+<script src="../js/mcAdd.js"></script>
+<script src="../js/mcSubSolve.js"></script>
+<script src="../js/mcSubSection.js"></script>
+<script src="../js/mcMulOne.js"></script>
+<script src="../js/mcMulSection.js"></script>
+<script src="../js/mcMul.js"></script>
+<script src="../js/mcFact.js"></script>
+<script src="../js/mcPow.js"></script>
+
+<style>
+   body {
+      font-family: "Roboto", sans-serif
+   }
+
+   .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold
+   }
+</style>
+</head>
+<body>
+
+   <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;" id="mySidebar">
+      <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#">
+     math-code
+ </a>
+      <a class="w3-bar-item w3-button w3-hide-large w3-large"
+         href="javascript:void(0)"
+         onclick="w3_close()"
+      >
+         Close <i class="fa fa-remove"></i>
+      </a>
+
+      <a class="w3-bar-item w3-button"
+         href="#addition"
+      >
+         Addition
+      </a>
+      <a class="w3-bar-item w3-button"
+         href="#subtraction"
+      >
+         Subtraction
+      </a>
+      <a class="w3-bar-item w3-button"
+         href="#multiplication"
+      >
+         Multiplication
+      </a>
+      <a class="w3-bar-item w3-button"
+         href="#factorial"
+      >
+         Factorial
+      </a>
+      <a class="w3-bar-item w3-button" href="#">Link 4</a>
+      <a class="w3-bar-item w3-button" href="#">Link 5</a>
+      <div>
+         <a class="w3-bar-item w3-button"
+            onclick="myAccordion('demo')"
+            href="javascript:void(0)"
+         >
+            Unique Pages <i class="fa fa-caret-down"></i>
+         </a>
+         <div id="demo" class="w3-hide">
+            <a class="w3-bar-item w3-button"
+               href="https://rawgit.com/uvraag/math-code/master/HTML/mcAdd.html"
+            >
+               Addition
+            </a>
+            <a class="w3-bar-item w3-button"
+               href="https://rawgit.com/uvraag/math-code/master/HTML/mcSub.html"
+            >
+               Subtraction
+            </a>
+            <a class="w3-bar-item w3-button"
+               href="https://rawgit.com/uvraag/math-code/master/HTML/mcMul.html"
+            >
+               Multiplication
+            </a>
+            <a class="w3-bar-item w3-button"
+               href="https://rawgit.com/uvraag/math-code/master/HTML/mcFact.html"
+            >
+               Factorial
+            </a>
+            <a class="w3-bar-item w3-button"
+               href="https://rawgit.com/uvraag/math-code/master/HTML/mcPow.html"
+            >
+               Power
+            </a>
+         </div>
+      </div>
+   </nav>
+
+   <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+   <div class="w3-main" style="margin-left:250px;">
+
+      <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+         <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+            <span id="myIntro" class="w3-hide">
+               math-code
+            </span>
+         </p>
+      </div>
+
+      <header class="w3-container w3-theme" style="padding:64px 32px">
+         <h1 class="w3-xxxlarge">
+     math-code
+  </h1>
+      </header>
+
+      <div class="w3-container" style="padding:32px">
+         <h2>What is math-code?</h2>
+
+         <p>Javascript program can do calculate large digit value.</p>
+
+         <div class="w3-card-4"
+            id="addition"
+         >
+            <div class="w3-container w3-brown">
+               <h2>Addition</h2>
+            </div>
+            <div class="w3-container">
+               <p>
+                  <label class="w3-text-brown"><b>First Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inAdd1"
+                  >
+               </p>
+               <p>
+                  <label class="w3-text-brown"><b>Second Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inAdd2"
+                  >
+               </p>
+               <p>
+                  <button class="w3-btn w3-brown"
+                     onclick="add()"
+                  >
+                     Calculate
+                  </button></p>
+               <p class="w3-responsive"
+                  id="add"
+                  style="font-size:50px"
+               ></p>
+            </div>
+         </div>
+
+         <div class="w3-card-4"
+            id="subtraction"
+         >
+            <div class="w3-container w3-purple">
+               <h2>Subtraction</h2>
+            </div>
+            <div class="w3-container">
+               <p>
+                  <label class="w3-text-purple"><b>First Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inSub1"
+                  >
+               </p>
+               <p>
+                  <label class="w3-text-purple"><b>Second Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inSub2"
+                  >
+               </p>
+               <p>
+                  <button class="w3-btn w3-purple"
+                     onclick="sub()"
+                  >
+                     Calculate
+                  </button></p>
+               <p class="w3-responsive"
+                  id="sub"
+                  style="font-size:50px"
+               ></p>
+            </div>
+         </div>
+
+         <div class="w3-card-4"
+            id="multiplication"
+         >
+            <div class="w3-container w3-indigo">
+               <h2>Multiplication</h2>
+            </div>
+            <div class="w3-container">
+               <p>
+                  <label class="w3-text-indigo"><b>First Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inMul1"
+                  >
+               </p>
+               <p>
+                  <label class="w3-text-indigo"><b>Second Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inMul2"
+                  >
+               </p>
+               <p>
+                  <button class="w3-btn w3-indigo"
+                     onclick="mul()"
+                  >
+                     Calculate
+                  </button></p>
+               <p class="w3-responsive"
+                  id="mul"
+                  style="font-size:50px"
+               ></p>
+            </div>
+         </div>
+
+         <div class="w3-card-4"
+            id="factorial"
+         >
+            <div class="w3-container w3-aqua">
+               <h2>Factorial</h2>
+            </div>
+            <div class="w3-container">
+               <p>
+                  <label class="w3-text-aqua"><b>Enter Number</b></label>
+                  <input class="w3-input w3-border w3-sand"
+                     type="number"
+                     id="inFact1"
+                  >
+               </p>
+               <p>
+                  <button class="w3-btn w3-aqua"
+                     onclick="fact()"
+                  >
+                     Calculate
+                  </button></p>
+               <p class="w3-responsive"
+                  id="fact"
+                  style="font-size:50px"
+               ></p>
+            </div>
+         </div>
+
+
+      </div>
+
+      <script>
+      function add(){
+      	var temp = mcAddSection( document.getElementById( "inAdd1" ).value, document.getElementById( "inAdd2" ).value );
+      	document.getElementById( "add" ).innerHTML = temp;
+      }
+
+      function sub(){
+      	var temp = mcSubSection( document.getElementById( "inSub1" ).value, document.getElementById( "inSub2" ).value );
+      	document.getElementById( "sub" ).innerHTML = temp;
+      }
+
+      function mul(){
+      	var temp = mcMulSection( document.getElementById( "inMul1" ).value, document.getElementById( "inMul2" ).value );
+      	document.getElementById( "mul" ).innerHTML = temp;
+      }
+
+      function fact(){
+         var temp = mcFact( document.getElementById( "inFact1" ).value );
+         document.getElementById( "fact" ).innerHTML = temp;
+      }
+
+      // Add scroll when click hash
+      window.addEventListener( "hashchange", function () {
+         window.scrollTo( window.scrollX, window.scrollY - 100 );
+      })
+         // Open and close the sidebar on medium and small screens
+         function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+         }
+
+         function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+         }
+
+         // Change style of top container on scroll
+         window.onscroll = function() {
+            myFunction()
+         };
+
+         function myFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+               document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+               document.getElementById("myIntro").classList.add("w3-show-inline-block");
+            } else {
+               document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+               document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+            }
+         }
+
+         // Accordions
+         function myAccordion(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+               x.previousElementSibling.className += " w3-theme";
+            } else {
+               x.className = x.className.replace("w3-show", "");
+               x.previousElementSibling.className =
+                  x.previousElementSibling.className.replace(" w3-theme", "");
+            }
+         }
+      </script>
+
+</body>
+
+</html>

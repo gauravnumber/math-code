@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="Uvraag">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="../js/isEq.js"></script>
+	<script src="../js/isLt.js"></script>
+	<title>Less than</title>
+</head>
+<body>
+	<p>Enter Value</p>
+	<input type="number" id="in1" value="" autofocus>
+	<input type="number" id="in2" value="">
+	<input type="button" value="Click" onclick="start()">
+	<p id="show" style="font-size:50px"></p>
+<script>
+function start(){
+	var temp = isLt( document.getElementById( "in1" ).value, document.getElementById( "in2" ).value );
+	document.getElementById( "show" ).innerHTML = temp;
+}
+</script>
+</body>
+</html>
