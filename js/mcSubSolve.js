@@ -1,4 +1,4 @@
-function mcSubSolve( first, second ){
+export function mcSubSolve( first, second ){
 	var lengthno,
 		i,
 		firstLastIndex, secondLastIndex,

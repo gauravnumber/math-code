@@ -1,4 +1,7 @@
-function mcMulSection( first, second ){
+import { mcMulOne } from './mcMulOne.js';
+import { mcAdd } from './mcAdd.js'
+
+export function mcMulSection( first, second ){
 	var lengthno,
 		i, j,
 		firstLastIndex, secondLastIndex,

@@ -1,4 +1,4 @@
-function mcAddSection( first, second ){
+export function mcAddSection( first, second ){
 	var lengthno,
 		i,
 		firstLastIndex, secondLastIndex,
@@ -16,10 +16,12 @@ function mcAddSection( first, second ){
 	second = String( second );
 	first = first.split( "" );
 	second = second.split( "" );
+	
 	while( Number( first[0] )== 0 )
 		first.shift();
 	while( Number( second[0] )== 0 )
 		second.shift();
+		
 	if( first[0] == "-"  && second[0] == "-" ) {
 		first = first.slice( 1 );
 		second = second.slice( 1 );
@@ -80,8 +82,7 @@ function mcAddSection( first, second ){
 		third = third.reverse();
 		third = third.join( "" );
 		return third;
-	}
-	else if( decimalfirst == true || decimalsecond == true ) {
+	} else if( decimalfirst == true || decimalsecond == true ) {
 
 		if( decimalfirst == false ) {
 			first = first.join( "" );

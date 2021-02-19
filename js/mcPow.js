@@ -1,4 +1,6 @@
-function mcPow( number, power ) {
+import { mcMul } from './mcMul.js';
+
+export function mcPow( number, power ) {
    if ( power == 0 || number == 1 )
       return 1;
   var holdnumber = [], third;

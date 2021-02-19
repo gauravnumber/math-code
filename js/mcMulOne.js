@@ -1,4 +1,4 @@
-function mcMulOne( number, one ){
+export function mcMulOne( number, one ){
 	var lengthno,
 		i,
 		numberLastIndex,
