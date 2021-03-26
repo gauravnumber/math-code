@@ -1,4 +1,4 @@
-function isEq( first, second ){
+export function isEq( first, second ){
 	var lengthno,
 		i,
 		firstLastIndex, secondLastIndex,

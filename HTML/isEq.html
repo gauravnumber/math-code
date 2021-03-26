@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<meta name="author" content="Uvraag">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="../js/isEq.js"></script>
-	<title>Equal</title>
-</head>
-<body>
-	<p>Enter Value</p>
-	<input type="number" id="in1" value="" autofocus>
-	<input type="number" id="in2" value="">
-	<input type="button" value="Click" onclick="start()">
-	<p id="show" style="font-size:50px"></p>
-<script>
-function start(){
-	var temp = isEq( document.getElementById( "in1" ).value, document.getElementById( "in2" ).value );
-	document.getElementById( "show" ).innerHTML = temp;
-}
-</script>
-</body>
+  <head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="Uvraag" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="./isEqWrapper.js"></script>
+    <!-- <script type="module" src="../js/isEq.js"></script> -->
+    <title>Equal</title>
+  </head>
+  <body>
+    <p>Enter Value</p>
+    <input type="number" id="in1" value="" autofocus />
+    <input type="number" id="in2" value="" />
+	<input 
+		type="button" 
+		id="btn" 
+		value="Click" 
+	/>
+    <p id="show" style="font-size: 50px"></p>
+    <!-- <script type="module">
+      import { isEq } from "../js/isEq.js";
+
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", () => {
+        var temp = isEq(
+          document.getElementById("in1").value,
+          document.getElementById("in2").value
+        );
+        document.getElementById("show").innerHTML = temp;
+      });
+
+      // function start(){
+      // 	var temp = isEq( document.getElementById( "in1" ).value, document.getElementById( "in2" ).value );
+      // 	document.getElementById( "show" ).innerHTML = temp;
+      // }
+    </script> -->
+  </body>
 </html>
