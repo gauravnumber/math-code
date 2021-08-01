@@ -1,4 +1,4 @@
-function isGt( first, second ){
+export function isGt(first, second) {
 	var lengthno,
 		i,
 		firstLastIndex, secondLastIndex,
@@ -12,109 +12,109 @@ function isGt( first, second ){
 	decimalfirst = false;
 	decimalsecond = false;
 	firstpos = secondpos = -1;
-	first = String( first );
-	second = String( second );
-	first = first.split( "" );
-	second = second.split( "" );
-	while( Number( first[0] ) == 0 )
+	first = String(first);
+	second = String(second);
+	first = first.split("");
+	second = second.split("");
+	while (Number(first[0]) == 0)
 		first.shift();
-	while( Number( second[0] ) == 0 )
+	while (Number(second[0]) == 0)
 		second.shift();
-	if( first[0] == "-"  && second[0] == "-" ) {
-		first = first.slice( 1 );
-		second = second.slice( 1 );
-		first = first.join( "" );
-		second = second.join( "" );
-		third = isGt( second, first );
+	if (first[0] == "-" && second[0] == "-") {
+		first = first.slice(1);
+		second = second.slice(1);
+		first = first.join("");
+		second = second.join("");
+		third = isGt(second, first);
 		return third;
-	} else if ( first[0] != "-" && second[0] == "-" ) {
+	} else if (first[0] != "-" && second[0] == "-") {
 		return true;
-	} else if ( first[0] == "-" && second[0] != "-" ) {
+	} else if (first[0] == "-" && second[0] != "-") {
 		return false;
 	}
-	for( i = 0; i < first.length; i++ )
-		if( first[i] == "." ){
+	for (i = 0; i < first.length; i++)
+		if (first[i] == ".") {
 			decimalfirst = true;
 			firstpos = i;
 			break;
 		}
-	for( i = 0; i < second.length; i++ )
-		if( second[i] == "." ){
+	for (i = 0; i < second.length; i++)
+		if (second[i] == ".") {
 			decimalsecond = true;
 			secondpos = i;
 			break;
 		}
-	while ( first[ first.length - 1 ] == 0 && decimalfirst == true ) {
+	while (first[first.length - 1] == 0 && decimalfirst == true) {
 		first.pop();
 	}
-	while ( second[ second.length - 1 ] == 0 && decimalsecond == true ) {
+	while (second[second.length - 1] == 0 && decimalsecond == true) {
 		second.pop();
 	}
-	while ( first[ first.length - 1 ] == "." ) {
+	while (first[first.length - 1] == ".") {
 		first.pop();
 		decimalfirst = false;
 	}
-	while ( second[ second.length - 1 ] == "." ) {
+	while (second[second.length - 1] == ".") {
 		second.pop();
 		decimalsecond = false;
 	}
-	for( i = 0; i < first.length; i++ )
-		if( first[i] == "." ){
+	for (i = 0; i < first.length; i++)
+		if (first[i] == ".") {
 			decimalfirst = true;
 			firstpos = i;
 			break;
 		}
-	for( i = 0; i < second.length; i++ )
-		if( second[i] == "." ){
+	for (i = 0; i < second.length; i++)
+		if (second[i] == ".") {
 			decimalsecond = true;
 			secondpos = i;
 			break;
 		}
-	if( decimalfirst == false && decimalsecond == false ) {
-		if ( first.length == second.length ) {
+	if (decimalfirst == false && decimalsecond == false) {
+		if (first.length == second.length) {
 			lengthno = first.length;
-			for ( i = 0; i < lengthno; i++ ) {
-				if ( first[i] > second[i] ) {
+			for (i = 0; i < lengthno; i++) {
+				if (first[i] > second[i]) {
 					return true;
-				} else if ( first[i] < second[i] ) {
+				} else if (first[i] < second[i]) {
 					return false;
 				}
 			}
 			return false;
-		} else if( first.length > second.length ) {
+		} else if (first.length > second.length) {
 			return true;
-		} else if (  first.length < second.length  ) {
+		} else if (first.length < second.length) {
 			return false;
 		}
-	} else if ( decimalfirst == true && decimalsecond == false ) {
-		firsthalf = first.slice( 0, firstpos );
-		if ( isEq( firsthalf, second ) ) {
+	} else if (decimalfirst == true && decimalsecond == false) {
+		firsthalf = first.slice(0, firstpos);
+		if (isEq(firsthalf, second)) {
 			return true;
 		} else {
-			return isGt( firsthalf, second );
+			return isGt(firsthalf, second);
 		}
-	} else if ( decimalfirst == false && decimalsecond == true ) {
-		secondhalf = second.slice( 0, secondpos );
-		if ( isEq( first, secondhalf ) ) {
+	} else if (decimalfirst == false && decimalsecond == true) {
+		secondhalf = second.slice(0, secondpos);
+		if (isEq(first, secondhalf)) {
 			return false;
 		} else {
-			return isGt( first, secondhalf );
+			return isGt(first, secondhalf);
 		}
-	} else if( decimalfirst == true && decimalsecond == true ) {
-		firstslice = first.slice( firstpos + 1 );
-		secondslice = second.slice( secondpos + 1 );
-		firsthalf = first.slice( 0, firstpos );
-		secondhalf = second.slice( 0, secondpos );
-		if ( isEq( firsthalf.join( "" ), secondhalf.join( "" ) ) ) {
-			while ( firstslice.length > secondslice.length ) {
-				secondslice.push( "0" );
+	} else if (decimalfirst == true && decimalsecond == true) {
+		firstslice = first.slice(firstpos + 1);
+		secondslice = second.slice(secondpos + 1);
+		firsthalf = first.slice(0, firstpos);
+		secondhalf = second.slice(0, secondpos);
+		if (isEq(firsthalf.join(""), secondhalf.join(""))) {
+			while (firstslice.length > secondslice.length) {
+				secondslice.push("0");
 			}
-			while ( firstslice.length < secondslice.length ) {
-				firstslice.push( "0" );
+			while (firstslice.length < secondslice.length) {
+				firstslice.push("0");
 			}
-			return isGt( firstslice.join( "" ), secondslice.join( "" ) );
+			return isGt(firstslice.join(""), secondslice.join(""));
 		} else {
-			thirdhalf = isGt( firsthalf.join( "" ), secondhalf.join( "" ) );
+			thirdhalf = isGt(firsthalf.join(""), secondhalf.join(""));
 			return thirdhalf;
 		}
 	}
