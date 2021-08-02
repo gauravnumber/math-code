@@ -1,4 +1,6 @@
-function isGte( first, second ){
+import { isEq } from './isEq.js'
+
+export function isGte( first, second ){
 	var lengthno,
 		i,
 		firstLastIndex, secondLastIndex,
