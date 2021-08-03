@@ -1,4 +1,6 @@
-function isLt( first, second ){
+import { isEq } from './isEq.js'
+
+export function isLt( first, second ){
 	var lengthno,
 		i,
 		firstLastIndex, secondLastIndex,

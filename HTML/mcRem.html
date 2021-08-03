@@ -1,54 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<meta name="author" content="Uvraag">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../css/w3-4.css">
-	<script src="../js/isGt.js"></script>
-	<script src="../js/isGte.js"></script>
-	<script src="../js/isEq.js"></script>
-	<script src="../js/isNeq.js"></script>
-	<script src="../js/isDivisible.js"></script>
-	<script src="../js/mcAddSection.js"></script>
-	<script src="../js/mcAdd.js"></script>
-	<script src="../js/mcSubSolve.js"></script>
-	<script src="../js/mcSubSection.js"></script>
-	<script src="../js/mcSub.js"></script>
-	<script src="../js/mcMulOne.js"></script>
-	<script src="../js/mcMulSection.js"></script>
-	<script src="../js/mcMul.js"></script>
-	<script src="../js/mcRem.js"></script>
-	<script src="../js/jQuery_v2.1.4.js"></script>
-	<title>Remainder</title>
-</head>
-<body>
-	<div class="w3-container">
-		<p>Enter Value (mcRem)</p>
-		<input type="number" id="in1" value="" autofocus>
-		<input type="number" id="in2" value="">
-		<input type="button" value="Click" onclick="start()">
-		<p id="show" style="font-size:50px"></p>
-	<!--
-		<div class="w3-container">
-			<div class="w3-row">
-				<ul id="oi" class="w3-ul w3-col l6 m6 s6">
-					<li>OI</li>
-				</ul>
-				<ul id="po" class="w3-ul w3-col l6 m6 s6">
-					<li>PO</li>
-				</ul>
-			</div>
-		</div>
-	-->
-</div>
-<script>
-function start(){
-	var temp = mcRem( document.getElementById( "in1" ).value, document.getElementById( "in2" ).value );
-	document.getElementById( "show" ).innerHTML = temp;
-}
-</script>
-</body>
+  <head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="gaurav" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/w3-4.css" />
+    <title>Remainder</title>
+  </head>
+  <body>
+    <div class="w3-container">
+      <p>Enter Value (mcRem)</p>
+      <input type="number" id="in1" value="" autofocus />
+      <input type="number" id="in2" value="" />
+      <input id="btn" type="button" value="Click" />
+      <p id="show" style="font-size: 50px"></p>
+    </div>
+
+    <script type="module">
+      import { mcRem } from "../js/mcRem.js";
+
+      document.getElementById("btn").addEventListener("click", () => {
+        var temp = mcRem(
+          document.getElementById("in1").value,
+          document.getElementById("in2").value
+        );
+        document.getElementById("show").innerHTML = temp;
+      });
+    </script>
+  </body>
 </html>
