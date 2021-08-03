@@ -1,5 +1,5 @@
 import { assertEquals, equal } from "https://deno.land/std/testing/asserts.ts";
-import { sub } from './sub.js';
+import { sub } from '../js/sub.js';
 
 const array = [
 	[17, 2, 15],
