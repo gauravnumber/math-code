@@ -1,6 +1,5 @@
 # math-code
-![total size](https://img.shields.io/github/repo-size/gauravnumber/math-code)
-
+![total size](https://img.shields.io/github/repo-size/gauravnumber/math-code?label=total%20size)
 ## What is a math-code?
 Actually math-code simple a javascript program can do calculate large digit value.
 
