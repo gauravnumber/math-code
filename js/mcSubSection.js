@@ -1,7 +1,6 @@
 import { mcSubSolve } from './mcSubSolve.js';
 import { mcAddSection } from './mcAddSection.js';
 
-
 export function mcSubSection(first, second) {
 	var lengthno,
 		i, similar,

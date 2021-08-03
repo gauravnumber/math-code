@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<meta name="author" content="gaurav">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="../js/mcAddSection.js"></script>
-	<script src="../js/mcAdd.js"></script>
-	<script src="../js/mcSubSolve.js"></script>
-	<script src="../js/mcSubSection.js"></script>
-	<title>Substraction</title>
-</head>
-<body>
-  <p>Enter Value</p>
-	<input type="number" id="in1" value="" autofocus>
-	<input type="number" id="in2" value="">
-	<input type="button" value="Click" onclick="start()">
-	<p id="show" style="font-size:50px"></p>
-<script>
-function start(){
-    var temp = mcSubSection( document.getElementById( "in1" ).value, document.getElementById( "in2" ).value );
-document.getElementById( "show" ).innerHTML = temp;
-}
-</script>
-</body>
+  <head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="gaurav" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Substraction</title>
+  </head>
+  <body>
+    <p>Enter Value</p>
+    <input type="number" id="in1" value="" autofocus />
+    <input type="number" id="in2" value="" />
+    <input id="btn" type="button" value="Click" />
+    <p id="show" style="font-size: 50px"></p>
+
+    <script type="module">
+      // import { mcSub } from "../js/mcSub.js";
+      import { mcSubSection } from "../js/mcSubSection.js";
+
+      document.getElementById("btn").addEventListener("click", () => {
+        var temp = mcSubSection(
+          document.getElementById("in1").value,
+          document.getElementById("in2").value
+        );
+        document.getElementById("show").innerHTML = temp;
+      });
+    </script>
+  </body>
 </html>
