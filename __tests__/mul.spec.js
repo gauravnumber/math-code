@@ -1,6 +1,6 @@
 import { mul } from '../js/mul.js'
 
-describe("substraction", () => {
+describe("multiplication", () => {
 	const array = [
 		[2, 3, "6"],
 		[566, 13, "7358"],

@@ -1,6 +1,6 @@
 import { pow } from '../js/pow.js'
 
-describe("substraction", () => {
+describe("power", () => {
 	const array = [
 		[1, 2, "1"],
 		[4, 2, "16"],
