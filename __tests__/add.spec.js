@@ -12,16 +12,3 @@ describe("addition", () => {
 		// expect(add(a, b)).not.toBe(expected)
 	})
 })
-
-// describe("substraction", () => {
-// 	const array = [
-// 		[1, 2, "-1"],
-// 		[34, 12, "22"],
-// 		[12, 12, "0"]
-// 	]
-
-// 	it.each(array)('sub(%i, %i)', (a, b, expected) => {
-// 		expect(sub(a, b)).toEqual(expected)
-// 	})
-// })
-
