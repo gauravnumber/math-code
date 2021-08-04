@@ -90,8 +90,8 @@ export function mcMulSection(first, second) {
 		}
 		firstslice = first.slice(firstpos + 1);
 		secondslice = second.slice(secondpos + 1);
-		firsthalf = first.slice(0, firstpos);
-		secondhalf = second.slice(0, secondpos);
+		firsthalf = first.slice("0", firstpos);
+		secondhalf = second.slice("0", secondpos);
 		first = firsthalf.concat(firstslice);
 		second = secondhalf.concat(secondslice);
 
@@ -102,7 +102,7 @@ export function mcMulSection(first, second) {
 
 		third = third.split("");
 		decimalthirdno = firstslice.length + secondslice.length;
-		third.splice(third.length - decimalthirdno, 0, ".");
+		third.splice(third.length - decimalthirdno, "0", ".");
 		while (third[third.length - 1] == 0)
 			third.pop();
 		if (third[third.length - 1] == ".")

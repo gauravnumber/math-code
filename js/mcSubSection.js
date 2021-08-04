@@ -91,7 +91,7 @@ export function mcSubSection(first, second) {
 				}
 			}
 			if (similar == true) {
-				return 0;
+				return "0";
 			}
 		}
 	}
