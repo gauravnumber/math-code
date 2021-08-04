@@ -1,5 +1,4 @@
 import { add } from '../js/add.js'
-import { sub } from '../js/sub.js'
 
 describe("addition", () => {
 	const array = [
