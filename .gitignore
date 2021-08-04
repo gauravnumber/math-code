@@ -1,7 +1,5 @@
 node_modules/
 .parcel-cache
 dist
-package.json
 pnpm-lock.yaml
-server.js
 coverage
