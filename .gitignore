@@ -4,3 +4,4 @@ dist
 package.json
 pnpm-lock.yaml
 server.js
+coverage
