@@ -13,6 +13,7 @@ describe("multiplication", () => {
 	]
 
 	it.each(array)('mul(%i, %i)', (a, b, expected) => {
-		expect(mul(a, b)).toEqual(expected)
+		expect(mul(a, b)).toBe(expected)
+		// expect(mul(a, b)).toEqual(expected)
 	})
 })

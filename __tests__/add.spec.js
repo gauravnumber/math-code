@@ -7,7 +7,7 @@ describe("addition", () => {
 		[12, 12, "24"]
 	]
 
-	it.each(array)('add(%i, %i) = %i', (a, b, expected) => {
+	it.each(array)('add(%i, %i)', (a, b, expected) => {
 		expect(add(a, b)).toBe(expected)
 		// expect(add(a, b)).toEqual(expected)
 		// expect(add(a, b)).not.toBe(expected)
