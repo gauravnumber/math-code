@@ -1,5 +1,10 @@
-<h1 align="center">math-code.js</h1>
-<p align="center">The world's fastest, most powerful calculation function.</p>
+<p align="center">
+  <!-- <img src="https://socialify.git.ci/gauravnumber/math-code/image?description=1&language=1&owner=1&stargazers=1&theme=Dark" alt="math-code" width="640" height="320" /> -->
+  <!-- <img src="https://socialify.git.ci/gauravnumber/math-code/image?language=1&owner=1&stargazers=1&theme=Dark"> -->
+  <img src="https://socialify.git.ci/gauravnumber/math-code/image?language=1&owner=1&stargazers=1&theme=Dark" alt="math-code" width="640" height="320" />
+</p>
+<!-- <h1 align="center">math-code.js</h1> -->
+<!-- <p align="center">The world's fastest, most powerful calculation function.</p> -->
 
 <p align="center">
 	<a href="https://github.com/gauravnumber/math-code">
