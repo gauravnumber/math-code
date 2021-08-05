@@ -5,7 +5,7 @@
 	<a href="https://github.com/gauravnumber/math-code">
     <img src="https://img.shields.io/github/repo-size/gauravnumber/math-code?label=total%20size" height="20"/>
   </a>
-  <a href="https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Furl%3Dhttps%253A%252F%252Fgithub.com%252Fgauravnumber%252Fmath-code%26text%3DSolve%2520bigger%2520calculation%2520in%2520just%2520milliseconds%2520%26hashtags%3Djavascript%252Copensource%252Cwebdev%252Cjs%252Cdevelopers">
+  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fgauravnumber%2Fmath-code&text=Solve%20bigger%20calculation%20in%20just%20milliseconds%20&hashtags=javascript%2Copensource%2Cwebdev%2Cjs%2Cdevelopers">
     <!-- <img src="https://img.shields.io/twitter/url?style=social" alt="Tweet" height="20"/> -->
     <img src="http://randojs.com/images/tweetShield.svg" alt="Tweet" height="20"/>
   </a>
