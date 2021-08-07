@@ -23,10 +23,6 @@ export function mcAddSection(first, second) {
 
 	first = removeZeroFromLeft(first)
 	second = removeZeroFromLeft(second)
-	// while (Number(first[0]) == 0)
-	// 	first.shift();
-	// while (Number(second[0]) == 0)
-	// 	second.shift();
 
 	if (first[0] == "-" && second[0] == "-") {
 		first = first.slice(1);

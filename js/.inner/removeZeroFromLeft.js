@@ -1,11 +1,11 @@
 /**
  * 
- * @param {string} convert into array call itself
- * @param {array} remove zero from left
+ * @param {string} convert into array call itself eg. "001"
+ * @param {array} of numbers eg. ["0", "0", "1"]
  * @returns removing zero form left
  * @example 
- *  input: 0003
- *  output: 3
+ *  input: 001
+ *  output: 1
  */
 
 const removeZeroFromLeft = (value) => {
@@ -14,7 +14,7 @@ const removeZeroFromLeft = (value) => {
       value.shift();
     }
     return value
-  } else if (str && typeof str.valueOf() === "string") {
+  } else if (value && typeof value.valueOf() === "string") {
     value = value.split("")
     return removeZeroFromLeft(value)
   }
