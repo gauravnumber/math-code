@@ -1,4 +1,6 @@
 import { mcSubSection } from './mcSubSection.js'
+import removeZeroFromLeft from './.inner/removeZeroFromLeft.js'
+
 
 export function mcAddSection(first, second) {
 	var lengthno,
@@ -19,10 +21,12 @@ export function mcAddSection(first, second) {
 	first = first.split("");
 	second = second.split("");
 
-	while (Number(first[0]) == 0)
-		first.shift();
-	while (Number(second[0]) == 0)
-		second.shift();
+	first = removeZeroFromLeft(first)
+	second = removeZeroFromLeft(second)
+	// while (Number(first[0]) == 0)
+	// 	first.shift();
+	// while (Number(second[0]) == 0)
+	// 	second.shift();
 
 	if (first[0] == "-" && second[0] == "-") {
 		first = first.slice(1);
