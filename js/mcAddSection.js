@@ -9,14 +9,14 @@ export function mcAddSection(first, second) {
 		i,
 		firstLastIndex, secondLastIndex,
 		firstnohold, secondnohold,
-		decimalfirst, decimalsecond,
+		// decimalfirst, decimalsecond,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
 		third, thirdhalf, thirdslice;
 	third = [];
-	decimalfirst = false;
-	decimalsecond = false;
+	// decimalfirst = false;
+	// decimalsecond = false;
 	firstpos = secondpos = -1;
 	first = String(first);
 	second = String(second);
@@ -65,8 +65,8 @@ export function mcAddSection(first, second) {
 
 	// [decimalfirst, firstpos]  = isDecimal(first)
 	// [decimalsecond, secondpos]  = isDecimal(second)
-	decimalfirst = isDecimal(first)
-	decimalsecond = isDecimal(second)
+	// decimalfirst = isDecimal(first)
+	// decimalsecond = isDecimal(second)
 	firstpos = decimalPosition(first)
 	secondpos = decimalPosition(second)
 
@@ -77,7 +77,8 @@ export function mcAddSection(first, second) {
 	// 		break;
 	// 	}
 
-	if (decimalfirst == false && decimalsecond == false) {
+	// if (decimalfirst == false && decimalsecond == false) {
+	if (!isDecimal(first) && !isDecimal(second)) {
 		if (first.length > second.length)
 			lengthno = first.length;
 		else
@@ -98,14 +99,15 @@ export function mcAddSection(first, second) {
 		third = third.reverse();
 		third = third.join("");
 		return third;
-	} else if (decimalfirst == true || decimalsecond == true) {
+	// } else if (decimalfirst == true || decimalsecond == true) {
+	} else if (isDecimal(first) || isDecimal(second)) {
 
-		if (decimalfirst == false) {
+		if (!isDecimal(first)) {
 			first = first.join("");
 			firstpos = first.length;
 			first = first.concat(".0");
 			first = first.split("");
-		} else if (decimalsecond == false) {
+		} else if (!isDecimal(second)) {
 			second = second.join("");
 			secondpos = second.length;
 			second = second.concat(".0");
