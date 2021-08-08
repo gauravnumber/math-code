@@ -1,5 +1,6 @@
 import { mcSubSection } from './mcSubSection.js'
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import isNegative from './.internal/isNegative.js'
 
 export function mcAddSection(first, second) {
 	var lengthno,
@@ -23,7 +24,8 @@ export function mcAddSection(first, second) {
 	first = removeZeroFromLeft(first)
 	second = removeZeroFromLeft(second)
 
-	if (first[0] == "-" && second[0] == "-") {
+	// if (first[0] == "-" && second[0] == "-") {
+	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
 		second = second.slice(1);
 		first = first.join("");
@@ -33,7 +35,8 @@ export function mcAddSection(first, second) {
 		third.unshift("-");
 		third = third.join("");
 		return third;
-	} else if (first[0] != "-" && second[0] == "-") {
+	// } else if (first[0] != "-" && second[0] == "-") {
+	} else if (!isNegative(first) && isNegative(second)) {
 		second = second.slice(1);
 		first = first.join("");
 		second = second.join("");
@@ -41,7 +44,8 @@ export function mcAddSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-	} else if (first[0] == "-" && second[0] != "-") {
+	// } else if (first[0] == "-" && second[0] != "-") {
+	} else if (isNegative(first) && !isNegative(second)) {
 		first = first.slice(1);
 		first = first.join("");
 		second = second.join("");
