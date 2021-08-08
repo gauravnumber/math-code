@@ -90,13 +90,27 @@ export function mcAddSection(first, second) {
 		}
 		firstslice = (firstpos < 0) ? 0 : first.slice(firstpos + 1);
 		secondslice = (secondpos < 0) ? 0 : second.slice(secondpos + 1);
+
+		// console.log('firstslice', firstslice)
+		// console.log('secondslice', secondslice)
+		
+		//? eg.
+		//? 23.121, 22.0
+		//? 22.121, 22.000
+		//? 121, 000 in array
 		while (firstslice.length > secondslice.length)
 			secondslice.push("0");
 		while (secondslice.length > firstslice.length)
 			firstslice.push("0");
 
+		//? eg.
+		//? 23.121, 22.0
+		//? 23, 22 in array
 		firsthalf = first.slice(0, firstpos);
 		secondhalf = second.slice(0, secondpos);
+
+		// console.log('firsthalf', firsthalf)
+		// console.log('secondhalf', secondhalf)
 
 		firsthalf = firsthalf.join("");
 		secondhalf = secondhalf.join("");
