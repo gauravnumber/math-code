@@ -9,14 +9,11 @@ export function mcAddSection(first, second) {
 		i,
 		firstLastIndex, secondLastIndex,
 		firstnohold, secondnohold,
-		// decimalfirst, decimalsecond,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
 		third, thirdhalf, thirdslice;
 	third = [];
-	// decimalfirst = false;
-	// decimalsecond = false;
 	firstpos = secondpos = -1;
 	first = String(first);
 	second = String(second);
@@ -26,7 +23,6 @@ export function mcAddSection(first, second) {
 	first = removeZeroFromLeft(first)
 	second = removeZeroFromLeft(second)
 
-	// if (first[0] == "-" && second[0] == "-") {
 	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
 		second = second.slice(1);
@@ -37,7 +33,6 @@ export function mcAddSection(first, second) {
 		third.unshift("-");
 		third = third.join("");
 		return third;
-	// } else if (first[0] != "-" && second[0] == "-") {
 	} else if (!isNegative(first) && isNegative(second)) {
 		second = second.slice(1);
 		first = first.join("");
@@ -46,7 +41,6 @@ export function mcAddSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-	// } else if (first[0] == "-" && second[0] != "-") {
 	} else if (isNegative(first) && !isNegative(second)) {
 		first = first.slice(1);
 		first = first.join("");
@@ -56,28 +50,10 @@ export function mcAddSection(first, second) {
 		third = third.join("");
 		return third;
 	}
-	// for (i = 0; i < first.length; i++)
-	// 	if (first[i] == ".") {
-	// 		decimalfirst = true;
-	// 		firstpos = i;
-	// 		break;
-	// 	}
 
-	// [decimalfirst, firstpos]  = isDecimal(first)
-	// [decimalsecond, secondpos]  = isDecimal(second)
-	// decimalfirst = isDecimal(first)
-	// decimalsecond = isDecimal(second)
 	firstpos = decimalPosition(first)
 	secondpos = decimalPosition(second)
 
-	// for (i = 0; i < second.length; i++)
-	// 	if (second[i] == ".") {
-	// 		decimalsecond = true;
-	// 		secondpos = i;
-	// 		break;
-	// 	}
-
-	// if (decimalfirst == false && decimalsecond == false) {
 	if (!isDecimal(first) && !isDecimal(second)) {
 		if (first.length > second.length)
 			lengthno = first.length;
@@ -99,7 +75,6 @@ export function mcAddSection(first, second) {
 		third = third.reverse();
 		third = third.join("");
 		return third;
-	// } else if (decimalfirst == true || decimalsecond == true) {
 	} else if (isDecimal(first) || isDecimal(second)) {
 
 		if (!isDecimal(first)) {
