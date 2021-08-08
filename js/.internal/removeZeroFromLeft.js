@@ -5,7 +5,7 @@
  * @returns removing zero form left
  * @example 
  *  input: 001
- *  output: 1
+ *  output: ["1"]
  */
 
 const removeZeroFromLeft = (value) => {
