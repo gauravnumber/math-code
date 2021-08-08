@@ -1,6 +1,8 @@
 import { mcSubSection } from './mcSubSection.js'
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import isNegative from './.internal/isNegative.js'
+import isDecimal from './.internal/isDecimal.js'
+import decimalPosition from './.internal/decimalPosition.js'
 
 export function mcAddSection(first, second) {
 	var lengthno,
@@ -54,18 +56,27 @@ export function mcAddSection(first, second) {
 		third = third.join("");
 		return third;
 	}
-	for (i = 0; i < first.length; i++)
-		if (first[i] == ".") {
-			decimalfirst = true;
-			firstpos = i;
-			break;
-		}
-	for (i = 0; i < second.length; i++)
-		if (second[i] == ".") {
-			decimalsecond = true;
-			secondpos = i;
-			break;
-		}
+	// for (i = 0; i < first.length; i++)
+	// 	if (first[i] == ".") {
+	// 		decimalfirst = true;
+	// 		firstpos = i;
+	// 		break;
+	// 	}
+
+	// [decimalfirst, firstpos]  = isDecimal(first)
+	// [decimalsecond, secondpos]  = isDecimal(second)
+	decimalfirst = isDecimal(first)
+	decimalsecond = isDecimal(second)
+	firstpos = decimalPosition(first)
+	secondpos = decimalPosition(second)
+
+	// for (i = 0; i < second.length; i++)
+	// 	if (second[i] == ".") {
+	// 		decimalsecond = true;
+	// 		secondpos = i;
+	// 		break;
+	// 	}
+
 	if (decimalfirst == false && decimalsecond == false) {
 		if (first.length > second.length)
 			lengthno = first.length;
