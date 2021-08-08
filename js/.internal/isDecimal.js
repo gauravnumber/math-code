@@ -1,3 +1,11 @@
+/**
+ * 
+ * @param {array, string} value 
+ * @returns Boolean
+ * @example 
+ *  input: "12.122" 
+ *  output: true
+ */
 const isDecimal = (value) => {
   if (Object.prototype.toString.call(value) == '[object Array]') {
     for (let i = 0, j = value.length; i < j; i++)
