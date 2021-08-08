@@ -18,6 +18,8 @@ const removeZeroFromLeft = (value) => {
     value = value.split("")
     return removeZeroFromLeft(value)
   }
+
+  return null
 }
 
 export default removeZeroFromLeft
