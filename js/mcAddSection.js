@@ -1,6 +1,5 @@
 import { mcSubSection } from './mcSubSection.js'
-import removeZeroFromLeft from './.inner/removeZeroFromLeft.js'
-
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 
 export function mcAddSection(first, second) {
 	var lengthno,
