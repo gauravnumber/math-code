@@ -8,32 +8,22 @@ import decimalPosition from './.internal/decimalPosition.js'
 export function mcSubSection(first, second) {
 	var lengthno,
 		i, similar,
-		firstLastIndex, secondLastIndex,
-		firstnohold, secondnohold,
-		decimalfirst, decimalsecond,
 		decimalthirdno,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
 		third, thirdhalf, thirdslice;
 	third = [];
-	decimalfirst = false;
-	decimalsecond = false;
 	similar = false;
 	firstpos = secondpos = -1;
 	first = String(first);
 	second = String(second);
 	first = first.split("");
 	second = second.split("");
-	// while (Number(first[0]) == 0)
-	// 	first.shift();
-	// while (Number(second[0]) == 0)
-	// 	second.shift();
 
 	first = removeZeroFromLeft(first).split("")
 	second = removeZeroFromLeft(second).split("")
 
-	// if (first[0] == "-" && second[0] == "-") {
 	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
 		second = second.slice(1);
@@ -43,7 +33,6 @@ export function mcSubSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-		// } else if (first[0] != "-" && second[0] == "-") {
 	} else if (!isNegative(first) && isNegative(second)) {
 		second = second.slice(1);
 		first = first.join("");
@@ -52,7 +41,6 @@ export function mcSubSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-		// } else if (first[0] == "-" && second[0] != "-") {
 	} else if (isNegative(first) && !isNegative(second)) {
 		first = first.slice(1);
 		first = first.join("");
@@ -63,23 +51,10 @@ export function mcSubSection(first, second) {
 		third = third.join("");
 		return third;
 	}
-	// for (i = 0; i < first.length; i++)
-	// 	if (first[i] == ".") {
-	// 		decimalfirst = true;
-	// 		firstpos = i;
-	// 		break;
-	// 	}
-	// for (i = 0; i < second.length; i++)
-	// 	if (second[i] == ".") {
-	// 		decimalsecond = true;
-	// 		secondpos = i;
-	// 		break;
-	// 	}
 
 	firstpos = decimalPosition(first)
 	secondpos = decimalPosition(second)
 
-	// if (decimalfirst == false && decimalsecond == false) {
 	if (!isDecimal(first) && !isDecimal(second)) {
 		if (first.length > second.length) {
 			return mcSubSolve(first.join(""), second.join(""));
@@ -112,18 +87,13 @@ export function mcSubSection(first, second) {
 			}
 		}
 	}
-	// else if (decimalfirst == true || decimalsecond == true) {
 	else if (isDecimal(first) || isDecimal(second)) {
-
-		// if (decimalfirst == false) {
 		if (!isDecimal(first)) {
 			first = first.join("");
 			firstpos = first.length;
 			first = first.concat(".0");
 			first = first.split("");
-		}
-		else if (!isDecimal(second)) {
-			// else if (decimalsecond == false) {
+		} else if (!isDecimal(second)) {
 			second = second.join("");
 			secondpos = second.length;
 			second = second.concat(".0");
