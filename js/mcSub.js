@@ -1,9 +1,10 @@
 import { mcSubSection } from './mcSubSection.js'
 
 export function mcSub() {
-	var third = 0;
-	for (var i = 0, j = arguments.length; i < j; i++) {
-		third = mcSubSection(arguments[i], third);
+	var third = mcSubSection(arguments[0], arguments[1]);
+
+	for (var i = 2, j = arguments.length; i < j; i += 1) {
+		third = mcSubSection(third, arguments[i]);
 	}
 	return third;
 }
