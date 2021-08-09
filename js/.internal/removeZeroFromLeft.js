@@ -5,7 +5,7 @@
  * @returns removing zero form left
  * @example 
  *  input: 001
- *  output: ["1"]
+ *  output: "1"
  */
 
 const removeZeroFromLeft = (value) => {
@@ -13,7 +13,7 @@ const removeZeroFromLeft = (value) => {
     while (Number(value[0]) == 0) {
       value.shift();
     }
-    return value
+    return value.join("")
   } else if (value && typeof value.valueOf() === "string") {
     value = value.split("")
     return removeZeroFromLeft(value)

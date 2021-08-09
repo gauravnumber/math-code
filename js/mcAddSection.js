@@ -20,8 +20,8 @@ export function mcAddSection(first, second) {
 	first = first.split("");
 	second = second.split("");
 
-	first = removeZeroFromLeft(first)
-	second = removeZeroFromLeft(second)
+	first = removeZeroFromLeft(first).split("")
+	second = removeZeroFromLeft(second).split("")
 
 	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
