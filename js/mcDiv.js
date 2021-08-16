@@ -50,7 +50,7 @@ export function mcDiv(dividend, divisor) {
 	// while (Number(divisor[0]) == 0)
 	// 	divisor.shift();
 
-	if (dividend[0] == "-" && divisor[0] == "-") {
+	if (isNegative(dividend) && isNegative(divisor)) {
 		dividend = dividend.slice(1);
 		divisor = divisor.slice(1);
 		dividend = dividend.join("");
