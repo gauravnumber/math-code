@@ -40,11 +40,6 @@ export function mcDiv(dividend, divisor) {
 	dividend = removeZeroFromLeft(dividend).split("")
 	divisor = removeZeroFromLeft(divisor).split("")
 
-	// while (Number(dividend[0]) == 0)
-	// 	dividend.shift();
-	// while (Number(divisor[0]) == 0)
-	// 	divisor.shift();
-
 	if (isNegative(dividend) && isNegative(divisor)) {
 		dividend = dividend.slice(1);
 		divisor = divisor.slice(1);
