@@ -19,7 +19,7 @@ describe('Division', () => {
     ["3.657", "1.59", "2.3"],
   ]
 
-  it.each(easy)("Easily divisible number %s/%s", (a, b, expected) => {
+  it.only.each(easy)("Easily divisible number %s/%s", (a, b, expected) => {
     expect(mcDiv(a, b)).toBe(expected);
   })
 

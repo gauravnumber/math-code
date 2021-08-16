@@ -1,9 +1,11 @@
-import { isGt } from "../js/isGt.js"
-import { isGte } from "../js/isGte.js"
-import { isEq } from "../js/isEq.js"
-import { mcSub } from "../js/mcSub.js"
-import { mcMulSection } from "../js/mcMulSection.js"
-import { mcMul } from "../js/mcMul.js"
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import isNegative from './.internal/isNegative.js'
+import { isGt } from "./isGt.js"
+import { isGte } from "./isGte.js"
+import { isEq } from "./isEq.js"
+import { mcSub } from "./mcSub.js"
+import { mcMulSection } from "./mcMulSection.js"
+import { mcMul } from "./mcMul.js"
 // import { isNeq } from "../js/isNeq.js"
 // import { mcAddSection } from "../js/mcAddSection.js"
 // import { mcAdd } from "../js/mcAdd.js"
@@ -39,10 +41,14 @@ export function mcDiv(dividend, divisor) {
 	divisor = String(divisor);
 	dividend = dividend.split("");
 	divisor = divisor.split("");
-	while (Number(dividend[0]) == 0)
-		dividend.shift();
-	while (Number(divisor[0]) == 0)
-		divisor.shift();
+
+	dividend = removeZeroFromLeft(dividend).split("")
+	divisor = removeZeroFromLeft(divisor).split("")
+
+	// while (Number(dividend[0]) == 0)
+	// 	dividend.shift();
+	// while (Number(divisor[0]) == 0)
+	// 	divisor.shift();
 
 	if (dividend[0] == "-" && divisor[0] == "-") {
 		dividend = dividend.slice(1);
