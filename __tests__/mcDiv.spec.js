@@ -2,6 +2,7 @@ import { mcDiv } from '../js/mcDiv.js'
 
 describe('Division', () => {
   const easy = [
+    ["050", "010", "5"],
     ["15", "3", "5"],
     ["12", "2", "6"],
   ]
@@ -19,7 +20,7 @@ describe('Division', () => {
     ["3.657", "1.59", "2.3"],
   ]
 
-  it.only.each(easy)("Easily divisible number %s/%s", (a, b, expected) => {
+  it.each(easy)("Easily divisible number %s/%s", (a, b, expected) => {
     expect(mcDiv(a, b)).toBe(expected);
   })
 

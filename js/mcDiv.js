@@ -1,18 +1,13 @@
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import isNegative from './.internal/isNegative.js'
+import isDecimal from './.internal/isDecimal.js'
+import decimalPosition from './.internal/decimalPosition.js'
 import { isGt } from "./isGt.js"
 import { isGte } from "./isGte.js"
 import { isEq } from "./isEq.js"
 import { mcSub } from "./mcSub.js"
 import { mcMulSection } from "./mcMulSection.js"
 import { mcMul } from "./mcMul.js"
-// import { isNeq } from "../js/isNeq.js"
-// import { mcAddSection } from "../js/mcAddSection.js"
-// import { mcAdd } from "../js/mcAdd.js"
-// import { mcSubSolve } from "../js/mcSubSolve.js"
-// import { mcSubSection } from "../js/mcSubSection.js"
-// import { mcMulOne } from "../js/mcMulOne.js"
-
 
 export function mcDiv(dividend, divisor) {
 	var lengthno,
@@ -59,7 +54,7 @@ export function mcDiv(dividend, divisor) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-	} else if (dividend[0] != "-" && divisor[0] == "-") {
+	} else if (!isNegative(dividend) && isNegative(divisor)) {
 		divisor = divisor.slice(1);
 		dividend = dividend.join("");
 		divisor = divisor.join("");
@@ -68,7 +63,7 @@ export function mcDiv(dividend, divisor) {
 		third.unshift("-");
 		third = third.join("");
 		return third;
-	} else if (dividend[0] == "-" && divisor[0] != "-") {
+	} else if (isNegative(dividend) && !isNegative(divisor)) {
 		dividend = dividend.slice(1);
 		dividend = dividend.join("");
 		divisor = divisor.join("");
@@ -79,18 +74,12 @@ export function mcDiv(dividend, divisor) {
 		return third;
 	}
 
-	for (i = 0; i < dividend.length; i++)
-		if (dividend[i] == ".") {
-			decimaldividend = true;
-			dividendpos = i;
-			break;
-		}
-	for (i = 0; i < divisor.length; i++)
-		if (divisor[i] == ".") {
-			decimaldivisor = true;
-			divisorpos = i;
-			break;
-		}
+	decimaldividend = isDecimal(dividend)
+	dividendpos = decimalPosition(dividend)
+
+	decimaldivisor = isDecimal(divisor)
+	divisorpos = decimalPosition(divisor)
+
 	if (decimaldividend == false && decimaldivisor == false) {
 		lengthno = dividend.length;
 		for (i = 0; i < lengthno; i++, dividendIndex++) {
