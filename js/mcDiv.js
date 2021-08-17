@@ -40,6 +40,11 @@ export function mcDiv(dividend, divisor) {
 	dividend = removeZeroFromLeft(dividend).split("")
 	divisor = removeZeroFromLeft(divisor).split("")
 
+	// const divi1 = isNegative(dividend)
+	// const divi2 = isNegative(divisor)
+	// console.log('divi1, divi2', divi1, divi2)
+
+
 	if (isNegative(dividend) && isNegative(divisor)) {
 		dividend = dividend.slice(1);
 		divisor = divisor.slice(1);
@@ -75,6 +80,9 @@ export function mcDiv(dividend, divisor) {
 	decimaldivisor = isDecimal(divisor)
 	divisorpos = decimalPosition(divisor)
 
+	// console.log('decimaldividend, decimaldivisor', decimaldividend, decimaldivisor)
+
+	//TODO start from here
 	if (decimaldividend == false && decimaldivisor == false) {
 		lengthno = dividend.length;
 		for (i = 0; i < lengthno; i++, dividendIndex++) {

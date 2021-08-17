@@ -5,6 +5,9 @@ describe('Division', () => {
     ["050", "010", "5"],
     ["15", "3", "5"],
     ["12", "2", "6"],
+    ["100", "2", "50"],
+    ["360", "3", "120"],
+    ["70", "35", "2"],
   ]
 
   const negative = [
@@ -28,7 +31,7 @@ describe('Division', () => {
     expect(mcDiv(a, b)).toBe(expected);
   })
 
-  it.each(decimal)("Decimal %s/%s", (a, b, expected) => {
+  it.only.each(decimal)("Decimal %s/%s", (a, b, expected) => {
     expect(mcDiv(a, b)).toBe(expected);
   })
 });
