@@ -2,8 +2,8 @@ import isDecimal from './.internal/isDecimal.js'
 import { isLt } from './isLt.js'
 
 const singleDigitDiv = (dividend, divisor) => {
-  dividend = dividend.split("")
-  divisor = divisor.split("")
+  // dividend = dividend.split("")
+  // divisor = divisor.split("")
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
@@ -14,7 +14,7 @@ const singleDigitDiv = (dividend, divisor) => {
       q.concat(q1)
       return q
     }
-  }
+  } else { return null }
 }
 
 export default singleDigitDiv

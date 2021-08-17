@@ -7,10 +7,11 @@ import singleDigitDiv from './singleDigitDiv.js'
 import divisibleFor from './divisibleFor.js'
 
 const doubleDigitDividend = (dividend, divisor) => {
-  let quotient, mulTemp
+  let quotient, mulTemp, remainder
 
   dividend = dividend.split("")
   divisor = divisor.split("")
+  console.log('dividend, divisor', dividend, divisor)
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isGt(dividend, divisor)) {
@@ -19,8 +20,9 @@ const doubleDigitDividend = (dividend, divisor) => {
       remainder = sub(dividend, mulTemp)
       // mul = divisor * quotient
       // remainder = dividend - mulTemp
+      console.log('quotient, mulTemp, remainder', quotient, mulTemp, remainder)
 
-      if (rem === 0) {
+      if (remainder === 0) {
         return quotient
       } else {
         //? Here is 10 times limit
@@ -28,7 +30,7 @@ const doubleDigitDividend = (dividend, divisor) => {
         return quotient
       }
     }
-  }
+  } else { return null }
 }
 
 export default doubleDigitDividend
