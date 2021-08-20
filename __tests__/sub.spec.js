@@ -11,7 +11,7 @@ describe("substraction", () => {
 		["12", "12", "0"]
 	]
 
-	it.each(array)('sub(%i, %i)', (a, b, expected) => {
+	it.each(array)('sub(%s, %s)', (a, b, expected) => {
 		expect(sub(a, b)).toEqual(expected)
 	})
 

@@ -11,7 +11,7 @@ describe("power", () => {
 		["12", "1", "12"]
 	]
 
-	it.each(array)('pow(%i, %i)', (a, b, expected) => {
+	it.each(array)('pow(%s, %s)', (a, b, expected) => {
 		expect(pow(a, b)).toEqual(expected)
 	})
 })

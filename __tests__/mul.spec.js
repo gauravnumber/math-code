@@ -12,7 +12,7 @@ describe("multiplication", () => {
 		["12", "12", "144"]
 	]
 
-	it.each(array)('mul(%i, %i)', (a, b, expected) => {
+	it.each(array)('mul(%s, %s)', (a, b, expected) => {
 		expect(mul(a, b)).toBe(expected)
 		// expect(mul(a, b)).toEqual(expected)
 	})

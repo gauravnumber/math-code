@@ -8,7 +8,7 @@ describe("factorial", () => {
 		["2", "2"],
 	]
 
-	it.each(array)('fact(%i)', (a, expected) => {
+	it.each(array)('fact(%s)', (a, expected) => {
 		expect(fact(a)).toEqual(expected)
 	})
 })
