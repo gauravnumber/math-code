@@ -21,7 +21,7 @@ const doubleDigitDividend = (dividend, divisor) => {
       console.log('quotient', quotient)
 
       mulTemp = mul(divisor, quotient)
-      remainder = sub(dividend, mulTemp)
+      remainder = sub(dividend.join(""), mulTemp)
 
       console.log('dividend', dividend)
 
