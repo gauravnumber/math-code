@@ -14,4 +14,8 @@ describe("substraction", () => {
 	it.each(array)('sub(%i, %i)', (a, b, expected) => {
 		expect(sub(a, b)).toEqual(expected)
 	})
+
+	it('multiple arguments', () => {
+		expect(sub("2323232323", "09999908", "3434469")).toBe("2309797946");
+	})
 })
