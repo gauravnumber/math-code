@@ -20,7 +20,7 @@ const doubleDigitDividend = (dividend, divisor) => {
       quotient = divisibleFor(dividend.join(""), divisor.join(""))
       console.log('quotient', quotient)
 
-      mulTemp = mul(divisor, quotient)
+      mulTemp = mul(divisor.join(""), quotient)
       remainder = sub(dividend.join(""), mulTemp)
 
       console.log('dividend', dividend)
