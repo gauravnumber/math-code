@@ -1,3 +1,5 @@
+import { isEq } from './isEq.js'
+
 export function isGt(first, second) {
 	var lengthno,
 		i,
