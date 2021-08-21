@@ -9,8 +9,16 @@ const singleDigitDiv = (dividend, divisor) => {
 
   // console.log('dividend, typeof dividend', dividend, typeof dividend)
 
-  if (Object.prototype.toString.call(dividend) != '[object Array]') {
+  // if (Object.prototype.toString.call(dividend) != '[object Array]') {
+  //   dividend = dividend.split("")
+  // }
+
+  if (dividend && typeof dividend.valueOf() === 'string') {
     dividend = dividend.split("")
+  }
+
+  if (divisor && typeof divisor.valueOf() === 'string') {
+    divisor = divisor.split("")
   }
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
@@ -18,7 +26,7 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = "0."
       dividend.push("0")
 
-      q1 = doubleDigitDividend(dividend.join(""), divisor)
+      q1 = doubleDigitDividend(dividend.join(""), divisor.join(""))
 
       console.log('quotient, q1', quotient, q1)
 
