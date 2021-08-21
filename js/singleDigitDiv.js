@@ -2,6 +2,15 @@ import isDecimal from './.internal/isDecimal.js'
 import { isLt } from './isLt.js'
 import doubleDigitDividend from './doubleDigitDividend.js'
 
+/**
+ * Dividend smaller than divisor
+ * @param {*} dividend 
+ * @param {*} divisor 
+ * @returns quotient
+ * @example
+ *  input: 2/4, 5/6 
+ */
+
 const singleDigitDiv = (dividend, divisor) => {
   // dividend = dividend.split("")
   // divisor = divisor.split("")
