@@ -7,14 +7,24 @@ const singleDigitDiv = (dividend, divisor) => {
   // divisor = divisor.split("")
   let quotient, q1
 
+  // console.log('dividend, typeof dividend', dividend, typeof dividend)
+
+  if (Object.prototype.toString.call(dividend) != '[object Array]') {
+    dividend = dividend.split("")
+  }
+
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
       quotient = "0."
       dividend.push("0")
 
-      q1 = doubleDigitDividend(dividend, divisor)
-      quotient.concat(q1)
-      return quotient
+      q1 = doubleDigitDividend(dividend.join(""), divisor)
+
+      console.log('quotient, q1', quotient, q1)
+
+      return quotient.concat(q1)
+
+      // return quotient
     }
   } else { return null }
 }
