@@ -8,6 +8,10 @@ describe('isGt', () => {
     ["0", "12", false],
     ["23", "22", true],
     ["2.3", "2.3", false],
+    ["-4", "-12", true],
+    ["-2.5", "-5.8", true],
+    ["0", "0", false],
+    ["34.3", "34", true],
   ]
 
   it.each(array)('isGt(%s, %s)', (a, b, expected) => {

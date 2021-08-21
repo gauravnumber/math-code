@@ -1,27 +1,35 @@
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+
 import { isEq } from './isEq.js'
 
 export function isGt(first, second) {
 	var lengthno,
 		i,
-		firstLastIndex, secondLastIndex,
-		firstnohold, secondnohold,
+		// firstLastIndex, secondLastIndex,
+		// firstnohold, secondnohold,
 		decimalfirst, decimalsecond,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
-		third, thirdhalf, thirdslice;
+		third, thirdhalf
+	// thirdslice
 	third = [];
 	decimalfirst = false;
 	decimalsecond = false;
 	firstpos = secondpos = -1;
-	first = String(first);
-	second = String(second);
+	// first = String(first);
+	// second = String(second);
 	first = first.split("");
 	second = second.split("");
-	while (Number(first[0]) == 0)
-		first.shift();
-	while (Number(second[0]) == 0)
-		second.shift();
+	// while (Number(first[0]) == 0)
+	// 	first.shift();
+	// while (Number(second[0]) == 0)
+	// 	second.shift();
+
+	first = removeZeroFromLeft(first).split("")
+	second = removeZeroFromLeft(second).split("")
+
+
 	if (first[0] == "-" && second[0] == "-") {
 		first = first.slice(1);
 		second = second.slice(1);
