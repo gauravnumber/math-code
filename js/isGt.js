@@ -22,6 +22,7 @@ export function isGt(first, second) {
 	firstpos = secondpos = -1;
 	// first = String(first);
 	// second = String(second);
+	//TODO: creating split()
 	first = first.split("");
 	second = second.split("");
 	// while (Number(first[0]) == 0)
