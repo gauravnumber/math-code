@@ -7,7 +7,7 @@ describe('divisibleFor', () => {
     ["25", "5", "5"]
   ]
 
-  it.each(array)('divisibleFor(%i, %i)', (a, b, expected) => {
+  it.each(array)('divisibleFor(%s, %s)', (a, b, expected) => {
     expect(divisibleFor(a, b)).toBe(expected)
   })
 
