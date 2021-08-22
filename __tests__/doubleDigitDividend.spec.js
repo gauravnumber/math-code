@@ -5,6 +5,7 @@ describe('doubleDigitDividend', () => {
     ["10", "2", "5"],
     ["25", "5", "5"],
     ["72", "12", "6"],
+    ["40", "8", "5"],
   ]
 
   it.each(array)('doubleDigitDividend(%i, %i)', (a, b, expected) => {
