@@ -2,6 +2,7 @@ import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import isNegative from './.internal/isNegative.js'
 import isDecimal from './.internal/isDecimal.js'
 import decimalPosition from './.internal/decimalPosition.js'
+import split from './.internal/split.js'
 
 import { isEq } from './isEq.js'
 
@@ -23,8 +24,10 @@ export function isGt(first, second) {
 	// first = String(first);
 	// second = String(second);
 	//TODO: creating split()
-	first = first.split("");
-	second = second.split("");
+	first = split(first);
+	second = split(second);
+	// first = first.split("");
+	// second = second.split("");
 	// while (Number(first[0]) == 0)
 	// 	first.shift();
 	// while (Number(second[0]) == 0)
