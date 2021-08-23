@@ -35,21 +35,32 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = "0."
       quotient = split(quotient)
 
-      for (let i = 0; i < 10; i++) {
-        // console.log('Object.prototype.toString.call(dividend)', Object.prototype.toString.call(dividend) == '[object Array]')
+      // for (let i = 0; i < 3; i++) {
+        dividend = split(dividend)
+        dividend.push("0")
+        quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+        mulTemp = mul(divisor.join(""), quotientTemp)
+        console.log('dividend before sub', dividend)
+        dividend = sub(dividend.join(""), mulTemp)
+        quotient.push(quotientTemp)
+
+        console.log('quotientTemp, mulTemp, quotient', quotientTemp, mulTemp, quotient)
+        console.log('dividend', dividend)
+
         dividend = split(dividend)
         dividend.push("0")
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         mulTemp = mul(dividend.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
         quotient.push(quotientTemp)
-        // if (isEq(dividend.join(""), "0")) {
-        if (isEq(dividend, "0")) {
-          break;
-        }
-      }
 
-      return quotient
+        // if (isEq(dividend.join(""), "0")) {
+        // if (isEq(dividend, "0")) {
+        //   break;
+        // }
+      // }
+
+      return quotient.join("")
 
       // q1 = doubleDigitDividend(dividend.join(""), divisor.join(""))
 
