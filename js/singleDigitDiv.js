@@ -9,8 +9,8 @@ import divisibleFor from './divisibleFor.js'
 
 /**
  * Dividend smaller than divisor
- * @param {*} dividend 
- * @param {*} divisor 
+ * @param {string} dividend 
+ * @param {string} divisor 
  * @returns quotient
  * @example
  *  input: 2/4, 5/6 
@@ -35,30 +35,30 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = "0."
       quotient = split(quotient)
 
-      // for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 10; i++) {
         dividend = split(dividend)
         dividend.push("0")
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         mulTemp = mul(divisor.join(""), quotientTemp)
-        console.log('dividend before sub', dividend)
+        // console.log('dividend before sub', dividend)
         dividend = sub(dividend.join(""), mulTemp)
         quotient.push(quotientTemp)
 
-        console.log('quotientTemp, mulTemp, quotient', quotientTemp, mulTemp, quotient)
-        console.log('dividend', dividend)
+        // console.log('quotientTemp, mulTemp, quotient', quotientTemp, mulTemp, quotient)
+        // console.log('dividend', dividend)
 
-        dividend = split(dividend)
-        dividend.push("0")
-        quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
-        mulTemp = mul(dividend.join(""), quotientTemp)
-        dividend = sub(dividend.join(""), mulTemp)
-        quotient.push(quotientTemp)
+        // dividend = split(dividend)
+        // dividend.push("0")
+        // quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+        // mulTemp = mul(dividend.join(""), quotientTemp)
+        // dividend = sub(dividend.join(""), mulTemp)
+        // quotient.push(quotientTemp)
 
         // if (isEq(dividend.join(""), "0")) {
-        // if (isEq(dividend, "0")) {
-        //   break;
-        // }
-      // }
+        if (isEq(dividend, "0")) {
+          break;
+        }
+      }
 
       return quotient.join("")
 
