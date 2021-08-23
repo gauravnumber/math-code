@@ -1,37 +1,47 @@
 import isDecimal from './.internal/isDecimal.js'
+import split from './.internal/split.js'
+import { sub } from './sub.js'
+import { mul } from './mul.js'
 import { isLt } from './isLt.js'
-import doubleDigitDividend from './doubleDigitDividend.js'
+import { isEq } from './isEq.js'
+import divisibleFor from './divisibleFor.js'
 
 /**
  * Dividend smaller than divisor
- * @param {*} dividend 
- * @param {*} divisor 
+ * @param {string} dividend 
+ * @param {string} divisor 
  * @returns quotient
  * @example
  *  input: 2/4, 5/6 
  */
 
 const singleDigitDiv = (dividend, divisor) => {
-  let quotient, q1
+  let quotient,
+    quotientTemp,
+    mulTemp
 
-  if (dividend && typeof dividend.valueOf() === 'string') {
-    dividend = dividend.split("")
-  }
-
-  if (divisor && typeof divisor.valueOf() === 'string') {
-    divisor = divisor.split("")
-  }
+  dividend = split(dividend)
+  divisor = split(divisor)
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
       quotient = "0."
-      dividend.push("0")
+      quotient = split(quotient)
 
-      q1 = doubleDigitDividend(dividend.join(""), divisor.join(""))
+      for (let i = 0; i < 10; i++) {
+        dividend = split(dividend)
+        dividend.push("0")
+        quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+        mulTemp = mul(divisor.join(""), quotientTemp)
+        dividend = sub(dividend.join(""), mulTemp)
+        quotient.push(quotientTemp)
 
-      console.log('quotient, q1', quotient, q1)
+        if (isEq(dividend, "0")) {
+          break;
+        }
+      }
 
-      return quotient.concat(q1)
+      return quotient.join("")
     }
   } else { return null }
 }
