@@ -33,12 +33,9 @@ const singleDigitDiv = (dividend, divisor) => {
         dividend.push("0")
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         mulTemp = mul(divisor.join(""), quotientTemp)
-        // console.log('dividend before sub', dividend)
         dividend = sub(dividend.join(""), mulTemp)
         quotient.push(quotientTemp)
 
-        // console.log('quotientTemp, mulTemp, quotient', quotientTemp, mulTemp, quotient)
-        // console.log('dividend', dividend)
         if (isEq(dividend, "0")) {
           break;
         }
