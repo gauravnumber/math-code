@@ -67,6 +67,7 @@ export function isEq(first, second) {
 	} else if (!isDecimal(first) && isDecimal(second)) {
 		return false;
 	} else if (isDecimal(first) && isDecimal(second)) {
+		console.log("both decimal");
 		firstslice = first.slice(firstpos + 1);
 		secondslice = second.slice(secondpos + 1);
 		firsthalf = first.slice(0, firstpos);
@@ -81,6 +82,8 @@ export function isEq(first, second) {
 			thirdslice = false;
 		}
 		thirdhalf = isEq(firsthalf, secondhalf);
+		console.log('thirdhalf, thirdslice', thirdhalf, thirdslice)
+		//TODO work from here
 		if (thirdhalf == thirdslice) {
 			return true;
 		} else {
