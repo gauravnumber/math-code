@@ -42,6 +42,15 @@ const singleDigitDiv = (dividend, divisor) => {
       }
 
       return quotient.join("")
+    } else if (isLt(dividend, divisor)) {
+      quotient = "0."
+      quotient = split(quotient)
+
+      for (let i = 0; isLt(dividend, divisor); i++) {
+        dividend.push("0")
+        quotient.push("0")
+      }
+      return quotient.join("")
     }
   } else { return null }
 }

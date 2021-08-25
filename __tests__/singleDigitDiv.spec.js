@@ -11,6 +11,10 @@ describe('singleDigitDiv', () => {
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
+  
+  it.only('should 1/33', () => {
+    expect(singleDigitDiv("1", "33")).toBe("43");
+  });
 
 
 });
