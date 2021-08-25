@@ -13,7 +13,7 @@ describe('singleDigitDiv', () => {
   })
   
   it.only('should 1/33', () => {
-    expect(singleDigitDiv("1", "33")).toBe("43");
+    expect(singleDigitDiv("1", "33")).toBe("0.0303030303");
   });
 
 
