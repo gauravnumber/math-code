@@ -42,15 +42,29 @@ const singleDigitDiv = (dividend, divisor) => {
       }
 
       return quotient.join("")
-    } else if (isLt(dividend, divisor)) {
+    }
+    else if (isLt(dividend, divisor)) {
       quotient = "0."
       quotient = split(quotient)
 
-      for (let i = 0; isLt(dividend, divisor); i++) {
-        dividend.push("0")
+      for (let i = 0; i < 10; i++) {
+        // dividend: 1  
+        // dividend: 10 
+        // dividend: 100 
+        for (let i = 0; isLt(dividend, divisor); i++) {
+          dividend.push("0")
+        }
+
+        quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+        mulTemp = mul(divisor.join(""), quotientTemp)
+        dividend = sub(dividend.join(""), mulTemp)
         quotient.push("0")
+        quotient.push(quotientTemp)
+
+        dividend = split(dividend)
       }
-      return quotient.join("")
+
+      return quotient.slice(0, 12).join("")
     }
   } else { return null }
 }
