@@ -25,14 +25,8 @@ const singleDigitDiv = (dividend, divisor) => {
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
-      // if (isLt(dividend, divisor)) {
       quotient = "0."
       quotient = split(quotient)
-
-      // for (let i = 0; isLt(dividend, divisor); i++) {
-      //   dividend.push("0")
-      //   quotient.push("0")
-      // }
 
       for (let i = 0; i < 10; i++) {
         dividend = split(dividend)
@@ -53,34 +47,10 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = "0."
       quotient = split(quotient)
 
-      // for (let i = 0; isLt(dividend, divisor); i++) {
-      //   dividend.push("0")
-      // }
-
-      // quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
-      // mulTemp = mul(divisor.join(""), quotientTemp)
-      // dividend = sub(dividend.join(""), mulTemp)
-      // quotient.push("0")
-      // quotient.push(quotientTemp)
-      // console.log('dividend', dividend)
-
-
-      // dividend = split(dividend)
-
-      // for (let i = 0; isLt(dividend, divisor); i++) {
-      //   dividend.push("0")
-      // }
-
-      // console.log('dividend after', dividend)
-
-      // quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
-      // mulTemp = mul(divisor.join(""), quotientTemp)
-      // dividend = sub(dividend.join(""), mulTemp)
-      // quotient.push("0")
-      // quotient.push(quotientTemp)
-      // console.log('dividend three', dividend)
-
       for (let i = 0; i < 10; i++) {
+        // dividend: 1  
+        // dividend: 10 
+        // dividend: 100 
         for (let i = 0; isLt(dividend, divisor); i++) {
           dividend.push("0")
         }
@@ -90,29 +60,9 @@ const singleDigitDiv = (dividend, divisor) => {
         dividend = sub(dividend.join(""), mulTemp)
         quotient.push("0")
         quotient.push(quotientTemp)
-        // console.log('dividend', dividend)
-
 
         dividend = split(dividend)
-
-
-        //   dividend = split(dividend)
-        //   dividend.push("0")
-        //   // for (let i = 0; isLt(dividend, divisor); i++) {
-        //   //   dividend.push("0")
-        //   //   // quotient.push("0")
-        //   // }
-
-        //   quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
-        //   mulTemp = mul(divisor.join(""), quotientTemp)
-        //   dividend = sub(dividend.join(""), mulTemp)
-        //   quotient.push(quotientTemp)
-
-        //   if (isEq(dividend, "0")) {
-        //     break;
-        //   }
       }
-
 
       return quotient.slice(0, 12).join("")
     }
