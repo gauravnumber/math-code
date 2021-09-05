@@ -42,8 +42,7 @@ const singleDigitDiv = (dividend, divisor) => {
       }
 
       return quotient.join("")
-    }
-    else if (isLt(dividend, divisor)) {
+    } else if (isLt(dividend, divisor)) {
       quotient = "0."
       quotient = split(quotient)
 
@@ -51,19 +50,14 @@ const singleDigitDiv = (dividend, divisor) => {
         // dividend: 1  
         // dividend: 10 
         // dividend: 100 
-        // for (let i = 0; isLt(dividend, divisor); i++) {
-        //   if (dividend[dividend.length - 1] === "0" && dividend[dividend.length - 3]) {
-        //     dividend.push("0")
-        //   }
-        // }
-        for (let i = 0; isLt(dividend, divisor); i++) {
+
+        while (isLt(dividend, divisor)) {
           dividend.push("0")
         }
 
         // console.log('dividend', dividend)
 
         if (dividend[dividend.length - 1] === "0" && dividend[dividend.length - 2] === "0") {
-          // console.log('push0')
           quotient.push("0")
           // dividend.push("0")
         }
