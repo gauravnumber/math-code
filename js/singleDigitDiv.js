@@ -51,16 +51,23 @@ const singleDigitDiv = (dividend, divisor) => {
         // dividend: 10 
         // dividend: 100 
 
-        while (isLt(dividend, divisor)) {
+        for (let i = 1; isLt(dividend, divisor); i++) {
           dividend.push("0")
+          if ( i >= 2) {
+            quotient.push("0")
+          }
         }
+
+        // while (isLt(dividend, divisor)) {
+        //   dividend.push("0")
+        // }
 
         // console.log('dividend', dividend)
 
-        if (dividend[dividend.length - 1] === "0" && dividend[dividend.length - 2] === "0") {
-          quotient.push("0")
-          // dividend.push("0")
-        }
+        // if (dividend[dividend.length - 1] === "0" && dividend[dividend.length - 2] === "0") {
+        //   quotient.push("0")
+        //   // dividend.push("0")
+        // }
 
 
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
