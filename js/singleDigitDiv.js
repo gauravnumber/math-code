@@ -47,37 +47,26 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = split(quotient)
 
       for (let i = 0; i < 10; i++) {
+
         // dividend: 1  
         // dividend: 10 
         // dividend: 100 
-
-        while (isLt(dividend, divisor)) {
+        for (let i = 1; isLt(dividend, divisor); i++) {
           dividend.push("0")
+          if (i >= 2) {
+            quotient.push("0")
+          }
         }
-
-        // console.log('dividend', dividend)
-
-        if (dividend[dividend.length - 1] === "0" && dividend[dividend.length - 2] === "0") {
-          quotient.push("0")
-          // dividend.push("0")
-        }
-
 
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
 
-        // console.log('dividend', dividend)
-        // console.log('dividend[dividend.length - 1]', dividend[dividend.length - 1])
-        // console.log('dividend[dividend.length - 2]', dividend[dividend.length - 2])
-
-        //? uncomment
-        // quotient.push("0")
         quotient.push(quotientTemp)
         dividend = split(dividend)
       }
 
-      return quotient.slice(0, 12).join("")
+      return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
     }
   } else { return null }
 }
