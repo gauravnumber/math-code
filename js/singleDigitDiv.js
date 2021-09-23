@@ -70,38 +70,16 @@ const singleDigitDiv = (dividend, divisor) => {
       return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
     }
     else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
-      quotient = divisibleFor(dividend, divisor)
-      // quotient = divisibleFor(dividend.join(""), divisor.join(""))
-      // console.log('quotient', quotient)
-      quotient = split(quotient)
-      // console.log('quotient', quotient)
+      quotient = ""
+      quotient = quotient.split()
+
+      quotientTemp = divisibleFor(dividend, divisor)
+      mulTemp = mul(divisor.join(""), quotientTemp)
+      dividend = sub(dividend.join(""), mulTemp)
+      dividend = split(dividend)
+      dividend.push("0")
+      quotient.push(quotientTemp)
       quotient.push(".")
-      // console.log('quotient', quotient)
-
-      // console.log('divisor', divisor)
-      mulTemp = mul(divisor.join(""), quotient.join(""))
-      // console.log('mulTemp', mulTemp)
-      // console.log('divisor', divisor)
-      // console.log(`dividend`, dividend)
-      // dividend = sub(dividend, mulTemp)
-      dividend = sub(dividend.join(""), mulTemp)
-      dividend = split(dividend)
-      dividend.push("0")
-      // console.log(`dividend`, dividend)
-
-      quotientTemp = divisibleFor(dividend, divisor)
-      mulTemp = mul(divisor.join(""), quotientTemp)
-      // console.log('quotientTemp', quotientTemp)
-      // console.log('mulTemp', mulTemp)
-      dividend = sub(dividend.join(""), mulTemp)
-      // console.log('dividend', dividend)
-      dividend = split(dividend)
-      dividend.push("0")
-      // console.log('dividend', dividend)
-      quotient.push(quotientTemp)
-
-      // console.log(`dividend`, dividend)
-      // console.log('quotientTemp', quotientTemp)
 
       quotientTemp = divisibleFor(dividend, divisor)
       mulTemp = mul(divisor.join(""), quotientTemp)
@@ -117,6 +95,12 @@ const singleDigitDiv = (dividend, divisor) => {
       dividend.push("0")
       quotient.push(quotientTemp)
 
+      quotientTemp = divisibleFor(dividend, divisor)
+      mulTemp = mul(divisor.join(""), quotientTemp)
+      dividend = sub(dividend.join(""), mulTemp)
+      dividend = split(dividend)
+      dividend.push("0")
+      quotient.push(quotientTemp)
 
       return quotient.join("")
     }
