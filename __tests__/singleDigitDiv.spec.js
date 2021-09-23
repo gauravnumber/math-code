@@ -11,6 +11,8 @@ describe('singleDigitDiv', () => {
     ["1", "35", "0.0285714285"],
 
     ["9", "8", "1.125"],
+    ["34", "12", "2.8333333333"],
+
   ]
 
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {

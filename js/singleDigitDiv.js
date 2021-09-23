@@ -73,7 +73,7 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = ""
       quotient = quotient.split()
 
-      for (let i = 0; i < 10; i++) {
+      for (let i = 1; i <= 11; i++) {
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
