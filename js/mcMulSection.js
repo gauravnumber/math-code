@@ -1,27 +1,41 @@
 import { mcMulOne } from './mcMulOne.js';
 import { mcAdd } from './mcAdd.js'
 
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import isNegative from './.internal/isNegative.js'
+import isDecimal from './.internal/isDecimal.js'
+import decimalPosition from './.internal/decimalPosition.js'
+import split from './.internal/split.js'
+
 export function mcMulSection(first, second) {
 	var lengthno,
 		i, j,
-		firstLastIndex, secondLastIndex,
+		// firstLastIndex,
+		secondLastIndex,
 		decimalfirst, decimalsecond, decimalthirdno,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
-		third, thirdhalf, thirdslice;
+		third;
+	// , thirdhalf, thirdslice;
 	third = [];
 	decimalfirst = false;
 	decimalsecond = false;
 	firstpos = secondpos = -1;
-	first = String(first);
-	second = String(second);
-	first = first.split("");
-	second = second.split("");
-	while (Number(first[0]) == 0)
-		first.shift();
-	while (Number(second[0]) == 0)
-		second.shift();
+	// first = String(first);
+	// second = String(second);
+	// first = first.split("");
+	// second = second.split("");
+	// while (Number(first[0]) == 0)
+	// 	first.shift();
+	// while (Number(second[0]) == 0)
+	// 	second.shift();
+
+	first = split(first);
+	second = split(second);
+
+	first = removeZeroFromLeft(first).split("")
+	second = removeZeroFromLeft(second).split("")
 
 	if (first[0] == "-" && second[0] == "-") {
 		first = first.slice(1);

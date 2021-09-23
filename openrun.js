@@ -1,7 +1,8 @@
-import singleDigitDiv  from './js/singleDigitDiv.js'
-import divisibleFor from './js/divisibleFor.js'
+import { mcMulSection } from './js/mcMulSection.js'
+// import singleDigitDiv  from './js/singleDigitDiv.js'
+// import divisibleFor from './js/divisibleFor.js'
 
-console.log(singleDigitDiv("34", "12"))
+console.log(mcMulSection("12243423", "7365273"))
 // console.log(divisibleFor("34", "12"));
 // console.log(singleDigitDiv("2", "6"))
 // console.log(singleDigitDiv("4", "2"))
