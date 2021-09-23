@@ -3,6 +3,7 @@ import split from './.internal/split.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
 import { isLt } from './isLt.js'
+import { isGt } from './isGt.js'
 import { isEq } from './isEq.js'
 import divisibleFor from './divisibleFor.js'
 
@@ -67,6 +68,30 @@ const singleDigitDiv = (dividend, divisor) => {
       }
 
       return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
+    }
+    else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
+      quotient = ""
+      quotient = quotient.split()
+
+      for (let i = 1; i <= 11; i++) {
+        quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+        mulTemp = mul(divisor.join(""), quotientTemp)
+        dividend = sub(dividend.join(""), mulTemp)
+        dividend = split(dividend)
+        dividend.push("0")
+        quotient.push(quotientTemp)
+
+        if (!isDecimal(quotient)) {
+          quotient.push(".")
+        }
+
+        if (isEq(dividend, "0")) {
+          break;
+        }
+      }
+
+
+      return quotient.join("")
     }
   } else { return null }
 }

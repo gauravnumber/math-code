@@ -3,9 +3,9 @@ import { mul } from './mul.js'
 
 /**
  * 
- * @param {*} dividend 
- * @param {*} divisor 
- * @returns 
+ * @param {string, array} dividend 
+ * @param {string, array} divisor 
+ * @returns {string}
  * @example
  *  input: 20, 8 
  *  output: 2
