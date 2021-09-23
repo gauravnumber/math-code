@@ -73,34 +73,54 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = ""
       quotient = quotient.split()
 
-      quotientTemp = divisibleFor(dividend, divisor)
-      mulTemp = mul(divisor.join(""), quotientTemp)
-      dividend = sub(dividend.join(""), mulTemp)
-      dividend = split(dividend)
-      dividend.push("0")
-      quotient.push(quotientTemp)
-      quotient.push(".")
+      // quotientTemp = divisibleFor(dividend, divisor)
+      // mulTemp = mul(divisor.join(""), quotientTemp)
+      // dividend = sub(dividend.join(""), mulTemp)
+      // dividend = split(dividend)
+      // dividend.push("0")
+      // quotient.push(quotientTemp)
 
-      quotientTemp = divisibleFor(dividend, divisor)
-      mulTemp = mul(divisor.join(""), quotientTemp)
-      dividend = sub(dividend.join(""), mulTemp)
-      dividend = split(dividend)
-      dividend.push("0")
-      quotient.push(quotientTemp)
+      // if (!isDecimal(quotient)) {
+      //   quotient.push(".")
+      // }
 
-      quotientTemp = divisibleFor(dividend, divisor)
-      mulTemp = mul(divisor.join(""), quotientTemp)
-      dividend = sub(dividend.join(""), mulTemp)
-      dividend = split(dividend)
-      dividend.push("0")
-      quotient.push(quotientTemp)
+      for (let i = 0; i < 10; i++) {
+        quotientTemp = divisibleFor(dividend, divisor)
+        mulTemp = mul(divisor.join(""), quotientTemp)
+        dividend = sub(dividend.join(""), mulTemp)
+        dividend = split(dividend)
+        dividend.push("0")
+        quotient.push(quotientTemp)
+  
+        if (!isDecimal(quotient)) {
+          quotient.push(".")
+        }
 
-      quotientTemp = divisibleFor(dividend, divisor)
-      mulTemp = mul(divisor.join(""), quotientTemp)
-      dividend = sub(dividend.join(""), mulTemp)
-      dividend = split(dividend)
-      dividend.push("0")
-      quotient.push(quotientTemp)
+        if (isEq(dividend, "0")) {
+          break;
+        }
+      }
+
+      // quotientTemp = divisibleFor(dividend, divisor)
+      // mulTemp = mul(divisor.join(""), quotientTemp)
+      // dividend = sub(dividend.join(""), mulTemp)
+      // dividend = split(dividend)
+      // dividend.push("0")
+      // quotient.push(quotientTemp)
+
+      // quotientTemp = divisibleFor(dividend, divisor)
+      // mulTemp = mul(divisor.join(""), quotientTemp)
+      // dividend = sub(dividend.join(""), mulTemp)
+      // dividend = split(dividend)
+      // dividend.push("0")
+      // quotient.push(quotientTemp)
+
+      // quotientTemp = divisibleFor(dividend, divisor)
+      // mulTemp = mul(divisor.join(""), quotientTemp)
+      // dividend = sub(dividend.join(""), mulTemp)
+      // dividend = split(dividend)
+      // dividend.push("0")
+      // quotient.push(quotientTemp)
 
       return quotient.join("")
     }
