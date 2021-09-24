@@ -18,11 +18,12 @@ import divisibleFor from './divisibleFor.js'
 
 const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
-    quotientTemp,
-    mulTemp
-
+  quotientTemp,
+  mulTemp
+  
   dividend = split(dividend)
   divisor = split(divisor)
+  defaultDecimalDigit = Number(defaultDecimalDigit)
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
