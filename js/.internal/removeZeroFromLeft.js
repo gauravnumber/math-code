@@ -9,11 +9,14 @@
  */
 
 const removeZeroFromLeft = (value) => {
+  // console.log('value', value)
   if (Object.prototype.toString.call(value) == "[object Array]") {
     while (Number(value[0]) == 0) {
       value.shift();
     }
-    return value.join("")
+
+    // console.log('value', value)
+    return (typeof value[0] === 'undefined') ? "0" : value.join("")
   } else if (value && typeof value.valueOf() === "string") {
     value = value.split("")
     return removeZeroFromLeft(value)
