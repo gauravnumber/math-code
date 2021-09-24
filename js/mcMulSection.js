@@ -1,29 +1,45 @@
 import { mcMulOne } from './mcMulOne.js';
 import { mcAdd } from './mcAdd.js'
 
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import isNegative from './.internal/isNegative.js'
+import isDecimal from './.internal/isDecimal.js'
+import decimalPosition from './.internal/decimalPosition.js'
+import split from './.internal/split.js'
+
 export function mcMulSection(first, second) {
 	var lengthno,
 		i, j,
-		firstLastIndex, secondLastIndex,
-		decimalfirst, decimalsecond, decimalthirdno,
+		// firstLastIndex,
+		secondLastIndex,
+		// decimalfirst, decimalsecond,
+		decimalthirdno,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
-		third, thirdhalf, thirdslice;
+		third;
+	// , thirdhalf, thirdslice;
 	third = [];
-	decimalfirst = false;
-	decimalsecond = false;
+	// decimalfirst = false;
+	// decimalsecond = false;
 	firstpos = secondpos = -1;
-	first = String(first);
-	second = String(second);
-	first = first.split("");
-	second = second.split("");
-	while (Number(first[0]) == 0)
-		first.shift();
-	while (Number(second[0]) == 0)
-		second.shift();
+	// first = String(first);
+	// second = String(second);
+	// first = first.split("");
+	// second = second.split("");
+	// while (Number(first[0]) == 0)
+	// 	first.shift();
+	// while (Number(second[0]) == 0)
+	// 	second.shift();
 
-	if (first[0] == "-" && second[0] == "-") {
+	first = split(first);
+	second = split(second);
+
+	first = removeZeroFromLeft(first).split("")
+	second = removeZeroFromLeft(second).split("")
+
+	if (isNegative(first) && isNegative(second)) {
+		// if (first[0] == "-" && second[0] == "-") {
 		first = first.slice(1);
 		second = second.slice(1);
 		first = first.join("");
@@ -32,7 +48,8 @@ export function mcMulSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-	} else if (first[0] != "-" && second[0] == "-") {
+	} else if (!isNegative(first) && isNegative(second)) {
+		// } else if (first[0] != "-" && second[0] == "-") {
 		second = second.slice(1);
 		first = first.join("");
 		second = second.join("");
@@ -41,7 +58,8 @@ export function mcMulSection(first, second) {
 		third.unshift("-");
 		third = third.join("");
 		return third;
-	} else if (first[0] == "-" && second[0] != "-") {
+	} else if (isNegative(first) && !isNegative(second)) {
+		// } else if (first[0] == "-" && second[0] != "-") {
 		first = first.slice(1);
 		first = first.join("");
 		second = second.join("");
@@ -52,19 +70,24 @@ export function mcMulSection(first, second) {
 		return third;
 	}
 
-	for (i = 0; i < first.length; i++)
-		if (first[i] == ".") {
-			decimalfirst = true;
-			firstpos = i;
-			break;
-		}
-	for (i = 0; i < second.length; i++)
-		if (second[i] == ".") {
-			decimalsecond = true;
-			secondpos = i;
-			break;
-		}
-	if (decimalfirst == false && decimalsecond == false) {
+	// for (i = 0; i < first.length; i++)
+	// 	if (first[i] == ".") {
+	// 		decimalfirst = true;
+	// 		firstpos = i;
+	// 		break;
+	// 	}
+	// for (i = 0; i < second.length; i++)
+	// 	if (second[i] == ".") {
+	// 		decimalsecond = true;
+	// 		secondpos = i;
+	// 		break;
+	// 	}
+
+	firstpos = decimalPosition(first)
+	secondpos = decimalPosition(second)
+
+	if (!isDecimal(first) && !isDecimal(second)) {
+		// if (decimalfirst == false && decimalsecond == false) {
 		lengthno = second.length;
 		secondLastIndex = second.length - 1;
 		first = first.join("");
@@ -76,13 +99,16 @@ export function mcMulSection(first, second) {
 		third = mcAdd.apply(null, third);
 		return third;
 	}
-	else if (decimalfirst == true || decimalsecond == true) {
-		if (decimalfirst == false) {
+	else if (isDecimal(first) || isDecimal(second)) {
+		// else if (decimalfirst == true || decimalsecond == true) {
+		if (!isDecimal(first)) {
+			// if (decimalfirst == false) {
 			first = first.join("");
 			firstpos = first.length;
 			first = first.concat(".0");
 			first = first.split("");
-		} else if (decimalsecond == false) {
+		} else if (!isDecimal(second)) {
+			// } else if (decimalsecond == false) {
 			second = second.join("");
 			secondpos = second.length;
 			second = second.concat(".0");
@@ -103,6 +129,8 @@ export function mcMulSection(first, second) {
 		third = third.split("");
 		decimalthirdno = firstslice.length + secondslice.length;
 		third.splice(third.length - decimalthirdno, "0", ".");
+
+		//? removeDecimalAndZeroFromRight()
 		while (third[third.length - 1] == 0)
 			third.pop();
 		if (third[third.length - 1] == ".")
