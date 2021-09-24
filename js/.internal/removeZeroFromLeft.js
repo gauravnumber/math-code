@@ -23,8 +23,9 @@ const removeZeroFromLeft = (value) => {
     return removeZeroFromLeft(value)
   }
   
-  console.log(typeof value);
-  return ""
+  // console.log(typeof value, value);
+  // return ""
+  return value.toString()
 }
 
 export default removeZeroFromLeft
