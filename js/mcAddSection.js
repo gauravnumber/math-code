@@ -1,8 +1,10 @@
 import { mcSubSection } from './mcSubSection.js'
+
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import isNegative from './.internal/isNegative.js'
 import isDecimal from './.internal/isDecimal.js'
 import decimalPosition from './.internal/decimalPosition.js'
+import split from './.internal/split.js'
 
 export function mcAddSection(first, second) {
 	var lengthno,
@@ -15,10 +17,13 @@ export function mcAddSection(first, second) {
 		third, thirdhalf, thirdslice;
 	third = [];
 	firstpos = secondpos = -1;
-	first = String(first);
-	second = String(second);
-	first = first.split("");
-	second = second.split("");
+	// first = String(first);
+	// second = String(second);
+	// first = first.split("");
+	// second = second.split("");
+
+	first = split(first);
+	second = split(second);
 
 	first = removeZeroFromLeft(first).split("")
 	second = removeZeroFromLeft(second).split("")
