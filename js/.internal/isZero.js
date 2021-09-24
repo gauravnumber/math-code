@@ -1,5 +1,5 @@
 /**
- * Given number is zero?
+ * 
  * @param {string} value "-0000.000"
  * @returns Boolean
  * @example
