@@ -16,7 +16,7 @@ import divisibleFor from './divisibleFor.js'
  *  input: 2/4, 5/6 
  */
 
-const singleDigitDiv = (dividend, divisor) => {
+const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
     quotientTemp,
     mulTemp
@@ -29,7 +29,8 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = "0."
       quotient = split(quotient)
 
-      for (let i = 0; i < 10; i++) {
+      // for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < defaultDecimalDigit; i++) {
         dividend = split(dividend)
         dividend.push("0")
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
@@ -47,7 +48,7 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = "0."
       quotient = split(quotient)
 
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < defaultDecimalDigit; i++) {
 
         // dividend: 1  
         // dividend: 10 
@@ -73,7 +74,7 @@ const singleDigitDiv = (dividend, divisor) => {
       quotient = ""
       quotient = quotient.split()
 
-      for (let i = 1; i <= 11; i++) {
+      for (let i = 1; i <= defaultDecimalDigit + 1; i++) {
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
