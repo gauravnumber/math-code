@@ -16,13 +16,15 @@ const removeZeroFromLeft = (value) => {
     }
 
     // console.log('value', value)
+    // return value.join("")
     return (typeof value[0] === 'undefined') ? "0" : value.join("")
   } else if (value && typeof value.valueOf() === "string") {
     value = value.split("")
     return removeZeroFromLeft(value)
   }
-
-  return null
+  
+  console.log(typeof value);
+  return ""
 }
 
 export default removeZeroFromLeft

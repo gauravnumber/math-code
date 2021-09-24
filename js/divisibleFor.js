@@ -15,7 +15,7 @@ const divisibleFor = (dividend, divisor) => {
   let mulTemp
   if (isGt(dividend, divisor)) {
     for (let i = 1; i < 10; i++) {
-      // i = String(i)
+      i = String(i)
       mulTemp = mul(divisor, i)
       if (isGt(mulTemp, dividend)) {
         return String(--i);
