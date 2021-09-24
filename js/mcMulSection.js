@@ -52,6 +52,9 @@ export function mcMulSection(first, second) {
 		return third;
 	} else if (!isNegative(first) && isNegative(second)) {
 		// } else if (first[0] != "-" && second[0] == "-") {
+			// console.log('first', first)
+			// console.log('second', second)
+
 		second = second.slice(1);
 		first = first.join("");
 		second = second.join("");

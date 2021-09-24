@@ -1,12 +1,16 @@
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
-import { fact } from './js/fact.js'
+import { mul } from './js/mul.js'
+// import { fact } from './js/fact.js'
 // import singleDigitDiv  from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
-// import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
+import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 
-console.log(fact(4));
-// console.log(removeZeroFromLeft(233));
+// console.log(mul("-0", "2"));
+
+// console.log(fact(4));
+console.log(removeZeroFromLeft("-000000"));
+
 // console.log(removeZeroFromLeft("00233"));
 // console.log(removeZeroFromLeft("0"));
 

@@ -19,12 +19,18 @@ const removeZeroFromLeft = (value) => {
     // return value.join("")
     return (typeof value[0] === 'undefined') ? "0" : value.join("")
   } else if (value && typeof value.valueOf() === "string") {
+    //? -000000.00000
+    // if (/-?0*\.?\0*/.test(value)) {
+    //   // console.log("negative zero");
+    //   return "0"
+    // }
     value = value.split("")
     return removeZeroFromLeft(value)
   }
   
   // console.log(typeof value, value);
   // return ""
+  // if value is number
   return value.toString()
 }
 
