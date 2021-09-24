@@ -35,6 +35,8 @@ export function mcMulSection(first, second) {
 	first = split(first);
 	second = split(second);
 
+	// console.log('first', first)
+
 	first = removeZeroFromLeft(first).split("")
 	second = removeZeroFromLeft(second).split("")
 
