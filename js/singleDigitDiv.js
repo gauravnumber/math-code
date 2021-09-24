@@ -68,7 +68,8 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
         dividend = split(dividend)
       }
 
-      return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
+      return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
+      // return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
     }
     else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
       quotient = ""
