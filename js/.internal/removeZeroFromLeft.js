@@ -11,7 +11,7 @@
 const removeZeroFromLeft = (value) => {
   // console.log('value', value)
   if (Object.prototype.toString.call(value) == "[object Array]") {
-    while (Number(value[0]) == 0) {
+    while (Number(value[0]) === 0) {
       value.shift();
     }
 
