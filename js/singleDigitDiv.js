@@ -18,9 +18,9 @@ import divisibleFor from './divisibleFor.js'
 
 const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
-  quotientTemp,
-  mulTemp
-  
+    quotientTemp,
+    mulTemp
+
   dividend = split(dividend)
   divisor = split(divisor)
   defaultDecimalDigit = Number(defaultDecimalDigit)
@@ -71,13 +71,16 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
       // return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
-    }
-    else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
+    } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
       quotient = ""
       quotient = quotient.split()
 
       for (let i = 1; i <= defaultDecimalDigit + 1; i++) {
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+        // console.log('divisor', divisor)
+        // console.log('quotientTemp', quotientTemp)
+        
+        // mulTemp = mul(divisor.join(""), quotientTemp.toString())
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
         dividend = split(dividend)
