@@ -14,10 +14,16 @@ import { mul } from './mul.js'
 const divisibleFor = (dividend, divisor) => {
   let mulTemp
   if (isGt(dividend, divisor)) {
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i <= 10; i++) {
       i = String(i)
+      // console.log('i', i)
       mulTemp = mul(divisor, i)
+      // console.log('i', i)
       if (isGt(mulTemp, dividend)) {
+        // console.log('i', i)
+        // if (i === "10") {
+        //   return "0"
+        // }
         return String(--i);
       }
     }

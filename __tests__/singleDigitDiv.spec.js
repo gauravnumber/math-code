@@ -12,14 +12,24 @@ describe('singleDigitDiv', () => {
 
     ["9", "8", "1.125"],
     ["34", "12", "2.8333333333"],
+    ["9", "7", "1.2857142857"],
+  ]
 
+  const threeArgument = [
+    ["22", "7", "40", "3.1428571428571428571428571428571428571428"],
   ]
 
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
 
-  // it.only('should 1/35 ', () => {
-  //   expect(singleDigitDiv("1", "35")).toBe("0.0285714285");
+  describe('Three arguments', () => {
+    it.each(threeArgument)('singleDigitDiv(%s, %s, %s)', (a, b, numberOfDecimal, expected) => {
+      expect(singleDigitDiv(a, b, numberOfDecimal)).toBe(expected)
+    })
+  });
+
+  // it.only('should 9/7 ', () => {
+  //   expect(singleDigitDiv("9", "7")).toBe("1.2857142857");
   // })
 });
