@@ -78,14 +78,26 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       for (let i = 1; i <= defaultDecimalDigit + 1; i++) {
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
         // console.log('divisor', divisor)
-        // console.log('quotientTemp', quotientTemp)
+        // console.log(`dividend ${i}`, dividend.join(""))
+        // console.log(`divisor ${i}`, divisor.join(""))
+        // console.log('quotientTemp' + i, quotientTemp)
         
         // mulTemp = mul(divisor.join(""), quotientTemp.toString())
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
         dividend = split(dividend)
-        dividend.push("0")
+
+        // dividend.push("0")
         quotient.push(quotientTemp)
+        
+        for (let i = 1; isLt(dividend, divisor); i++) {
+          dividend.push("0")
+          if (i >= 2) {
+            quotient.push("0")
+          }
+        }
+
+
 
         if (!isDecimal(quotient)) {
           quotient.push(".")

@@ -26,12 +26,16 @@ const removeZeroFromLeft = (value) => {
     // }
     value = value.split("")
     return removeZeroFromLeft(value)
+  } 
+  else if(typeof value === 'number') {
+    return value.toString()
   }
   
   // console.log(typeof value, value);
-  // return ""
+  // if value is undefined
+  return ""
   // if value is number
-  return value.toString()
+  // return value.toString()
 }
 
 export default removeZeroFromLeft
