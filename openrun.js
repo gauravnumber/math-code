@@ -8,16 +8,17 @@ import divisibleFor from './js/divisibleFor.js'
 // import isZero from './js/.internal/isZero.js'
 
 // console.log(divisibleFor("120", "13"));
+// console.log(divisibleFor("12", "8"));
 
 
-console.log(singleDigitDiv("355", "113", "50"))
+// console.log(singleDigitDiv("355", "113", "50"))
 // console.log(singleDigitDiv("35", "13", "20"))
-// console.log(singleDigitDiv("22", "7", "40"))
-// console.log(singleDigitDiv("9", "7", "2"))
-// console.log(singleDigitDiv("2", "6"))
 // console.log(singleDigitDiv("4", "2"))
+// console.log(singleDigitDiv("9", "7", "2"))
+console.log(singleDigitDiv("22", "7", "40"))
+// console.log(singleDigitDiv("2", "6"))
 // console.log(singleDigitDiv("5", "2"))
-// console.log(singleDigitDiv("9", "8"))
+// console.log(singleDigitDiv("12", "8"))
 
 
 // console.log(mul("3", "-0"));

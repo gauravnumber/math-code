@@ -30,7 +30,6 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       quotient = "0."
       quotient = split(quotient)
 
-      // for (let i = 0; i < 10; i++) {
       for (let i = 0; i < defaultDecimalDigit; i++) {
         dividend = split(dividend)
         dividend.push("0")
@@ -70,34 +69,27 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       }
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
-      // return quotient.slice(0, 12).join("")  //? "0" and "." it's 2; 10 decimal digit
-    } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
+    } else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
+      // } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
       quotient = ""
       quotient = quotient.split()
 
       for (let i = 1; i <= defaultDecimalDigit + 1; i++) {
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
-        // console.log('divisor', divisor)
-        // console.log(`dividend ${i}`, dividend.join(""))
-        // console.log(`divisor ${i}`, divisor.join(""))
-        // console.log('quotientTemp' + i, quotientTemp)
-        
         // mulTemp = mul(divisor.join(""), quotientTemp.toString())
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
         dividend = split(dividend)
 
-        // dividend.push("0")
+        dividend.push("0")
         quotient.push(quotientTemp)
-        
-        for (let i = 1; isLt(dividend, divisor); i++) {
-          dividend.push("0")
-          if (i >= 2) {
-            quotient.push("0")
-          }
-        }
 
-
+        // for (let i = 1; isLt(dividend, divisor); i++) {
+        //   dividend.push("0")
+        //   if (i >= 2) {
+        //     quotient.push("0")
+        //   }
+        // }
 
         if (!isDecimal(quotient)) {
           quotient.push(".")
@@ -108,8 +100,11 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
         }
       }
 
-
       return quotient.join("")
+    }
+    else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
+      console.log("22/7");
+      return "+1"
     }
   } else { return null }
 }
