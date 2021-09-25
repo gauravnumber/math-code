@@ -27,6 +27,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
+      // @example 1/2, 3/9, 4/8, 23/44, 566/899, 1234/5555, 78989/98999
       quotient = "0."
       quotient = split(quotient)
 
@@ -70,7 +71,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
     } else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
-      // } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
+        // @example 9/2, 8/2, 8/3, 355/113, 40/13
       quotient = ""
       quotient = quotient.split()
 
@@ -83,14 +84,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
         dividend.push("0")
 
-//         const isNull = value => value === null;
-// const isUndefined = (value) => typeof value === 'undefined';
 
         quotient.push(quotientTemp === null ? "0" : quotientTemp)
-        // quotient.push(quotientTemp == "10" ? "0" : quotientTemp)
 
-        // console.log('quotientTemp', quotientTemp)
-        // console.log('defaultDecimalDigit', defaultDecimalDigit)
         // for (let i = 1; isLt(dividend, divisor); i++) {
         //   dividend.push("0")
         //   if (i >= 2) {
@@ -108,8 +104,8 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       }
 
       return quotient.join("")
-    }
-    else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
+    } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
+      // @example 22/7, 123/23, 1234/123, 98987/6754
       quotient = ""
       quotient = quotient.split()
 
@@ -140,9 +136,6 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       }
 
       return quotient.join("")
-
-      // console.log("22/7");
-      // return "+1"
     }
   } else { return null }
 }

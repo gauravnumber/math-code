@@ -2,10 +2,13 @@
 // import { mcMulSection } from './js/mcMulSection.js'
 // import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
+// import doubleDigitDividend  from './js/doubleDigitDividend.js'
 import singleDigitDiv  from './js/singleDigitDiv.js'
-import divisibleFor from './js/divisibleFor.js'
+// import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
+
+// console.log(doubleDigitDividend("120", "13"));
 
 // console.log(divisibleFor("120", "13"));
 // console.log(divisibleFor("12", "8"));
@@ -14,7 +17,7 @@ import divisibleFor from './js/divisibleFor.js'
 // console.log(singleDigitDiv("355", "113", "50"))
 // console.log(singleDigitDiv("35", "13", "20"))
 // console.log(singleDigitDiv("4", "2"))
-console.log(singleDigitDiv("1667", "1222", "90"))
+// console.log(singleDigitDiv("1667", "1222", "90"))
 // console.log(singleDigitDiv("9", "7"))
 // console.log(singleDigitDiv("40", "13", "40"))
 // console.log(singleDigitDiv("22", "7", "40"))
