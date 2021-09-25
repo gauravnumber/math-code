@@ -5,12 +5,13 @@ import { mul } from './js/mul.js'
 // import singleDigitDiv  from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
-// import isZero from './js/.internal/isZero.js'
+import isZero from './js/.internal/isZero.js'
 
+console.log(mul("3", "-0"));
 console.log(mul("-0", "2"));
 
+// console.log(isZero("-0"));
 // console.log(isZero("-."));
-// console.log(isZero("4"));
 // console.log(isZero("4"));
 // console.log(isZero("--7"));
 

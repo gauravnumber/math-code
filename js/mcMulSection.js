@@ -3,12 +3,16 @@ import { mcAdd } from './mcAdd.js'
 import { isEq } from './isEq.js'
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
-import isNegative from './.internal/isNegative.js'
 import isDecimal from './.internal/isDecimal.js'
+import isNegative from './.internal/isNegative.js'
+import isZero from './.internal/isZero.js'
 import decimalPosition from './.internal/decimalPosition.js'
 import split from './.internal/split.js'
 
 export function mcMulSection(first, second) {
+	// console.log('first', first)
+	// console.log('second', second)
+
 	var lengthno,
 		i, j,
 		// firstLastIndex,
@@ -32,14 +36,31 @@ export function mcMulSection(first, second) {
 	// 	first.shift();
 	// while (Number(second[0]) == 0)
 	// 	second.shift();
+	if (isZero(first) || isZero(second)) {
+		return "0"
+	}
+
+	// console.log('first', first)
+	// console.log('second', second)
+
 
 	first = split(first);
 	second = split(second);
 
 	// console.log('first', first)
 
+	// console.log('first', first)
+	// console.log('second', second)
+
 	first = removeZeroFromLeft(first).split("")
 	second = removeZeroFromLeft(second).split("")
+
+	// if (isZero(first) || isZero(second)) {
+	// 	return "0"
+	// }
+
+	// console.log('first', first)
+	// console.log('second', second)
 
 	if (isNegative(first) && isNegative(second)) {
 		// if (first[0] == "-" && second[0] == "-") {
@@ -61,7 +82,15 @@ export function mcMulSection(first, second) {
 		second = second.join("");
 		third = mcMulSection(first, second);
 		third = third.split("");
-		third.unshift("-");
+		// third.unshift("-");
+
+		console.log('third', third)				
+
+		if (!isEq(third, "0")) {
+			third.unshift("-");
+		}
+		
+
 		third = third.join("");
 		return third;
 	} else if (isNegative(first) && !isNegative(second)) {
@@ -71,7 +100,7 @@ export function mcMulSection(first, second) {
 		second = second.join("");
 		third = mcMulSection(second, first);
 		third = third.split("");
-		
+
 		if (!isEq(third, "0")) {
 			third.unshift("-");
 		}
