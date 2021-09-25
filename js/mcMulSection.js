@@ -1,5 +1,6 @@
 import { mcMulOne } from './mcMulOne.js';
 import { mcAdd } from './mcAdd.js'
+import { isEq } from './isEq.js'
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import isNegative from './.internal/isNegative.js'
@@ -52,8 +53,8 @@ export function mcMulSection(first, second) {
 		return third;
 	} else if (!isNegative(first) && isNegative(second)) {
 		// } else if (first[0] != "-" && second[0] == "-") {
-			// console.log('first', first)
-			// console.log('second', second)
+		// console.log('first', first)
+		// console.log('second', second)
 
 		second = second.slice(1);
 		first = first.join("");
@@ -70,7 +71,11 @@ export function mcMulSection(first, second) {
 		second = second.join("");
 		third = mcMulSection(second, first);
 		third = third.split("");
-		third.unshift("-");
+		
+		if (!isEq(third, "0")) {
+			third.unshift("-");
+		}
+		
 		third = third.join("");
 		return third;
 	}
