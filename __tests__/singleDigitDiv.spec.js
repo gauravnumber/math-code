@@ -12,6 +12,8 @@ describe('singleDigitDiv', () => {
 
     ["9", "8", "1.125"],
     ["34", "12", "2.8333333333"],
+    ["9", "7", "1.2857142857"],
+
 
   ]
 
@@ -19,7 +21,7 @@ describe('singleDigitDiv', () => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
 
-  // it.only('should 1/35 ', () => {
-  //   expect(singleDigitDiv("1", "35")).toBe("0.0285714285");
+  // it.only('should 9/7 ', () => {
+  //   expect(singleDigitDiv("9", "7")).toBe("1.2857142857");
   // })
 });
