@@ -1,4 +1,5 @@
 import { isGt } from './isGt.js'
+import { isGte } from './isGte.js'
 import { mul } from './mul.js'
 
 /**
@@ -13,7 +14,7 @@ import { mul } from './mul.js'
 
 const divisibleFor = (dividend, divisor) => {
   let mulTemp
-  if (isGt(dividend, divisor)) {
+  if (isGte(dividend, divisor)) {
     for (let i = 1; i <= 10; i++) {
       i = String(i)
       // console.log('i', i)

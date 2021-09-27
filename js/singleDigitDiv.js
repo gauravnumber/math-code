@@ -4,6 +4,7 @@ import { sub } from './sub.js'
 import { mul } from './mul.js'
 import { isLt } from './isLt.js'
 import { isGt } from './isGt.js'
+import { isGte } from './isGte.js'
 import { isEq } from './isEq.js'
 import divisibleFor from './divisibleFor.js'
 
@@ -19,11 +20,15 @@ import divisibleFor from './divisibleFor.js'
 const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
     quotientTemp,
-    mulTemp
+    mulTemp,
+    dividendTemp
 
   dividend = split(dividend)
   divisor = split(divisor)
   defaultDecimalDigit = Number(defaultDecimalDigit)
+  quotient = ""
+  quotient = quotient.split("")
+  // quotient = split(quotient)
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
@@ -71,7 +76,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
     } else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
-        // @example 9/2, 8/2, 8/3, 355/113, 40/13
+      // @example 9/2, 8/2, 8/3, 355/113, 40/13
       quotient = ""
       quotient = quotient.split()
 
@@ -133,6 +138,21 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
         if (isEq(dividend, "0")) {
           break;
         }
+      }
+
+      return quotient.join("")
+    } else if (isGt(dividend, divisor)) {
+
+      for (let i = 0; i <= dividend.length; i++) {
+        dividendTemp = dividend[i]
+        // console.log('dividendTemp', dividendTemp)
+
+        if (isGte(dividendTemp, divisor)) {
+          quotientTemp = divisibleFor(dividendTemp, divisor)
+          // console.log('quotientTemp', quotientTemp)
+          quotient.push(quotientTemp)
+        }
+        // console.log('quotient', quotient)
       }
 
       return quotient.join("")

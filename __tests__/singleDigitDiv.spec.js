@@ -21,6 +21,10 @@ describe('singleDigitDiv', () => {
     ["1667", "1222", "90", "1.364157119476268412438625204582651391162029459901800327332242225859247135842880523731587561"],
   ]
 
+  const isGt = [
+    ["8642", "2", "4321"],
+  ]
+
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
@@ -28,6 +32,12 @@ describe('singleDigitDiv', () => {
   describe('Three arguments', () => {
     it.each(threeArgument)('singleDigitDiv(%s, %s, %s)', (a, b, numberOfDecimal, expected) => {
       expect(singleDigitDiv(a, b, numberOfDecimal)).toBe(expected)
+    })
+  });
+
+  describe('Dividend >= Divisor', () => {
+    it.each(isGt)('singleDigitDiv(%s, %s)', (a, b, expected) => {
+      expect(singleDigitDiv(a, b)).toBe(expected)
     })
   });
 

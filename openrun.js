@@ -4,13 +4,19 @@
 // import { fact } from './js/fact.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
 import singleDigitDiv  from './js/singleDigitDiv.js'
-// import divisibleFor from './js/divisibleFor.js'
+import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.time()
-console.log(singleDigitDiv("1667", "1222", "1000")) // 102 digit fit my desktop screen including "."
-console.timeEnd()
+console.log(singleDigitDiv("96396", "3"))
+// console.log(singleDigitDiv("8642", "2"))
+// console.log(divisibleFor("2", "2"));
+// console.log(singleDigitDiv("2", "2")); // not working now
+
+
+// console.time()
+// console.log(singleDigitDiv("1667", "1222", "1000")) // 102 digit fit my desktop screen including "."
+// console.timeEnd()
 
 // console.time()
 // console.log(singleDigitDiv("355", "113", "200"))
