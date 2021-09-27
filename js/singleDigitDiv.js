@@ -147,34 +147,17 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     } else if (isGt(dividend, divisor)) {
       for (let i = 0; i < dividend.length; i++) {
         dividendTemp.push(dividend[i])
-        // dividendTemp = dividend[i]
-        // console.log('dividendTemp', dividendTemp)
 
         if (isGte(dividendTemp, divisor)) {
           quotientTemp = divisibleFor(dividendTemp, divisor)
           quotient.push(quotientTemp)
           mulTemp = mul(divisor, quotientTemp)
           dividendTemp = sub(dividendTemp, mulTemp)
-
-          // console.log('mulTemp', mulTemp)
-          // console.log('quotientTemp', quotientTemp)
-
-          // quotient.push("0")
-
-          // dividendTemp = ""
-          // console.log('dividendTemp', dividendTemp)
-          // console.log('typeof dividendTemp', typeof dividendTemp)
           dividendTemp = dividendTemp.split("")
         } else {
-          // console.log('dividendTemp', dividendTemp)
-          // console.log('dividend', dividend)
-          // console.log('divisor', divisor)
           quotient.push("0")
-          // dividendTemp.push("0")
         }
-        // console.log('quotient', quotient)
       }
-
 
       quotient = removeZeroFromLeft(quotient)
       return quotient
