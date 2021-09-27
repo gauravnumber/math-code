@@ -1,4 +1,5 @@
 import isDecimal from './.internal/isDecimal.js'
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import split from './.internal/split.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
@@ -28,6 +29,8 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   defaultDecimalDigit = Number(defaultDecimalDigit)
   quotient = ""
   quotient = quotient.split("")
+  dividendTemp = ""
+  dividendTemp = dividendTemp.split("")
   // quotient = split(quotient)
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
@@ -143,19 +146,34 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       return quotient.join("")
     } else if (isGt(dividend, divisor)) {
 
-      for (let i = 0; i <= dividend.length; i++) {
-        dividendTemp = dividend[i]
+      for (let i = 0; i < dividend.length; i++) {
+        dividendTemp.push(dividend[i])
+        // dividendTemp = dividend[i]
         // console.log('dividendTemp', dividendTemp)
 
         if (isGte(dividendTemp, divisor)) {
           quotientTemp = divisibleFor(dividendTemp, divisor)
           // console.log('quotientTemp', quotientTemp)
+          
           quotient.push(quotientTemp)
+          // quotient.push("0")
+
+          dividendTemp = ""
+          dividendTemp = dividendTemp.split("")
+        } else {
+          // console.log('dividendTemp', dividendTemp)
+          // console.log('dividend', dividend)
+          // console.log('divisor', divisor)
+          quotient.push("0")
+          // dividendTemp.push("0")
         }
         // console.log('quotient', quotient)
       }
 
-      return quotient.join("")
+
+      quotient = removeZeroFromLeft(quotient)
+      return quotient
+      // return quotient.join("")
     }
   } else { return null }
 }
