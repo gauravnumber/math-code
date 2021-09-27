@@ -4,11 +4,16 @@
 // import { fact } from './js/fact.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
 import singleDigitDiv  from './js/singleDigitDiv.js'
-import divisibleFor from './js/divisibleFor.js'
+// import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(singleDigitDiv("96396", "3"))
+console.log(singleDigitDiv("14287", "7"))
+// console.log(singleDigitDiv("3186", "3"))
+// console.log(singleDigitDiv("1242", "2"))
+// console.log('abc'.charAt(1));
+
+// console.log(singleDigitDiv("96396", "3"))
 // console.log(singleDigitDiv("8642", "2"))
 // console.log(divisibleFor("2", "2"));
 // console.log(singleDigitDiv("2", "2")); // not working now

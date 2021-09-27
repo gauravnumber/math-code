@@ -23,6 +23,8 @@ describe('singleDigitDiv', () => {
 
   const isGt = [
     ["8642", "2", "4321"],
+    ["1242", "2", "621"],
+    ["3186", "3", "1062"],
   ]
 
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
