@@ -145,7 +145,6 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.join("")
     } else if (isGt(dividend, divisor)) {
-
       for (let i = 0; i < dividend.length; i++) {
         dividendTemp.push(dividend[i])
         // dividendTemp = dividend[i]
@@ -153,12 +152,18 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
         if (isGte(dividendTemp, divisor)) {
           quotientTemp = divisibleFor(dividendTemp, divisor)
-          // console.log('quotientTemp', quotientTemp)
-          
           quotient.push(quotientTemp)
+          mulTemp = mul(divisor, quotientTemp)
+          dividendTemp = sub(dividendTemp, mulTemp)
+
+          // console.log('mulTemp', mulTemp)
+          // console.log('quotientTemp', quotientTemp)
+
           // quotient.push("0")
 
-          dividendTemp = ""
+          // dividendTemp = ""
+          // console.log('dividendTemp', dividendTemp)
+          // console.log('typeof dividendTemp', typeof dividendTemp)
           dividendTemp = dividendTemp.split("")
         } else {
           // console.log('dividendTemp', dividendTemp)

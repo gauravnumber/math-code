@@ -8,7 +8,12 @@ import singleDigitDiv  from './js/singleDigitDiv.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(singleDigitDiv("14287", "7"))
+console.time()
+console.log(singleDigitDiv("20121", "3")) 
+// console.log(singleDigitDiv("37284", "2")) // => 18642
+console.timeEnd()
+// console.log(singleDigitDiv("11246", "2")) // => 5623
+// console.log(singleDigitDiv("14287", "7")) // => 2041
 // console.log(singleDigitDiv("3186", "3"))
 // console.log(singleDigitDiv("1242", "2"))
 // console.log('abc'.charAt(1));
