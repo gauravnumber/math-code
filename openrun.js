@@ -9,7 +9,7 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(singleDigitDiv("-1251", "-12")) 
+console.log(singleDigitDiv("-1251", "12")) 
 // console.log(singleDigitDiv("-6", "-12"));
 
 // console.log(singleDigitDiv("6", "12"));

@@ -57,7 +57,22 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     // console.log("hi");
     // return "hi"
   }
-
+  else if (!isNegative(dividend) && isNegative(divisor)) {
+    divisor = divisor.slice(1)
+    quotientTemp = singleDigitDiv(dividend, divisor)
+    quotientTemp = quotientTemp.split("");
+    quotientTemp.unshift("-");
+    quotientTemp = quotientTemp.join("");
+    return quotientTemp
+  }
+  else if (isNegative(dividend) && !isNegative(divisor)) {
+    dividend = dividend.slice(1)
+    quotientTemp = singleDigitDiv(dividend, divisor)
+    quotientTemp = quotientTemp.split("");
+    quotientTemp.unshift("-");
+    quotientTemp = quotientTemp.join("");
+    return quotientTemp
+  }
   // console.log('dividend', dividend)
   // console.log('divisor', divisor)
 
