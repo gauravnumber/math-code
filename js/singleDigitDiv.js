@@ -1,6 +1,7 @@
 import isDecimal from './.internal/isDecimal.js'
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import split from './.internal/split.js'
+import { add } from './add.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
 import { isLt } from './isLt.js'
@@ -148,15 +149,33 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       for (let i = 0; i < dividend.length; i++) {
         dividendTemp.push(dividend[i])
 
+        // console.log('i, dividend.length', i, dividend.length)
         if (isGte(dividendTemp, divisor)) {
           quotientTemp = divisibleFor(dividendTemp, divisor)
           quotient.push(quotientTemp)
           mulTemp = mul(divisor, quotientTemp)
           dividendTemp = sub(dividendTemp, mulTemp)
           dividendTemp = dividendTemp.split("")
-        } else {
+        }
+        // else if (i === dividend.length - 1) {
+        //   console.log('quotient', quotient)
+        //   quotient.push(".")
+        //   quotientTemp = singleDigitDiv(dividendTemp, divisor)
+        //   quotient = add(quotient, quotientTemp)
+        //   return quotient
+        // }
+        else {
           quotient.push("0")
         }
+
+        if (i === dividend.length - 1) {
+          // console.log('quotient', quotient)
+          quotient.push(".")
+          quotientTemp = singleDigitDiv(dividendTemp, divisor)
+          quotient = add(quotient, quotientTemp)
+          return quotient
+        }
+
       }
 
       quotient = removeZeroFromLeft(quotient)

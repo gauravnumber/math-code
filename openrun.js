@@ -9,7 +9,7 @@ import singleDigitDiv  from './js/singleDigitDiv.js'
 // import isZero from './js/.internal/isZero.js'
 
 console.time()
-console.log(singleDigitDiv("20121", "3")) 
+console.log(singleDigitDiv("11245", "2")) 
 // console.log(singleDigitDiv("37284", "2")) // => 18642
 console.timeEnd()
 // console.log(singleDigitDiv("11246", "2")) // => 5623
