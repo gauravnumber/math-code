@@ -1,4 +1,4 @@
-import { isLt } from './js/isLt.js'
+// import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
 // import { mul } from './js/mul.js'
@@ -9,9 +9,12 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
-// console.log(singleDigitDiv("1251", "12")) 
+console.log(singleDigitDiv("-1251", "-12")) 
+// console.log(singleDigitDiv("-6", "-12"));
+
 // console.log(singleDigitDiv("6", "12"));
-console.log(singleDigitDiv("3", "12")) 
+// console.log(singleDigitDiv("1251", "12")) 
+// console.log(singleDigitDiv("3", "12")) 
 
 // console.log(isLt(["6"], ["1", "2"]));
 // console.time()

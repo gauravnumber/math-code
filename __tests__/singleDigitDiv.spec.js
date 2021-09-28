@@ -43,6 +43,11 @@ describe('singleDigitDiv', () => {
     ["0", "123", "0"],
   ]
 
+  const negative = [
+    ["-3", "-12", "0.25"],
+    ["-1251", "-12", "104.25"],
+  ]
+
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
@@ -71,6 +76,14 @@ describe('singleDigitDiv', () => {
       expect(singleDigitDiv(a, b)).toBe(expected)
     })
   });
+
+  describe('If number is negative', () => {
+    it.each(negative)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
+      expect(singleDigitDiv(a, b)).toBe(expected)
+    })
+  });
+
+
 
   // it.only('should 9/7 ', () => {
   //   expect(singleDigitDiv("9", "7")).toBe("1.2857142857");

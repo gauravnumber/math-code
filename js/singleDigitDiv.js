@@ -45,8 +45,17 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   }
 
   if (isNegative(dividend) && isNegative(divisor)) {
+    dividend = dividend.slice(1);
+    divisor = divisor.slice(1);
+    // dividend = dividend.join("");
+    // divisor = divisor.join("");
+    quotientTemp = singleDigitDiv(dividend, divisor);
+    // quotientTemp = quotientTemp.split("");
+    // quotientTemp.unshift("-");
+    // quotientTemp = quotientTemp.join("");
+    return quotientTemp
     // console.log("hi");
-    return "hi"
+    // return "hi"
   }
 
   // console.log('dividend', dividend)
@@ -127,7 +136,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
         // console.log('dividend', dividend)
         // console.log('divisor', divisor)
         // console.log('quotient', quotient)
-        
+
       }
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
@@ -244,7 +253,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
           // console.log('dividend', dividend)
           // console.log('divisor', divisor)
 
-          console.log('quotientTemp', quotientTemp)
+          // console.log('quotientTemp', quotientTemp)
           if (isZero(quotientTemp)) {
             quotient = removeZeroFromLeft(quotient).split("")
             return quotient.join("")
