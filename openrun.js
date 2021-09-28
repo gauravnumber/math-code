@@ -8,14 +8,14 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.time()
-console.log(singleDigitDiv("11257", "7", "50")) 
+// console.time()
+// console.log(singleDigitDiv("11257", "7", "50")) 
 // console.log(singleDigitDiv("11245", "2")) 
 // console.log(singleDigitDiv("12", "0")) 
 // console.log(singleDigitDiv("12", "12"))
 // console.log(singleDigitDiv("12.5", "12.5")) 
 // console.log(singleDigitDiv("37284", "2")) // => 18642
-console.timeEnd()
+// console.timeEnd()
 // console.log(singleDigitDiv("11246", "2")) // => 5623
 // console.log(singleDigitDiv("14287", "7")) // => 2041
 // console.log(singleDigitDiv("3186", "3"))
@@ -23,7 +23,8 @@ console.timeEnd()
 // console.log('abc'.charAt(1));
 
 // console.log(singleDigitDiv("96396", "3"))
-// console.log(singleDigitDiv("8642", "2"))
+// console.log(singleDigitDiv("0", "2"))
+console.log(singleDigitDiv("8642", "2"))
 // console.log(divisibleFor("2", "2"));
 // console.log(singleDigitDiv("2", "2")); // not working now
 

@@ -46,7 +46,7 @@ describe('singleDigitDiv', () => {
     })
   });
 
-  describe.only('Dividend >= Divisor', () => {
+  describe('Dividend >= Divisor', () => {
     it.each(isGt)('singleDigitDiv(%s, %s)', (a, b, expected) => {
       expect(singleDigitDiv(a, b)).toBe(expected)
     })
