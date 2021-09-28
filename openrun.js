@@ -1,3 +1,4 @@
+import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
 // import { mul } from './js/mul.js'
@@ -8,13 +9,17 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
 
+// console.log(singleDigitDiv("1251", "12")) 
+// console.log(singleDigitDiv("6", "12"));
+console.log(singleDigitDiv("3", "12")) 
+
+// console.log(isLt(["6"], ["1", "2"]));
 // console.time()
 // console.log(singleDigitDiv("11257", "7", "50")) 
 // console.log(singleDigitDiv("11245", "2")) 
-console.log(singleDigitDiv("0", "2"))
+// console.log(singleDigitDiv("0", "2"))
 // console.log(singleDigitDiv("12", "0")) 
 // console.log(singleDigitDiv("12", "12"))
-// console.log(singleDigitDiv("12.5", "12.5")) 
 // console.log(singleDigitDiv("37284", "2")) // => 18642
 // console.timeEnd()
 // console.log(singleDigitDiv("11246", "2")) // => 5623

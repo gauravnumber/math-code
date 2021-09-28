@@ -1,4 +1,5 @@
 import isDecimal from './.internal/isDecimal.js'
+import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import split from './.internal/split.js'
@@ -43,6 +44,14 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     return "1"
   }
 
+  if (isNegative(dividend) && isNegative(divisor)) {
+    // console.log("hi");
+    return "hi"
+  }
+
+  // console.log('dividend', dividend)
+  // console.log('divisor', divisor)
+
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
       // @example 1/2, 3/9, 4/8, 23/44, 566/899, 1234/5555, 78989/98999
@@ -67,24 +76,58 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       quotient = "0."
       quotient = split(quotient)
 
-      for (let i = 0; i < defaultDecimalDigit; i++) {
+      // console.log('dividend', dividend)
+      // console.log('divisor', divisor)
 
+      for (let i = 0; i < defaultDecimalDigit; i++) {
+        // console.log('dividend', dividend)
+        // console.log('divisor', divisor)
+        // console.log('isLt(dividend, divisor)', isLt(dividend, divisor))
         // dividend: 1  
         // dividend: 10 
         // dividend: 100 
         for (let i = 1; isLt(dividend, divisor); i++) {
+          // console.log('dividend', dividend)
+          // console.log('divisor', divisor)
+          // // console.log('quotient', quotient)
+
+          // dividend.push("asdgf")
           dividend.push("0")
+          // dividend.push("0")
+
+          // if (dividend.length === 0) {
+          //   return "hey buddy"
+          // }
+          // dividend = mul(dividend, "10").split("")
           if (i >= 2) {
             quotient.push("0")
           }
+
+          // console.log('dividend', dividend)
+          // console.log('divisor', divisor)
+          // console.log('quotient', quotient)
+          // return "by"
         }
 
+        // console.log('dividend', dividend)
+        // console.log('divisor', divisor)
+        // console.log('quotient', quotient)
+
         quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+
         mulTemp = mul(divisor.join(""), quotientTemp)
         dividend = sub(dividend.join(""), mulTemp)
-
         quotient.push(quotientTemp)
         dividend = split(dividend)
+
+        if (isZero(dividend)) {
+          return quotient.join("")
+        }
+
+        // console.log('dividend', dividend)
+        // console.log('divisor', divisor)
+        // console.log('quotient', quotient)
+        
       }
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
@@ -124,6 +167,10 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       return quotient.join("")
     } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
       // @example 22/7, 123/23, 1234/123, 98987/6754
+
+      // console.log('dividend', dividend)
+      // console.log('divisor', divisor)
+
       quotient = ""
       quotient = quotient.split()
 
@@ -155,14 +202,22 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.join("")
     } else if (isGt(dividend, divisor)) {
+      // console.log('dividend', dividend)
+      // console.log('divisor', divisor)
 
       // console.log('dividend', dividend)
       for (let i = 0; i < dividend.length; i++) {
+        // console.log('dividend', dividend)
+        // console.log('divisor', divisor)
+
         dividendTemp.push(dividend[i])
         // console.log('dividend', dividend)
 
         // console.log('i, dividend.length', i, dividend.length)
         if (isGte(dividendTemp, divisor)) {
+          // console.log('dividend', dividend)
+          // console.log('divisor', divisor)
+
           quotientTemp = divisibleFor(dividendTemp, divisor)
           quotient.push(quotientTemp)
           mulTemp = mul(divisor, quotientTemp)
@@ -182,7 +237,14 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
         if (i === dividend.length - 1) {
           // console.log('quotient', quotient)
+          // console.log('dividend', dividend)
+          // console.log('divisor', divisor)
+
           quotientTemp = singleDigitDiv(dividendTemp, divisor, defaultDecimalDigit)
+          // console.log('dividend', dividend)
+          // console.log('divisor', divisor)
+
+          console.log('quotientTemp', quotientTemp)
           if (isZero(quotientTemp)) {
             quotient = removeZeroFromLeft(quotient).split("")
             return quotient.join("")
