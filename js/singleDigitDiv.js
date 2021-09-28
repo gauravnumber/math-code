@@ -171,7 +171,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
         if (i === dividend.length - 1) {
           // console.log('quotient', quotient)
           quotient.push(".")
-          quotientTemp = singleDigitDiv(dividendTemp, divisor)
+          quotientTemp = singleDigitDiv(dividendTemp, divisor, defaultDecimalDigit)
           quotient = add(quotient, quotientTemp)
           return quotient
         }
