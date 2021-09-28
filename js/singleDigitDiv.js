@@ -1,9 +1,12 @@
 import isDecimal from './.internal/isDecimal.js'
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import split from './.internal/split.js'
+import { add } from './add.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
 import { isLt } from './isLt.js'
 import { isGt } from './isGt.js'
+import { isGte } from './isGte.js'
 import { isEq } from './isEq.js'
 import divisibleFor from './divisibleFor.js'
 
@@ -19,11 +22,17 @@ import divisibleFor from './divisibleFor.js'
 const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
     quotientTemp,
-    mulTemp
+    mulTemp,
+    dividendTemp
 
   dividend = split(dividend)
   divisor = split(divisor)
   defaultDecimalDigit = Number(defaultDecimalDigit)
+  quotient = ""
+  quotient = quotient.split("")
+  dividendTemp = ""
+  dividendTemp = dividendTemp.split("")
+  // quotient = split(quotient)
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
@@ -71,7 +80,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.slice(0, defaultDecimalDigit + 2).join("")  //? "0" and "." it's 2; 10 decimal digit
     } else if (isGt(dividend, divisor) && dividend.length === divisor.length) {
-        // @example 9/2, 8/2, 8/3, 355/113, 40/13
+      // @example 9/2, 8/2, 8/3, 355/113, 40/13
       quotient = ""
       quotient = quotient.split()
 
@@ -136,6 +145,42 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       }
 
       return quotient.join("")
+    } else if (isGt(dividend, divisor)) {
+      for (let i = 0; i < dividend.length; i++) {
+        dividendTemp.push(dividend[i])
+
+        // console.log('i, dividend.length', i, dividend.length)
+        if (isGte(dividendTemp, divisor)) {
+          quotientTemp = divisibleFor(dividendTemp, divisor)
+          quotient.push(quotientTemp)
+          mulTemp = mul(divisor, quotientTemp)
+          dividendTemp = sub(dividendTemp, mulTemp)
+          dividendTemp = dividendTemp.split("")
+        }
+        // else if (i === dividend.length - 1) {
+        //   console.log('quotient', quotient)
+        //   quotient.push(".")
+        //   quotientTemp = singleDigitDiv(dividendTemp, divisor)
+        //   quotient = add(quotient, quotientTemp)
+        //   return quotient
+        // }
+        else {
+          quotient.push("0")
+        }
+
+        if (i === dividend.length - 1) {
+          // console.log('quotient', quotient)
+          quotient.push(".")
+          quotientTemp = singleDigitDiv(dividendTemp, divisor, defaultDecimalDigit)
+          quotient = add(quotient, quotientTemp)
+          return quotient
+        }
+
+      }
+
+      quotient = removeZeroFromLeft(quotient)
+      return quotient
+      // return quotient.join("")
     }
   } else { return null }
 }

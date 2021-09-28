@@ -6,7 +6,8 @@ describe('divisibleFor', () => {
     ["72", "12", "6"],
     ["25", "5", "5"],
     ["20", "8", "2"],  // divisibleFor returns 2
-    [["2", "0"], ["8"], "2"]
+    [["2", "0"], ["8"], "2"],
+    ["2", "2", "1"],
   ]
 
   it.each(array)('divisibleFor(%s, %s)', (a, b, expected) => {

@@ -9,8 +9,25 @@ import singleDigitDiv  from './js/singleDigitDiv.js'
 // import isZero from './js/.internal/isZero.js'
 
 console.time()
-console.log(singleDigitDiv("1667", "1222", "1000")) // 102 digit fit my desktop screen including "."
+console.log(singleDigitDiv("11257", "7", "50")) 
+// console.log(singleDigitDiv("11245", "2")) 
+// console.log(singleDigitDiv("37284", "2")) // => 18642
 console.timeEnd()
+// console.log(singleDigitDiv("11246", "2")) // => 5623
+// console.log(singleDigitDiv("14287", "7")) // => 2041
+// console.log(singleDigitDiv("3186", "3"))
+// console.log(singleDigitDiv("1242", "2"))
+// console.log('abc'.charAt(1));
+
+// console.log(singleDigitDiv("96396", "3"))
+// console.log(singleDigitDiv("8642", "2"))
+// console.log(divisibleFor("2", "2"));
+// console.log(singleDigitDiv("2", "2")); // not working now
+
+
+// console.time()
+// console.log(singleDigitDiv("1667", "1222", "1000")) // 102 digit fit my desktop screen including "."
+// console.timeEnd()
 
 // console.time()
 // console.log(singleDigitDiv("355", "113", "200"))
