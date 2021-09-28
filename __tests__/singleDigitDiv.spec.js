@@ -6,6 +6,8 @@ describe('singleDigitDiv', () => {
     ["2", "5", "0.4"],
     ["3", "7", "0.4285714285"],
     ["2", "8", "0.25"],
+    ["6", "12", "0.5"],
+    ["3", "12", "0.25"],
     ["1", "33", "0.0303030303"],
     ["1", "36", "0.0277777777"],
     ["1", "35", "0.0285714285"],
@@ -22,8 +24,9 @@ describe('singleDigitDiv', () => {
   ]
 
   const isGt = [
-    ["8642", "2", "4321"],
     ["1242", "2", "621"],
+    ["1251", "12", "104.25"],
+    ["8642", "2", "4321"],
     ["3186", "3", "1062"],
     ["14287", "7", "2041"],
     ["11246", "2", "5623"],
@@ -38,6 +41,11 @@ describe('singleDigitDiv', () => {
 
   const zero = [
     ["0", "123", "0"],
+  ]
+
+  const negative = [
+    ["-3", "-12", "0.25"],
+    ["-1251", "-12", "104.25"],
   ]
 
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
@@ -68,6 +76,14 @@ describe('singleDigitDiv', () => {
       expect(singleDigitDiv(a, b)).toBe(expected)
     })
   });
+
+  describe('If number is negative', () => {
+    it.each(negative)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
+      expect(singleDigitDiv(a, b)).toBe(expected)
+    })
+  });
+
+
 
   // it.only('should 9/7 ', () => {
   //   expect(singleDigitDiv("9", "7")).toBe("1.2857142857");
