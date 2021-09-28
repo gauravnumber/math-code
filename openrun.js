@@ -11,6 +11,7 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // console.time()
 // console.log(singleDigitDiv("11257", "7", "50")) 
 // console.log(singleDigitDiv("11245", "2")) 
+console.log(singleDigitDiv("0", "2"))
 // console.log(singleDigitDiv("12", "0")) 
 // console.log(singleDigitDiv("12", "12"))
 // console.log(singleDigitDiv("12.5", "12.5")) 
@@ -23,8 +24,7 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // console.log('abc'.charAt(1));
 
 // console.log(singleDigitDiv("96396", "3"))
-// console.log(singleDigitDiv("0", "2"))
-console.log(singleDigitDiv("8642", "2"))
+// console.log(singleDigitDiv("8642", "2"))
 // console.log(divisibleFor("2", "2"));
 // console.log(singleDigitDiv("2", "2")); // not working now
 

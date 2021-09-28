@@ -36,6 +36,10 @@ describe('singleDigitDiv', () => {
     ["1.2", "1.2"],
   ]
 
+  const zero = [
+    ["0", "123", "0"],
+  ]
+
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
@@ -56,6 +60,12 @@ describe('singleDigitDiv', () => {
   describe('Dividend === Divisor', () => {
     it.each(isEq)('singleDigitDiv(%s, %s)', (a, b) => {
       expect(singleDigitDiv(a, b)).toBe("1")
+    })
+  });
+
+  describe('If any dividend or divisor become zero', () => {
+    it.each(zero)('singleDigitDiv(%s, %s)', (a, b, expected) => {
+      expect(singleDigitDiv(a, b)).toBe(expected)
     })
   });
 
