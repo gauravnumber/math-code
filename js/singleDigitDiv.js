@@ -1,4 +1,5 @@
 import isDecimal from './.internal/isDecimal.js'
+import isZero from './.internal/isZero.js'
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import split from './.internal/split.js'
 import { add } from './add.js'
@@ -33,6 +34,14 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   dividendTemp = ""
   dividendTemp = dividendTemp.split("")
   // quotient = split(quotient)
+
+  if (isZero(dividend)) {
+    return "0"
+  }
+
+  if (isEq(dividend, divisor)) {
+    return "1"
+  }
 
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
@@ -146,8 +155,11 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       return quotient.join("")
     } else if (isGt(dividend, divisor)) {
+
+      // console.log('dividend', dividend)
       for (let i = 0; i < dividend.length; i++) {
         dividendTemp.push(dividend[i])
+        // console.log('dividend', dividend)
 
         // console.log('i, dividend.length', i, dividend.length)
         if (isGte(dividendTemp, divisor)) {
@@ -170,9 +182,14 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
         if (i === dividend.length - 1) {
           // console.log('quotient', quotient)
-          quotient.push(".")
           quotientTemp = singleDigitDiv(dividendTemp, divisor, defaultDecimalDigit)
+          if (isZero(quotientTemp)) {
+            quotient = removeZeroFromLeft(quotient).split("")
+            return quotient.join("")
+          }
+          quotient.push(".")
           quotient = add(quotient, quotientTemp)
+          // quotient = removeZeroFromLeft(quotient)
           return quotient
         }
 
@@ -182,6 +199,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       return quotient
       // return quotient.join("")
     }
+    // else if (isEq(dividend, divisor)) {
+    //   return "1"
+    // }
   } else { return null }
 }
 
