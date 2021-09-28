@@ -34,6 +34,10 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   dividendTemp = dividendTemp.split("")
   // quotient = split(quotient)
 
+  if (isEq(dividend, divisor)) {
+    return "1"
+  }
+
   if (!isDecimal(dividend) && !isDecimal(divisor)) {
     if (isLt(dividend, divisor) && dividend.length === divisor.length) {
       // @example 1/2, 3/9, 4/8, 23/44, 566/899, 1234/5555, 78989/98999
@@ -182,6 +186,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       return quotient
       // return quotient.join("")
     }
+    // else if (isEq(dividend, divisor)) {
+    //   return "1"
+    // }
   } else { return null }
 }
 

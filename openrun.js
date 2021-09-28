@@ -3,7 +3,7 @@
 // import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
-import singleDigitDiv  from './js/singleDigitDiv.js'
+import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import isZero from './js/.internal/isZero.js'
@@ -11,6 +11,9 @@ import singleDigitDiv  from './js/singleDigitDiv.js'
 console.time()
 console.log(singleDigitDiv("11257", "7", "50")) 
 // console.log(singleDigitDiv("11245", "2")) 
+// console.log(singleDigitDiv("12", "0")) 
+// console.log(singleDigitDiv("12", "12"))
+// console.log(singleDigitDiv("12.5", "12.5")) 
 // console.log(singleDigitDiv("37284", "2")) // => 18642
 console.timeEnd()
 // console.log(singleDigitDiv("11246", "2")) // => 5623

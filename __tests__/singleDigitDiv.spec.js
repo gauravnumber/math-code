@@ -31,6 +31,11 @@ describe('singleDigitDiv', () => {
     ["37284", "2", "18642"],
   ]
 
+  const isEq = [
+    ["12", "12"],
+    ["1.2", "1.2"],
+  ]
+
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
@@ -41,9 +46,16 @@ describe('singleDigitDiv', () => {
     })
   });
 
-  describe('Dividend >= Divisor', () => {
+  describe.only('Dividend >= Divisor', () => {
     it.each(isGt)('singleDigitDiv(%s, %s)', (a, b, expected) => {
       expect(singleDigitDiv(a, b)).toBe(expected)
+    })
+  });
+
+
+  describe('Dividend === Divisor', () => {
+    it.each(isEq)('singleDigitDiv(%s, %s)', (a, b) => {
+      expect(singleDigitDiv(a, b)).toBe("1")
     })
   });
 
