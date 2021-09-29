@@ -7,6 +7,7 @@ import split from './.internal/split.js'
 import { add } from './add.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
+import { pow } from './pow.js'
 import { isLt } from './isLt.js'
 import { isGt } from './isGt.js'
 import { isGte } from './isGte.js'
@@ -30,7 +31,8 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     dividendDecimalPosition,
     divisorDecimalPosition,
     dividendLastDecimalPosition,
-    divisorLastDecimalPosition
+    divisorLastDecimalPosition,
+    lastDecimalPositionTemp
 
   dividend = split(dividend)
   divisor = split(divisor)
@@ -300,14 +302,24 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     dividendLastDecimalPosition = dividend.length - decimalPosition(dividend)
     divisorLastDecimalPosition = divisor.length - decimalPosition(divisor)
 
-    console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
-    console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
+    // console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
+    // console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
 
     if (dividendLastDecimalPosition === divisorLastDecimalPosition) {
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
-      quotientTemp = singleDigitDiv(dividend, divisor)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
       return quotientTemp
+    } else if (divisorLastDecimalPosition > dividendLastDecimalPosition) {
+      lastDecimalPositionTemp = divisorLastDecimalPosition - dividendLastDecimalPosition
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      dividend.splice(dividendDecimalPosition, 1)
+      divisor.splice(divisorDecimalPosition, 1)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 1)
+
+      quotientTemp = mul(quotientTemp, pow("10", lastDecimalPositionTemp))
+      return quotientTemp
+
     }
 
     // console.log('dividendDecimalPosition', dividendDecimalPosition)
