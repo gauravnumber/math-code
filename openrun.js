@@ -14,9 +14,9 @@ import decimalPosition from './js/.internal/decimalPosition.js'
 // const temp = singleDigitDiv("1", "1000000000000")
 // console.log(mul("23.232", temp)) 
 
-console.log(mul("2342.2323", "0.0000000000000000000001"));
+// console.log(mul("2342.2323", "0.0000000000000000000001"));
 
-// console.log(singleDigitDiv("1252.3232321", "1.2212")) 
+console.log(singleDigitDiv("1252.3232321", "1.2212")) 
 
 
 // console.log(singleDigitDiv("1", "1000000")) 
