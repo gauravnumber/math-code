@@ -27,11 +27,11 @@ describe('Division', () => {
     expect(mcDiv(a, b)).toBe(expected);
   })
 
-  it.each(negative)("Negative %s/%s", (a, b, expected) => {
-    expect(mcDiv(a, b)).toBe(expected);
-  })
+  // it.each(negative)("Negative %s/%s", (a, b, expected) => {
+  //   expect(mcDiv(a, b)).toBe(expected);
+  // })
 
-  it.only.each(decimal)("Decimal %s/%s", (a, b, expected) => {
-    expect(mcDiv(a, b)).toBe(expected);
-  })
+  // it.only.each(decimal)("Decimal %s/%s", (a, b, expected) => {
+  //   expect(mcDiv(a, b)).toBe(expected);
+  // })
 });

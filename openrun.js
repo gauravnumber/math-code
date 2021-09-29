@@ -7,9 +7,17 @@
 import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
+import decimalPosition from './js/.internal/decimalPosition.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(singleDigitDiv("-1251", "12")) 
+console.log(decimalPosition("1259891")) 
+// console.log(decimalPosition("1255.29891")) 
+// console.log(singleDigitDiv("125.1", "1.2")) 
+// console.log("2332.23".indexOf("."));
+// console.log("2332.23".lastIndexOf("."));
+
+
+// console.log(singleDigitDiv("-1251", "12")) 
 // console.log(singleDigitDiv("-6", "-12"));
 
 // console.log(singleDigitDiv("6", "12"));

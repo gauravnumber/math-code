@@ -1,3 +1,4 @@
+import decimalPosition from './.internal/decimalPosition.js'
 import isDecimal from './.internal/isDecimal.js'
 import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
@@ -25,7 +26,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
     quotientTemp,
     mulTemp,
-    dividendTemp
+    dividendTemp,
+    dividendDecimalPosition,
+    divisorDecimalPosition
 
   dividend = split(dividend)
   divisor = split(divisor)
@@ -288,7 +291,27 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     // else if (isEq(dividend, divisor)) {
     //   return "1"
     // }
-  } else { return null }
+  } else if (isDecimal(dividend) && isDecimal(divisor)) {
+    dividendDecimalPosition = decimalPosition(dividend)
+    divisorDecimalPosition = decimalPosition(divisor)
+
+    console.log('dividendDecimalPosition', dividendDecimalPosition)
+    console.log('divisorDecimalPosition', divisorDecimalPosition)
+
+    dividend.splice(dividendDecimalPosition, 1)
+    divisor.splice(divisorDecimalPosition, 1)
+
+    console.log('dividend', dividend)
+    console.log('divisor', divisor)
+
+    quotientTemp = singleDigitDiv(dividend, divisor)
+
+
+    console.log('quotientTemp', quotientTemp)
+    // return dividendDecimalPosition
+    return "end"
+  }
+  else { return null }
 }
 
 export default singleDigitDiv
