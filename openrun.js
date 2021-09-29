@@ -17,7 +17,8 @@ import decimalPosition from './js/.internal/decimalPosition.js'
 
 // console.log(decimalPosition("1259891")) 
 // console.log(decimalPosition("1255.29891")) 
-console.log(singleDigitDiv("1252323.23231", "1.23212")) 
+console.log(singleDigitDiv("1252323.2321", "1.2212", "12")) 
+// console.log(singleDigitDiv("1252323.2321", "1.23212", "12")) 
 // console.log("2332.23".indexOf("."));
 // console.log("2332.23".lastIndexOf("."));
 
