@@ -1,7 +1,7 @@
 // import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
-// import { mul } from './js/mul.js'
+import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
 import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
@@ -11,13 +11,20 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 import decimalPosition from './js/.internal/decimalPosition.js'
 // import isZero from './js/.internal/isZero.js'
 
+// const temp = singleDigitDiv("1", "1000000000000")
+// console.log(mul("23.232", temp)) 
+
+console.log(mul("2342.2323", "0.0000000000000000000001"));
+
+// console.log(singleDigitDiv("1252.3232321", "1.2212")) 
+
+
 // console.log(singleDigitDiv("1", "1000000")) 
 
 // console.log(pow("10", "3")) 
 
 // console.log(decimalPosition("1259891")) 
 // console.log(decimalPosition("1255.29891")) 
-console.log(singleDigitDiv("1252323.2321", "1.2212", "12")) 
 // console.log(singleDigitDiv("1252323.2321", "1.23212", "12")) 
 // console.log("2332.23".indexOf("."));
 // console.log("2332.23".lastIndexOf("."));

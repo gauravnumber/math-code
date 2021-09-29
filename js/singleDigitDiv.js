@@ -319,7 +319,23 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       quotientTemp = mul(quotientTemp, pow("10", lastDecimalPositionTemp))
       return quotientTemp
+    } else {
+      lastDecimalPositionTemp = dividendLastDecimalPosition - divisorLastDecimalPosition
+      console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      dividend.splice(dividendDecimalPosition, 1)
+      divisor.splice(divisorDecimalPosition, 1)
 
+      // console.log('dividend', dividend)
+      // console.log('divisor', divisor)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+      console.log('quotientTemp', quotientTemp)
+
+      
+      return "end"
+
+      quotientTemp = singleDigitDiv(quotientTemp, pow("10", lastDecimalPositionTemp))
+      return quotientTemp
+      // return 'helluo'
     }
 
     // console.log('dividendDecimalPosition', dividendDecimalPosition)
