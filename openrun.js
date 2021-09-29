@@ -3,15 +3,19 @@
 // import { mcMulSection } from './js/mcMulSection.js'
 // import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
-import { pow } from './js/pow.js'
+// import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
-import singleDigitDiv from './js/singleDigitDiv.js'
+// import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
-import decimalPosition from './js/.internal/decimalPosition.js'
+// import decimalPosition from './js/.internal/decimalPosition.js'
+import decimalShift from './js/.internal/decimalShift.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(singleDigitDiv("1", "1000000")) 
+console.log(decimalShift("123456.789", "-2")) 
+// console.log(decimalShift("34", "0")) 
+
+// console.log(singleDigitDiv("1", "1000000")) 
 
 // console.log(pow("10", "3")) 
 
