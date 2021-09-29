@@ -11,13 +11,13 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 import decimalPosition from './js/.internal/decimalPosition.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(singleDigitDiv("1", "1000000")) 
+// console.log(singleDigitDiv("1", "1000000")) 
 
 // console.log(pow("10", "3")) 
 
 // console.log(decimalPosition("1259891")) 
 // console.log(decimalPosition("1255.29891")) 
-// console.log(singleDigitDiv("125.1", "1.2")) 
+console.log(singleDigitDiv("1252323.23231", "1.23212")) 
 // console.log("2332.23".indexOf("."));
 // console.log("2332.23".lastIndexOf("."));
 

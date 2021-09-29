@@ -28,7 +28,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     mulTemp,
     dividendTemp,
     dividendDecimalPosition,
-    divisorDecimalPosition
+    divisorDecimalPosition,
+    dividendLastDecimalPosition,
+    divisorLastDecimalPosition
 
   dividend = split(dividend)
   divisor = split(divisor)
@@ -295,16 +297,29 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     dividendDecimalPosition = decimalPosition(dividend)
     divisorDecimalPosition = decimalPosition(divisor)
 
-    console.log('dividendDecimalPosition', dividendDecimalPosition)
-    console.log('divisorDecimalPosition', divisorDecimalPosition)
+    dividendLastDecimalPosition = dividend.length - decimalPosition(dividend)
+    divisorLastDecimalPosition = divisor.length - decimalPosition(divisor)
 
-    dividend.splice(dividendDecimalPosition, 1)
-    divisor.splice(divisorDecimalPosition, 1)
+    console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
+    console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
 
-    console.log('dividend', dividend)
-    console.log('divisor', divisor)
+    if (dividendLastDecimalPosition === divisorLastDecimalPosition) {
+      dividend.splice(dividendDecimalPosition, 1)
+      divisor.splice(divisorDecimalPosition, 1)
+      quotientTemp = singleDigitDiv(dividend, divisor)
+      return quotientTemp
+    }
 
-    quotientTemp = singleDigitDiv(dividend, divisor)
+    // console.log('dividendDecimalPosition', dividendDecimalPosition)
+    // console.log('divisorDecimalPosition', divisorDecimalPosition)
+
+    // dividend.splice(dividendDecimalPosition, 1)
+    // divisor.splice(divisorDecimalPosition, 1)
+
+    // console.log('dividend', dividend)
+    // console.log('divisor', divisor)
+
+    // quotientTemp = singleDigitDiv(dividend, divisor)
 
 
     console.log('quotientTemp', quotientTemp)

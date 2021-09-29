@@ -48,6 +48,7 @@ describe('singleDigitDiv', () => {
     ["-1251", "-12", "104.25"],
   ]
 
+
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
   })
@@ -81,6 +82,20 @@ describe('singleDigitDiv', () => {
     it.each(negative)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
       expect(singleDigitDiv(a, b)).toBe(expected)
     })
+  });
+
+
+  describe.only('If number is decimal', () => {
+    const decimal = [
+      ["1252323.23231", "1.23212", "1016397.1304012596"],
+      // ["-1251", "-12", "104.25"],
+    ]
+  
+    describe('If number is same decimal digit', () => {
+      it.each(decimal)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
+        expect(singleDigitDiv(a, b)).toBe(expected)
+      })
+    });
   });
 
 
