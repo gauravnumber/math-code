@@ -1,7 +1,7 @@
 // import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
-// import { mul } from './js/mul.js'
+import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
 // import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
@@ -12,7 +12,9 @@
 import decimalShift from './js/.internal/decimalShift.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(decimalShift("123456.789", "-40"))  // -7 4
+console.log(decimalShift("123456.789", "5"))  // -7 4
+// console.log(mul("12343.2323", "100000"));
+
 // console.log(decimalShift("34", "0")) 
 
 // console.log(singleDigitDiv("1", "1000000")) 
