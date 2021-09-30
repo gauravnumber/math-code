@@ -3,12 +3,13 @@
 // import { mcMulSection } from './js/mcMulSection.js'
 import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
-import { pow } from './js/pow.js'
+// import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
-import singleDigitDiv from './js/singleDigitDiv.js'
+// import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 import decimalPosition from './js/.internal/decimalPosition.js'
+import decimalShift from './js/.internal/decimalShift.js'
 // import isZero from './js/.internal/isZero.js'
 
 // const temp = singleDigitDiv("1", "1000000000000")
@@ -18,12 +19,20 @@ import decimalPosition from './js/.internal/decimalPosition.js'
 
 console.log(singleDigitDiv("1252.3232321", "1.2212")) 
 
+for (let index = -20; index < 20; index++) {
+  console.log("index:" + index + " " + decimalShift("12345.6789", index));
+}
+
+// console.log(decimalShift("123456.789", "3"))  // -7 4
+// console.log(mul("12343.2323", "100000"));
+
+// console.log(decimalShift("34", "0")) 
 
 // console.log(singleDigitDiv("1", "1000000")) 
 
 // console.log(pow("10", "3")) 
 
-// console.log(decimalPosition("1259891")) 
+// console.log(decimalPosition("125989.1")) 
 // console.log(decimalPosition("1255.29891")) 
 // console.log(singleDigitDiv("1252323.2321", "1.23212", "12")) 
 // console.log("2332.23".indexOf("."));
