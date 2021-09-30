@@ -1,4 +1,5 @@
 import decimalPosition from './.internal/decimalPosition.js'
+import decimalShift from './.internal/decimalShift.js'
 import isDecimal from './.internal/isDecimal.js'
 import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
@@ -321,20 +322,23 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       return quotientTemp
     } else {
       lastDecimalPositionTemp = dividendLastDecimalPosition - divisorLastDecimalPosition
-      console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
 
       // console.log('dividend', dividend)
       // console.log('divisor', divisor)
       quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
-      console.log('quotientTemp', quotientTemp)
+      // console.log('quotientTemp', quotientTemp)
 
+      quotientTemp = decimalShift(quotientTemp, -lastDecimalPositionTemp)
+
+      // console.log('quotientTemp', quotientTemp)
       
-      return "end"
-
-      quotientTemp = singleDigitDiv(quotientTemp, pow("10", lastDecimalPositionTemp))
       return quotientTemp
+
+      // quotientTemp = singleDigitDiv(quotientTemp, pow("10", lastDecimalPositionTemp))
+      // return quotientTemp
       // return 'helluo'
     }
 
