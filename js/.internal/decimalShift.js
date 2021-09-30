@@ -7,7 +7,9 @@ import { pow } from '../pow.js'
 
 const decimalShift = (value, shift) => {
   let valueDecimalPosition,
-    decimalPositionTemp
+    decimalPositionTemp,
+    lastDecimalDigit,
+    numberOfAddingZero
 
   value = split(value)
   shift = Number(shift)
@@ -20,23 +22,48 @@ const decimalShift = (value, shift) => {
     valueDecimalPosition = decimalPosition(value)
     decimalPositionTemp = valueDecimalPosition + shift
     // shift += valueDecimalPosition
-    value.splice(valueDecimalPosition, 1)
-    console.log('decimalPositionTemp', decimalPositionTemp)
 
-    if (decimalPositionTemp <= value.length) {
-      value.splice(decimalPositionTemp, 0, ".")
-      
+    if (decimalPositionTemp < value.length) {
+      value.splice(valueDecimalPosition, 1)
+      if (decimalPositionTemp !== value.length) {
+        value.splice(decimalPositionTemp, 0, ".")
+      }
+
+      // return value.join("")
+    } else {
+      // console.log('value', value)
+      valueDecimalPosition = decimalPosition(value)
+      lastDecimalDigit = value.length - valueDecimalPosition
+      numberOfAddingZero = shift - lastDecimalDigit + 1
+
+      // console.log('valueDecimalPosition', valueDecimalPosition)
+      // console.log('decimalPositionTemp', decimalPositionTemp)
+
+      value.splice(valueDecimalPosition, 1)
+
+      // console.log('numberOfAddingZero', numberOfAddingZero)
+
+      for (let i = 0; i < Math.abs(numberOfAddingZero); i++) {
+        value.push("0")
+      }
+
+      // value.splice(decimalPositionTemp, 0, ".")
+
+      // console.log('numberOfAddingZero', numberOfAddingZero)
+      return value.join("")
+
     }
     // value.splice(shift, 0, ".")
 
     if (decimalPositionTemp === 0) {
-      value.splice(decimalPositionTemp, 0, ".")
+      // console.log('value', value)
+      // value.splice(decimalPositionTemp, 0, ".")
 
       value.unshift("0")
       return value.join("")
     }
 
-    
+
     if (decimalPositionTemp < 0) {
       // console.log('value', value)
       let decimalPositionTempAbs = Math.abs(decimalPositionTemp)
@@ -55,7 +82,7 @@ const decimalShift = (value, shift) => {
 
     // console.log('decimalPositionTemp', decimalPositionTemp)
     // value.splice(shift, 0, ".")
-    console.log('value', value)
+    // console.log('value', value)
 
     // value = mul(value, "100")
     // console.log('value', value)
