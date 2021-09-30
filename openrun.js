@@ -12,7 +12,7 @@
 import decimalShift from './js/.internal/decimalShift.js'
 // import isZero from './js/.internal/isZero.js'
 
-console.log(decimalShift("123456.789", "-2")) 
+console.log(decimalShift("123456.789", "-40"))  // -7 4
 // console.log(decimalShift("34", "0")) 
 
 // console.log(singleDigitDiv("1", "1000000")) 
