@@ -341,6 +341,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       // quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 2)
       return quotientTemp
     } else if (divisorLastDecimalPosition > dividendLastDecimalPosition) {
+      // TODO remove if condition 
       lastDecimalPositionTemp = divisorLastDecimalPosition - dividendLastDecimalPosition
       // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
       // console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)

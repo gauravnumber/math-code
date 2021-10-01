@@ -17,6 +17,8 @@ import decimalShift from './js/.internal/decimalShift.js'
 
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
 
+console.log(decimalShift("123", "2"));
+
 // let dividend = "1237.48956"
 // // divisorDecimalPosition = decimalPosition(divisor)
 // let dividendDecimalPosition = decimalPosition(dividend)
@@ -26,7 +28,7 @@ import decimalShift from './js/.internal/decimalShift.js'
 // console.log(dividendLastDecimalPosition);
 // console.log(dividendDecimalPosition);
 
-console.log(singleDigitDiv("15506073.6", "1.23456"));
+// console.log(singleDigitDiv("15506073.6", "1.23456"));
 // console.log(singleDigitDiv("1550607.36", "123456"));
 // console.log(decimalShift("12133.0", "-3"));
 
