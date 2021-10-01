@@ -19,9 +19,9 @@ import decimalShift from './js/.internal/decimalShift.js'
 // 10945/12567
 
 // console.log(singleDigitDiv("10945", "12567"))
-console.log(singleDigitDiv("1234567891", "12567"))
+// console.log(singleDigitDiv("1234567891", "12567"))
 // console.log(singleDigitDiv("123456789.1", "1256.7", "10"))
-// console.log(singleDigitDiv("123456789.1", "1223456.7", "2"))
+console.log(singleDigitDiv("123456789.1", "1223456.7", "2"))
 // console.log(singleDigitDiv("1252.32345", "212231.2212345")) // not working as expected
 
 // for (let index = -20; index <= 20; index++) {
@@ -39,7 +39,7 @@ console.log(singleDigitDiv("1234567891", "12567"))
 
 // console.log(decimalPosition("125989.1")) 
 // console.log(decimalPosition("1255.29891")) 
-// console.log(singleDigitDiv("1252323.2321", "1.23212", "12")) 
+// console.log(singleDigitDiv("1252323.23231", "1.23212", "12")) 
 // console.log("2332.23".indexOf("."));
 // console.log("2332.23".lastIndexOf("."));
 

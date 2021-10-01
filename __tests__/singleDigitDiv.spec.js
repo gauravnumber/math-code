@@ -88,7 +88,7 @@ describe('singleDigitDiv', () => {
   });
 
 
-  describe.only('If number is decimal', () => {
+  describe('If number is decimal', () => {
     const decimal = [
       ["1252323.23231", "1.23212", "1016397.1304012596"],
       // ["1252323.2321", "1.23212", "1016397.130230821"],

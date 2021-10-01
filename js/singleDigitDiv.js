@@ -334,10 +334,11 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     if (dividendLastDecimalPosition === divisorLastDecimalPosition) {
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
-      console.log('dividend', dividend.join(""))
-      console.log('divisor', divisor.join(""))
+      // console.log('dividend', dividend.join(""))
+      // console.log('divisor', divisor.join(""))
 
-      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 2)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+      // quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 2)
       return quotientTemp
     } else if (divisorLastDecimalPosition > dividendLastDecimalPosition) {
       lastDecimalPositionTemp = divisorLastDecimalPosition - dividendLastDecimalPosition
