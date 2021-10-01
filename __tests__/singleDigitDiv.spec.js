@@ -21,6 +21,7 @@ describe('singleDigitDiv', () => {
     ["22", "7", "40", "3.1428571428571428571428571428571428571428"],
     ["40", "13", "40", "3.0769230769230769230769230769230769230769"],
     ["1667", "1222", "90", "1.364157119476268412438625204582651391162029459901800327332242225859247135842880523731587561"],
+    ["1252323.2321", "1.23212", "12", "1016397.130230821673"],
   ]
 
   const isGt = [
@@ -47,6 +48,7 @@ describe('singleDigitDiv', () => {
     ["-3", "-12", "0.25"],
     ["-1251", "-12", "104.25"],
   ]
+
 
   it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
     expect(singleDigitDiv(a, b)).toBe(expected)
@@ -81,6 +83,20 @@ describe('singleDigitDiv', () => {
     it.each(negative)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
       expect(singleDigitDiv(a, b)).toBe(expected)
     })
+  });
+
+
+  describe.only('If number is decimal', () => {
+    const decimal = [
+      ["1252323.23231", "1.23212", "1016397.1304012596"],
+      // ["1252323.2321", "1.23212", "1016397.130230821"],
+    ]
+
+    describe('If number is same decimal digit', () => {
+      it.each(decimal)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
+        expect(singleDigitDiv(a, b)).toBe(expected)
+      })
+    });
   });
 
 

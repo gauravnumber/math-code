@@ -1,4 +1,5 @@
 import decimalPosition from './.internal/decimalPosition.js'
+import decimalShift from './.internal/decimalShift.js'
 import isDecimal from './.internal/isDecimal.js'
 import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
@@ -7,6 +8,7 @@ import split from './.internal/split.js'
 import { add } from './add.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
+// import { pow } from './pow.js'
 import { isLt } from './isLt.js'
 import { isGt } from './isGt.js'
 import { isGte } from './isGte.js'
@@ -28,7 +30,10 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     mulTemp,
     dividendTemp,
     dividendDecimalPosition,
-    divisorDecimalPosition
+    divisorDecimalPosition,
+    dividendLastDecimalPosition,
+    divisorLastDecimalPosition,
+    lastDecimalPositionTemp
 
   dividend = split(dividend)
   divisor = split(divisor)
@@ -295,21 +300,65 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     dividendDecimalPosition = decimalPosition(dividend)
     divisorDecimalPosition = decimalPosition(divisor)
 
-    console.log('dividendDecimalPosition', dividendDecimalPosition)
-    console.log('divisorDecimalPosition', divisorDecimalPosition)
+    dividendLastDecimalPosition = dividend.length - decimalPosition(dividend)
+    divisorLastDecimalPosition = divisor.length - decimalPosition(divisor)
 
-    dividend.splice(dividendDecimalPosition, 1)
-    divisor.splice(divisorDecimalPosition, 1)
+    // console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
+    // console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
 
-    console.log('dividend', dividend)
-    console.log('divisor', divisor)
+    if (dividendLastDecimalPosition === divisorLastDecimalPosition) {
+      dividend.splice(dividendDecimalPosition, 1)
+      divisor.splice(divisorDecimalPosition, 1)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+      return quotientTemp
+    } else if (divisorLastDecimalPosition > dividendLastDecimalPosition) {
+      lastDecimalPositionTemp = divisorLastDecimalPosition - dividendLastDecimalPosition
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      dividend.splice(dividendDecimalPosition, 1)
+      divisor.splice(divisorDecimalPosition, 1)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 1)
 
-    quotientTemp = singleDigitDiv(dividend, divisor)
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      quotientTemp = decimalShift(quotientTemp, lastDecimalPositionTemp)
+      // quotientTemp = mul(quotientTemp, pow("10", lastDecimalPositionTemp))
+      return quotientTemp
+    } else {
+      lastDecimalPositionTemp = dividendLastDecimalPosition - divisorLastDecimalPosition
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      dividend.splice(dividendDecimalPosition, 1)
+      divisor.splice(divisorDecimalPosition, 1)
+
+      // console.log('dividend', dividend)
+      // console.log('divisor', divisor)
+      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+      // console.log('quotientTemp', quotientTemp)
+
+      quotientTemp = decimalShift(quotientTemp, -lastDecimalPositionTemp)
+
+      // console.log('quotientTemp', quotientTemp)
+      
+      return quotientTemp
+
+      // quotientTemp = singleDigitDiv(quotientTemp, pow("10", lastDecimalPositionTemp))
+      // return quotientTemp
+      // return 'helluo'
+    }
+
+    // console.log('dividendDecimalPosition', dividendDecimalPosition)
+    // console.log('divisorDecimalPosition', divisorDecimalPosition)
+
+    // dividend.splice(dividendDecimalPosition, 1)
+    // divisor.splice(divisorDecimalPosition, 1)
+
+    // console.log('dividend', dividend)
+    // console.log('divisor', divisor)
+
+    // quotientTemp = singleDigitDiv(dividend, divisor)
 
 
-    console.log('quotientTemp', quotientTemp)
-    // return dividendDecimalPosition
-    return "end"
+    // console.log('quotientTemp', quotientTemp)
+    // // return dividendDecimalPosition
+    // return "end"
   }
   else { return null }
 }
