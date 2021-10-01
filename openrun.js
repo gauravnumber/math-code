@@ -16,8 +16,12 @@ import decimalShift from './js/.internal/decimalShift.js'
 // console.log(mul("23.232", temp)) 
 
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
+// 10945/12567
 
-console.log(singleDigitDiv("1.2523234521", "1223456.7", "20"))
+// console.log(singleDigitDiv("10945", "12567"))
+console.log(singleDigitDiv("1234567891", "12567"))
+// console.log(singleDigitDiv("123456789.1", "1256.7", "10"))
+// console.log(singleDigitDiv("123456789.1", "1223456.7", "2"))
 // console.log(singleDigitDiv("1252.32345", "212231.2212345")) // not working as expected
 
 // for (let index = -20; index <= 20; index++) {

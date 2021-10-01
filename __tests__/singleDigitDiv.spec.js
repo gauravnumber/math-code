@@ -2,6 +2,7 @@ import singleDigitDiv from '../js/singleDigitDiv.js'
 
 describe('singleDigitDiv', () => {
   const array = [
+    ["10945", "12567", "0.8709318055"],
     ["4", "8", "0.5"],
     ["2", "5", "0.4"],
     ["3", "7", "0.4285714285"],
@@ -15,6 +16,7 @@ describe('singleDigitDiv', () => {
     ["9", "8", "1.125"],
     ["34", "12", "2.8333333333"],
     ["9", "7", "1.2857142857"],
+    ["1234567891", "12567", "98238.8709318055"],
   ]
 
   const threeArgument = [
