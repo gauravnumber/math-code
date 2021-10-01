@@ -8,7 +8,7 @@ import split from './.internal/split.js'
 import { add } from './add.js'
 import { sub } from './sub.js'
 import { mul } from './mul.js'
-import { pow } from './pow.js'
+// import { pow } from './pow.js'
 import { isLt } from './isLt.js'
 import { isGt } from './isGt.js'
 import { isGte } from './isGte.js'
@@ -318,7 +318,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       divisor.splice(divisorDecimalPosition, 1)
       quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 1)
 
-      quotientTemp = mul(quotientTemp, pow("10", lastDecimalPositionTemp))
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      quotientTemp = decimalShift(quotientTemp, lastDecimalPositionTemp)
+      // quotientTemp = mul(quotientTemp, pow("10", lastDecimalPositionTemp))
       return quotientTemp
     } else {
       lastDecimalPositionTemp = dividendLastDecimalPosition - divisorLastDecimalPosition
@@ -354,9 +356,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     // quotientTemp = singleDigitDiv(dividend, divisor)
 
 
-    console.log('quotientTemp', quotientTemp)
-    // return dividendDecimalPosition
-    return "end"
+    // console.log('quotientTemp', quotientTemp)
+    // // return dividendDecimalPosition
+    // return "end"
   }
   else { return null }
 }

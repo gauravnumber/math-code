@@ -17,7 +17,7 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
 
-console.log(singleDigitDiv("1252.3234521", "1.22"))
+console.log(singleDigitDiv("1.2523234521", "1223456.7", "20"))
 // console.log(singleDigitDiv("1252.32345", "212231.2212345")) // not working as expected
 
 // for (let index = -20; index < 20; index++) {
