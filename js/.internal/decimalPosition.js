@@ -1,3 +1,9 @@
+/**
+ * Easy to replace decimal with decimalPosition()
+ * @param {string, array} value 
+ * @returns number
+ */
+
 const decimalPosition = (value) => {
   if (Object.prototype.toString.call(value) == '[object Array]') {
     for (let i = 0, j = value.length; i < j; i++)
