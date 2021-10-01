@@ -9,7 +9,7 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 // import decimalPosition from './js/.internal/decimalPosition.js'
-// import decimalShift from './js/.internal/decimalShift.js'
+import decimalShift from './js/.internal/decimalShift.js'
 // import isZero from './js/.internal/isZero.js'
 
 // const temp = singleDigitDiv("1", "1000000000000")
@@ -20,7 +20,7 @@ import singleDigitDiv from './js/singleDigitDiv.js'
 console.log(singleDigitDiv("1.2523234521", "1223456.7", "20"))
 // console.log(singleDigitDiv("1252.32345", "212231.2212345")) // not working as expected
 
-// for (let index = -20; index < 20; index++) {
+// for (let index = -20; index <= 20; index++) {
 //   console.log("index:" + index + " " + decimalShift("12345.6789", index));
 // }
 
