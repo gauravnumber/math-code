@@ -19,12 +19,51 @@ const decimalShift = (value, shift) => {
   //   return value.join("")
   // }
 
+  if (!isDecimal(value)) {
+    if (shift > 0) {
+      for (let i = 0; i < shift; i++) {
+        value.push("0")
+      }
+
+      return value.join("")
+    } else {
+      let shiftAbs = Math.abs(shift)
+      let lastDecimalPosition = value.length - shiftAbs
+
+      if (shiftAbs <= value.length) {
+        value.splice(lastDecimalPosition, 0, ".")
+      }
+
+      if (value.length === shiftAbs + 1) {
+        value.unshift("0")
+      } else if (shiftAbs > value.length) {
+        numberOfAddingZero = shiftAbs - value.length
+        // let numberOfZeroAdd = shiftAbs - value.length
+        for (let i = 0; i <= numberOfAddingZero; i++) {
+          value.unshift("0")
+        }
+
+        value.splice(1, 0, ".")
+        return value.join("")
+      }
+
+      return value.join("")
+    }
+  }
+
   if (shift) {
     valueDecimalPosition = decimalPosition(value)
     decimalPositionTemp = valueDecimalPosition + shift
 
     if (decimalPositionTemp < value.length) {
       value.splice(valueDecimalPosition, 1)
+
+      // if (isDecimal(value)) {
+      //   value.splice(valueDecimalPosition, 1)
+      // }
+
+      // console.log('decimalPositionTemp', decimalPositionTemp)
+
       if (decimalPositionTemp !== value.length) {
         value.splice(decimalPositionTemp, 0, ".")
       }
