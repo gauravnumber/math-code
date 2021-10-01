@@ -342,9 +342,9 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       return quotientTemp
     } else if (divisorLastDecimalPosition > dividendLastDecimalPosition) {
       lastDecimalPositionTemp = divisorLastDecimalPosition - dividendLastDecimalPosition
-      console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
-      console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
-      console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
+      // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
+      // console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
+      // console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
 
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
@@ -352,7 +352,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       // console.log('lastDecimalPositionTemp', lastDecimalPositionTemp)
 
-      console.log('quotientTemp', quotientTemp)
+      // console.log('quotientTemp', quotientTemp)
 
       quotientTemp = decimalShift(quotientTemp + ".0", divisorLastDecimalPosition - dividendLastDecimalPosition)
       // quotientTemp = decimalShift(quotientTemp, lastDecimalPositionTemp)
