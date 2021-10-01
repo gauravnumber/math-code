@@ -26,8 +26,9 @@ import decimalShift from './js/.internal/decimalShift.js'
 // console.log(dividendLastDecimalPosition);
 // console.log(dividendDecimalPosition);
 
-console.log(singleDigitDiv("1550607.36", "123456"));
-// console.log(decimalShift("12133.0", "3"));
+console.log(singleDigitDiv("15506073.6", "1.23456"));
+// console.log(singleDigitDiv("1550607.36", "123456"));
+// console.log(decimalShift("12133.0", "-3"));
 
 // 10945/12567
 
