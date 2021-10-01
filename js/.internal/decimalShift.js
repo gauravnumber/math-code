@@ -11,9 +11,13 @@ const decimalShift = (value, shift) => {
   value = split(value)
   shift = Number(shift)
 
-  if (!isDecimal(value) || !shift) {
+  if (!shift) {
     return value.join("")
   }
+
+  // if (!isDecimal(value) || !shift) {
+  //   return value.join("")
+  // }
 
   if (shift) {
     valueDecimalPosition = decimalPosition(value)

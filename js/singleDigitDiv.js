@@ -372,22 +372,31 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       // return quotientTemp
       // return 'helluo'
     }
+  } else if (isDecimal(dividend) && !isDecimal(divisor)) {
+    // console.log('dividend', dividend)
+    dividendDecimalPosition = decimalPosition(dividend)
+    // divisorDecimalPosition = decimalPosition(divisor)
+
+    dividendLastDecimalPosition = dividend.length - dividendDecimalPosition - 1
 
     // console.log('dividendDecimalPosition', dividendDecimalPosition)
-    // console.log('divisorDecimalPosition', divisorDecimalPosition)
+    console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
 
-    // dividend.splice(dividendDecimalPosition, 1)
-    // divisor.splice(divisorDecimalPosition, 1)
-
+    dividend.splice(dividendDecimalPosition, 1)
     // console.log('dividend', dividend)
-    // console.log('divisor', divisor)
 
-    // quotientTemp = singleDigitDiv(dividend, divisor)
-
-
+    quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
     // console.log('quotientTemp', quotientTemp)
-    // // return dividendDecimalPosition
-    // return "end"
+
+    // console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
+    quotientTemp = quotientTemp + ".0"
+    
+    quotientTemp =  decimalShift(quotientTemp, -dividendLastDecimalPosition)
+    // console.log('quotientTemp', quotientTemp)
+
+
+    return quotientTemp
+
   }
   else { return null }
 }

@@ -1,14 +1,14 @@
 // import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
-import { mul } from './js/mul.js'
+// import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
 // import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
 import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
-// import decimalPosition from './js/.internal/decimalPosition.js'
+import decimalPosition from './js/.internal/decimalPosition.js'
 import decimalShift from './js/.internal/decimalShift.js'
 // import isZero from './js/.internal/isZero.js'
 
@@ -16,15 +16,28 @@ import decimalShift from './js/.internal/decimalShift.js'
 // console.log(mul("23.232", temp)) 
 
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
+
+// let dividend = "1237.48956"
+// // divisorDecimalPosition = decimalPosition(divisor)
+// let dividendDecimalPosition = decimalPosition(dividend)
+
+// let dividendLastDecimalPosition = dividend.length - dividendDecimalPosition
+
+// console.log(dividendLastDecimalPosition);
+// console.log(dividendDecimalPosition);
+
+console.log(singleDigitDiv("1550607.36", "123456"));
+// console.log(decimalShift("12133.0", "3"));
+
 // 10945/12567
 
+// for (let i = 0; i <= 15; i++) {
+//   console.log(`${i} : ${singleDigitDiv("126789.1", "1256.7", i)}`)
+//   // console.log(`${i} : ${singleDigitDiv("123456789.1", "1223456.7", i)}`)
+//   // console.log(singleDigitDiv("126789.1", "1256.7", "2"))
+// }
 // console.log(singleDigitDiv("10945", "12567"))
 // console.log(singleDigitDiv("1234567891", "12567"))
-for (let i = 0; i <= 15; i++) {
-  console.log(`${i} : ${singleDigitDiv("126789.1", "1256.7", i)}`)
-  // console.log(`${i} : ${singleDigitDiv("123456789.1", "1223456.7", i)}`)
-  // console.log(singleDigitDiv("126789.1", "1256.7", "2"))
-}
 // console.log(singleDigitDiv("1252.32345", "212231.2212345")) // not working as expected
 
 // for (let index = -20; index <= 20; index++) {
