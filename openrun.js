@@ -17,9 +17,9 @@ import decimalShift from './js/.internal/decimalShift.js'
 
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
 
-for (let index = -20; index <= 20; index++) {
-  console.log("index:" + index + " " + decimalShift("12345", index));
-}
+// for (let index = -20; index <= 20; index++) {
+//   console.log("index:" + index + " " + decimalShift("12345", index));
+// }
 
 
 // console.log(decimalShift("123", "-5"));
@@ -35,6 +35,7 @@ for (let index = -20; index <= 20; index++) {
 // console.log(dividendLastDecimalPosition);
 // console.log(dividendDecimalPosition);
 
+console.log(singleDigitDiv("155060736", "12345.6"));
 // console.log(singleDigitDiv("15506073.6", "1.23456"));
 // console.log(singleDigitDiv("1550607.36", "123456"));
 // console.log(decimalShift("12133.0", "-3"));

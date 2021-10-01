@@ -355,7 +355,8 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       // console.log('quotientTemp', quotientTemp)
 
-      quotientTemp = decimalShift(quotientTemp + ".0", divisorLastDecimalPosition - dividendLastDecimalPosition)
+      quotientTemp = decimalShift(quotientTemp, divisorLastDecimalPosition - dividendLastDecimalPosition)
+      // quotientTemp = decimalShift(quotientTemp + ".0", divisorLastDecimalPosition - dividendLastDecimalPosition)
       // quotientTemp = decimalShift(quotientTemp, lastDecimalPositionTemp)
       // quotientTemp = mul(quotientTemp, pow("10", lastDecimalPositionTemp))
       return quotientTemp
@@ -397,7 +398,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     // console.log('quotientTemp', quotientTemp)
 
     // console.log('dividendLastDecimalPosition', dividendLastDecimalPosition)
-    quotientTemp = quotientTemp + ".0"
+    // quotientTemp = quotientTemp + ".0"
 
     quotientTemp = decimalShift(quotientTemp, -dividendLastDecimalPosition)
     // console.log('quotientTemp', quotientTemp)
@@ -419,7 +420,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     // console.log('quotientTemp', quotientTemp)
 
     // console.log('divisorLastDecimalPosition', divisorLastDecimalPosition)
-    quotientTemp = quotientTemp + ".0"
+    // quotientTemp = quotientTemp + ".0"
 
     quotientTemp = decimalShift(quotientTemp, divisorLastDecimalPosition)
     // console.log('quotientTemp', quotientTemp)
