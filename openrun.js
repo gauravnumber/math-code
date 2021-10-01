@@ -20,8 +20,11 @@ import decimalShift from './js/.internal/decimalShift.js'
 
 // console.log(singleDigitDiv("10945", "12567"))
 // console.log(singleDigitDiv("1234567891", "12567"))
-// console.log(singleDigitDiv("123456789.1", "1256.7", "10"))
-console.log(singleDigitDiv("123456789.1", "1223456.7", "2"))
+for (let i = 0; i <= 15; i++) {
+  console.log(`${i} : ${singleDigitDiv("126789.1", "1256.7", i)}`)
+  // console.log(`${i} : ${singleDigitDiv("123456789.1", "1223456.7", i)}`)
+  // console.log(singleDigitDiv("126789.1", "1256.7", "2"))
+}
 // console.log(singleDigitDiv("1252.32345", "212231.2212345")) // not working as expected
 
 // for (let index = -20; index <= 20; index++) {
