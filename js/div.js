@@ -15,15 +15,14 @@ import { isEq } from './isEq.js'
 import divisibleFor from './divisibleFor.js'
 
 /**
- * Dividend smaller than divisor
- * @param {string} dividend 
- * @param {string} divisor 
- * @returns quotient
- * @example
- *  input: 2/4, 5/6 
+ * Divide number
+ * @param {string, array} dividend 
+ * @param {string, array} divisor 
+ * @returns {string}
  */
 
-const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
+// const div = (dividend, divisor, defaultDecimalDigit = 10) => {
+export const div = (dividend, divisor, defaultDecimalDigit = 10) => {
   let quotient,
     quotientTemp,
     mulTemp,
@@ -53,13 +52,13 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   if (isNegative(dividend) && isNegative(divisor)) {
     dividend = dividend.slice(1);
     divisor = divisor.slice(1);
-    quotientTemp = singleDigitDiv(dividend, divisor);
+    quotientTemp = div(dividend, divisor);
 
     return quotientTemp
   }
   else if (!isNegative(dividend) && isNegative(divisor)) {
     divisor = divisor.slice(1)
-    quotientTemp = singleDigitDiv(dividend, divisor)
+    quotientTemp = div(dividend, divisor)
     quotientTemp = quotientTemp.split("");
     quotientTemp.unshift("-");
     quotientTemp = quotientTemp.join("");
@@ -68,7 +67,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   }
   else if (isNegative(dividend) && !isNegative(divisor)) {
     dividend = dividend.slice(1)
-    quotientTemp = singleDigitDiv(dividend, divisor)
+    quotientTemp = div(dividend, divisor)
     quotientTemp = quotientTemp.split("");
     quotientTemp.unshift("-");
     quotientTemp = quotientTemp.join("");
@@ -217,7 +216,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
         }
 
         if (i === dividend.length - 1) {
-          quotientTemp = singleDigitDiv(dividendTemp, divisor, defaultDecimalDigit)
+          quotientTemp = div(dividendTemp, divisor, defaultDecimalDigit)
 
           if (isZero(quotientTemp)) {
             quotient = removeZeroFromLeft(quotient).split("")
@@ -245,7 +244,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
 
-      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+      quotientTemp = div(dividend, divisor, defaultDecimalDigit)
 
       return quotientTemp
     } else if (divisorLastDecimalPosition > dividendLastDecimalPosition) {
@@ -253,7 +252,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
 
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
-      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit + 1)
+      quotientTemp = div(dividend, divisor, defaultDecimalDigit + 1)
 
       quotientTemp = decimalShift(quotientTemp, divisorLastDecimalPosition - dividendLastDecimalPosition)
 
@@ -263,7 +262,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
       dividend.splice(dividendDecimalPosition, 1)
       divisor.splice(divisorDecimalPosition, 1)
 
-      quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+      quotientTemp = div(dividend, divisor, defaultDecimalDigit)
       quotientTemp = decimalShift(quotientTemp, -lastDecimalPositionTemp)
 
       return quotientTemp
@@ -272,7 +271,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     dividendDecimalPosition = decimalPosition(dividend)
     dividendLastDecimalPosition = dividend.length - dividendDecimalPosition - 1
     dividend.splice(dividendDecimalPosition, 1)
-    quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+    quotientTemp = div(dividend, divisor, defaultDecimalDigit)
     quotientTemp = decimalShift(quotientTemp, -dividendLastDecimalPosition)
 
     return quotientTemp
@@ -281,7 +280,7 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
     divisorDecimalPosition = decimalPosition(divisor)
     divisorLastDecimalPosition = divisor.length - divisorDecimalPosition - 1
     divisor.splice(divisorDecimalPosition, 1)
-    quotientTemp = singleDigitDiv(dividend, divisor, defaultDecimalDigit)
+    quotientTemp = div(dividend, divisor, defaultDecimalDigit)
     quotientTemp = decimalShift(quotientTemp, divisorLastDecimalPosition)
 
     return quotientTemp
@@ -289,4 +288,4 @@ const singleDigitDiv = (dividend, divisor, defaultDecimalDigit = 10) => {
   else { return null }
 }
 
-export default singleDigitDiv
+// export default div

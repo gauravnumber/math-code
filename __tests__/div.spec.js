@@ -1,6 +1,7 @@
-import singleDigitDiv from '../js/singleDigitDiv.js'
+import { div } from '../js/div.js'
+// import div from '../js/div.js'
 
-describe('singleDigitDiv', () => {
+describe('div', () => {
   const array = [
     ["10945", "12567", "0.8709318055"],
     ["4", "8", "0.5"],
@@ -53,38 +54,38 @@ describe('singleDigitDiv', () => {
   ]
 
 
-  it.each(array)('singleDigitDiv(%s, %s)', (a, b, expected) => {
-    expect(singleDigitDiv(a, b)).toBe(expected)
+  it.each(array)('div(%s, %s)', (a, b, expected) => {
+    expect(div(a, b)).toBe(expected)
   })
 
   describe('Three arguments', () => {
-    it.each(threeArgument)('singleDigitDiv(%s, %s, %s)', (a, b, numberOfDecimal, expected) => {
-      expect(singleDigitDiv(a, b, numberOfDecimal)).toBe(expected)
+    it.each(threeArgument)('div(%s, %s, %s)', (a, b, numberOfDecimal, expected) => {
+      expect(div(a, b, numberOfDecimal)).toBe(expected)
     })
   });
 
   describe('Dividend >= Divisor', () => {
-    it.each(isGt)('singleDigitDiv(%s, %s)', (a, b, expected) => {
-      expect(singleDigitDiv(a, b)).toBe(expected)
+    it.each(isGt)('div(%s, %s)', (a, b, expected) => {
+      expect(div(a, b)).toBe(expected)
     })
   });
 
 
   describe('Dividend === Divisor', () => {
-    it.each(isEq)('singleDigitDiv(%s, %s)', (a, b) => {
-      expect(singleDigitDiv(a, b)).toBe("1")
+    it.each(isEq)('div(%s, %s)', (a, b) => {
+      expect(div(a, b)).toBe("1")
     })
   });
 
   describe('If any dividend or divisor become zero', () => {
-    it.each(zero)('singleDigitDiv(%s, %s)', (a, b, expected) => {
-      expect(singleDigitDiv(a, b)).toBe(expected)
+    it.each(zero)('div(%s, %s)', (a, b, expected) => {
+      expect(div(a, b)).toBe(expected)
     })
   });
 
   describe('If number is negative', () => {
-    it.each(negative)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
-      expect(singleDigitDiv(a, b)).toBe(expected)
+    it.each(negative)('div(%s, %s, %s)', (a, b, expected) => {
+      expect(div(a, b)).toBe(expected)
     })
   });
 
@@ -96,8 +97,8 @@ describe('singleDigitDiv', () => {
     ]
 
     describe('If number is same decimal digit', () => {
-      it.each(decimal)('singleDigitDiv(%s, %s, %s)', (a, b, expected) => {
-        expect(singleDigitDiv(a, b)).toBe(expected)
+      it.each(decimal)('div(%s, %s, %s)', (a, b, expected) => {
+        expect(div(a, b)).toBe(expected)
       })
     });
   });
@@ -105,6 +106,6 @@ describe('singleDigitDiv', () => {
 
 
   // it.only('should 9/7 ', () => {
-  //   expect(singleDigitDiv("9", "7")).toBe("1.2857142857");
+  //   expect(div("9", "7")).toBe("1.2857142857");
   // })
 });
