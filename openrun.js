@@ -1,7 +1,7 @@
 // import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
-// import { mul } from './js/mul.js'
+import { mul } from './js/mul.js'
 // import { fact } from './js/fact.js'
 // import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
@@ -17,13 +17,14 @@ import decimalShift from './js/.internal/decimalShift.js'
 // const temp = singleDigitDiv("1", "1000000000000")
 // console.log(mul("23.232", temp)) 
 
+console.log(mul("2342.2323", "0.00001"));
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
 
 // for (let index = -20; index <= 20; index++) {
 //   console.log("index:" + index + " " + decimalShift("12345", index));
 // }
 
-console.log(div("355", "113", "100"));
+// console.log(div("355", "113", "100"));
 
 // console.log(decimalShift("123", "-5"));
 // console.log(decimalShift("123", "-3"));
