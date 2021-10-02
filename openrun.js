@@ -5,7 +5,9 @@
 // import { fact } from './js/fact.js'
 // import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
-import singleDigitDiv from './js/singleDigitDiv.js'
+// import div  from './js/div.js'
+import { div } from './js/div.js'
+// import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 import decimalPosition from './js/.internal/decimalPosition.js'
@@ -21,6 +23,7 @@ import decimalShift from './js/.internal/decimalShift.js'
 //   console.log("index:" + index + " " + decimalShift("12345", index));
 // }
 
+console.log(div("355", "113", "100"));
 
 // console.log(decimalShift("123", "-5"));
 // console.log(decimalShift("123", "-3"));
@@ -35,7 +38,7 @@ import decimalShift from './js/.internal/decimalShift.js'
 // console.log(dividendLastDecimalPosition);
 // console.log(dividendDecimalPosition);
 
-console.log(singleDigitDiv("155060736", "12345.6"));
+// console.log(singleDigitDiv("155060736", "12345.6"));
 // console.log(singleDigitDiv("15506073.6", "1.23456"));
 // console.log(singleDigitDiv("1550607.36", "123456"));
 // console.log(decimalShift("12133.0", "-3"));
