@@ -18,7 +18,8 @@ import isDecimal from './js/.internal/isDecimal.js'
 // const temp = singleDigitDiv("1", "1000000000000")
 // console.log(mul("23.232", temp)) 
 
-console.log(mul("234245.2323", "1"));
+// console.log(mul("25675", "234245.2323"));
+console.log(mul("223.2233323", "1767"));
 // console.log(mul("2342.2323", "0.0001"));
 // console.log(isDecimal("0.0001"));
 // console.log(isDecimal("2342.2323"));

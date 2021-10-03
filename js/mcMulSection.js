@@ -156,15 +156,17 @@ export function mcMulSection(first, second) {
 		// console.log('second.join("")', second.join(""))
 		// console.log('firstpos', firstpos)
 
-		// firstLastDecimalPosition = first.length - firstpos - 1
-
 		
 		first.splice(firstpos, 1)
 		// console.log('first.join("")', first.join(""))
 		// console.log('second.join("")', second.join(""))
 		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
-
+		
 		third = mcMulSection(first, second).split("")
+		// console.log('third', third)
+		firstLastDecimalPosition = first.length - firstpos - 1
+		// let temp = third.length - firstLastDecimalPosition
+		// console.log('temp', temp)
 		// console.log('first.join("")', first.join(""))
 		// console.log('second.join("")', second.join(""))
 
@@ -178,8 +180,9 @@ export function mcMulSection(first, second) {
 		// return '1st decimal, 2nd not'
 	}
 	else if(!isDecimal(first) && isDecimal(second)) {
-		// console.log('first', first)
-		// console.log('second', second)
+		console.log('first.join("")', first.join(""))
+		console.log('second.join("")', second.join(""))
+		// console.log('hi');
 
 		second.splice(secondpos, 1)
 		// console.log('first.join("")', first.join(""))
@@ -187,10 +190,16 @@ export function mcMulSection(first, second) {
 		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
 
 		third = mcMulSection(first, second).split("")
+		console.log('third.join("")', third.join(""))
+		secondLastDecimalPosition = second.length - secondpos - 1
+		let positionOfDecimalAfterCalculation = third.length - secondLastDecimalPosition - 1
+		console.log('positionOfDecimalAfterCalculation', positionOfDecimalAfterCalculation)
+
 		// console.log('first.join("")', first.join(""))
 		// console.log('second.join("")', second.join(""))
 
-		third.splice(secondpos, 0, ".")
+		third.splice(positionOfDecimalAfterCalculation, 0, ".")
+		// third.splice(secondpos, 0, ".")
 		// console.log('third.join("")', third.join(""))
 		return third.join("")
 
