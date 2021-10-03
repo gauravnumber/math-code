@@ -20,9 +20,9 @@ import removeZeroFromRight from './js/.internal/removeZeroFromRight.js'
 // console.log(mul("23.232", temp)) 
 
 // console.log(removeZeroFromRight("233.000"));
-console.log(mul("25675", "234245.21323"));
+// console.log(mul("25675", "234245.21323"));
 // console.log(mul("12343.2323", "100000"));
-// console.log(mul("2342.2323", "0.0001"));
+console.log(mul("2342.2323", "0.00001"));
 // console.log(isDecimal("0.0001"));
 // console.log(isDecimal("2342.2323"));
 
