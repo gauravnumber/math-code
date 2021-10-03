@@ -2,6 +2,7 @@ import { mcMulOne } from './mcMulOne.js';
 import { mcAdd } from './mcAdd.js'
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import removeZeroFromRight from './.internal/removeZeroFromRight.js'
 import isDecimal from './.internal/isDecimal.js'
 import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
@@ -146,13 +147,15 @@ export function mcMulSection(first, second) {
 		third.splice(third.length - decimalthirdno, "0", ".");
 
 		//? removeDecimalAndZeroFromRight()
-		while (third[third.length - 1] == 0)
-			third.pop();
-		if (third[third.length - 1] == ".")
-			third.pop();
-		third = third.join("");
-		return third;
-	} else if(isDecimal(first) && !isDecimal(second)) {
+		// while (third[third.length - 1] == 0)
+		// 	third.pop();
+		// if (third[third.length - 1] == ".")
+		// 	third.pop();
+		// third = third.join("");
+		// return third;
+		third = removeZeroFromRight(third)
+		return third
+	} else if (isDecimal(first) && !isDecimal(second)) {
 		first.splice(firstpos, 1)
 		firstLastDecimalPosition = first.length - firstpos - 1
 		third = mcMulSection(first, second).split("")
@@ -160,9 +163,13 @@ export function mcMulSection(first, second) {
 
 		third.splice(positionOfDecimalAfterCalculation, 0, ".")
 
-		return third.join("")
+		third = removeZeroFromRight(third)
+
+
+		return third
+		// return third.join("")
 	}
-	else if(!isDecimal(first) && isDecimal(second)) {
+	else if (!isDecimal(first) && isDecimal(second)) {
 		second.splice(secondpos, 1)
 		third = mcMulSection(first, second).split("")
 
@@ -171,9 +178,11 @@ export function mcMulSection(first, second) {
 
 		third.splice(positionOfDecimalAfterCalculation, 0, ".")
 
-		return third.join("")
-	} 
-	
+		third = removeZeroFromRight(third)
+
+		return third
+	}
+
 	// else {
 	// 	// both decimal
 	// 	return 'both decimal'
@@ -228,6 +237,6 @@ export function mcMulSection(first, second) {
 	// 	third = third.join("");
 	// 	return third;
 	// }
-	
+
 	return "Something went wrong";
 }
