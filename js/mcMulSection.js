@@ -101,9 +101,6 @@ export function mcMulSection(first, second) {
 
 		first.splice(firstpos, 1)
 		second.splice(secondpos, 1)
-		
-		// first = first.join("");
-		// second = second.join("");
 
 		third = mcMulSection(first, second);
 		third = decimalShift(third, -lastDecimalPosition)
