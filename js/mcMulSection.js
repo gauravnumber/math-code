@@ -18,7 +18,8 @@ export function mcMulSection(first, second) {
 		firsthalf, secondhalf,
 		third,
 		firstLastDecimalPosition,
-		secondLastDecimalPosition
+		secondLastDecimalPosition,
+		positionOfDecimalAfterCalculation
 
 	third = [];
 	firstpos = secondpos = -1;
@@ -163,14 +164,17 @@ export function mcMulSection(first, second) {
 		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
 		
 		third = mcMulSection(first, second).split("")
-		// console.log('third', third)
 		firstLastDecimalPosition = first.length - firstpos - 1
+		positionOfDecimalAfterCalculation = third.length - firstLastDecimalPosition - 1
+		// console.log('third', third)
 		// let temp = third.length - firstLastDecimalPosition
 		// console.log('temp', temp)
 		// console.log('first.join("")', first.join(""))
 		// console.log('second.join("")', second.join(""))
 
-		third.splice(firstpos, 0, ".")
+		third.splice(positionOfDecimalAfterCalculation, 0, ".")
+
+		// third.splice(firstpos, 0, ".")
 		// console.log('third.join("")', third.join(""))
 		return third.join("")
 
@@ -180,8 +184,8 @@ export function mcMulSection(first, second) {
 		// return '1st decimal, 2nd not'
 	}
 	else if(!isDecimal(first) && isDecimal(second)) {
-		console.log('first.join("")', first.join(""))
-		console.log('second.join("")', second.join(""))
+		// console.log('first.join("")', first.join(""))
+		// console.log('second.join("")', second.join(""))
 		// console.log('hi');
 
 		second.splice(secondpos, 1)
@@ -190,10 +194,10 @@ export function mcMulSection(first, second) {
 		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
 
 		third = mcMulSection(first, second).split("")
-		console.log('third.join("")', third.join(""))
+		// console.log('third.join("")', third.join(""))
 		secondLastDecimalPosition = second.length - secondpos - 1
-		let positionOfDecimalAfterCalculation = third.length - secondLastDecimalPosition - 1
-		console.log('positionOfDecimalAfterCalculation', positionOfDecimalAfterCalculation)
+		positionOfDecimalAfterCalculation = third.length - secondLastDecimalPosition - 1
+		// console.log('positionOfDecimalAfterCalculation', positionOfDecimalAfterCalculation)
 
 		// console.log('first.join("")', first.join(""))
 		// console.log('second.join("")', second.join(""))
