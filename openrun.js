@@ -10,16 +10,18 @@ import { div } from './js/div.js'
 // import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
-import decimalPosition from './js/.internal/decimalPosition.js'
-import decimalShift from './js/.internal/decimalShift.js'
-import isDecimal from './js/.internal/isDecimal.js'
+// import decimalPosition from './js/.internal/decimalPosition.js'
+// import decimalShift from './js/.internal/decimalShift.js'
+// import isDecimal from './js/.internal/isDecimal.js'
+import removeZeroFromRight from './js/.internal/removeZeroFromRight.js'
 // import isZero from './js/.internal/isZero.js'
 
 // const temp = singleDigitDiv("1", "1000000000000")
 // console.log(mul("23.232", temp)) 
 
-// console.log(mul("25675", "234245.21323"));
-console.log(mul("12343.2323", "100000"));
+// console.log(removeZeroFromRight("233.000"));
+console.log(mul("25675", "234245.21323"));
+// console.log(mul("12343.2323", "100000"));
 // console.log(mul("2342.2323", "0.0001"));
 // console.log(isDecimal("0.0001"));
 // console.log(isDecimal("2342.2323"));
