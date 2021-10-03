@@ -110,7 +110,7 @@ export function mcMulSection(first, second) {
 		// console.log('second', second.join(""))
 		// // console.log('firstpos', firstpos)
 		// // console.log('secondpos', secondpos)
-		console.log('firstLastDecimalPosition', firstLastDecimalPosition)
+		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
 
 
 
@@ -172,10 +172,12 @@ export function mcMulSection(first, second) {
 		third.splice(positionOfDecimalAfterCalculation, 0, ".")
 
 		return third.join("")
-	} else {
-		// both decimal
-		return 'both decimal'
-	}
+	} 
+	
+	// else {
+	// 	// both decimal
+	// 	return 'both decimal'
+	// }
 	// else if (isDecimal(first) || isDecimal(second)) {
 	// 	// let firstLastDigit = first.length - firstpos - 1
 	// 	// let secondLastDigit = second.length - secondpos - 1
