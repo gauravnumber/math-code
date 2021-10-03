@@ -21,13 +21,14 @@ import removeZeroFromRight from './js/.internal/removeZeroFromRight.js'
 
 // console.log(mul("2342.2323", "0.0000001"));
 // console.log(mul("2342.2323", "44768.343"));
-console.log(div("0.00123432323", "12343.2323"));
+// console.log(div("0.00123432323", "12343.2323"));
 // console.log(decimalPosition("0.000034"));
 
 // console.log(mul("12343.2323", "123465.12445"));
 // console.log(removeZeroFromRight("233.000"));
 // console.log(mul("25675", "234245.21323"));
-// console.log(mul("12343.2323", "100000"));
+console.log(mul("12345", "12343.2323"));
+// console.log(mul("12343.2323", "12345"));
 // console.log(isDecimal("0.0001"));
 // console.log(isDecimal("2342.2323"));
 
