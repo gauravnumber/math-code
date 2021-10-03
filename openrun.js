@@ -6,7 +6,7 @@ import { mul } from './js/mul.js'
 // import { pow } from './js/pow.js'
 // import doubleDigitDividend  from './js/doubleDigitDividend.js'
 // import div  from './js/div.js'
-// import { div } from './js/div.js'
+import { div } from './js/div.js'
 // import singleDigitDiv from './js/singleDigitDiv.js'
 // import divisibleFor from './js/divisibleFor.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
@@ -19,7 +19,9 @@ import removeZeroFromRight from './js/.internal/removeZeroFromRight.js'
 // const temp = singleDigitDiv("1", "1000000000000")
 // console.log(mul("23.232", temp)) 
 
-console.log(mul("2342.2323", "44768.343"));
+// console.log(mul("2342.2323", "0.0000001"));
+// console.log(mul("2342.2323", "44768.343"));
+console.log(div("0.00123432323", "12343.2323"));
 // console.log(decimalPosition("0.000034"));
 
 // console.log(mul("12343.2323", "123465.12445"));

@@ -14,10 +14,10 @@ export function mcMulSection(first, second) {
 	var lengthno,
 		i, j,
 		secondLastIndex,
-		decimalthirdno,
+		// decimalthirdno,
 		firstpos, secondpos,
-		firstslice, secondslice,
-		firsthalf, secondhalf,
+		// firstslice, secondslice,
+		// firsthalf, secondhalf,
 		third,
 		firstLastDecimalPosition,
 		secondLastDecimalPosition,
@@ -155,17 +155,17 @@ export function mcMulSection(first, second) {
 		first = first.join("");
 		second = second.join("");
 
-		console.log('first', first)
-		console.log('second', second)
+		// console.log('first', first)
+		// console.log('second', second)
 
-		console.log('firstpos', firstpos)
-		console.log('secondpos', secondpos)
+		// console.log('firstpos', firstpos)
+		// console.log('secondpos', secondpos)
 
-		console.log('firstLastDecimalPosition', firstLastDecimalPosition)
-		console.log('secondLastDecimalPosition', secondLastDecimalPosition)
+		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
+		// console.log('secondLastDecimalPosition', secondLastDecimalPosition)
 		
 		third = mcMulSection(first, second);
-		console.log('third', third)
+		// console.log('third', third)
 
 		// third = third.split("");
 		// decimalthirdno = firstslice.length + secondslice.length;
@@ -173,7 +173,7 @@ export function mcMulSection(first, second) {
 		// console.log('decimalthirdno', decimalthirdno)
 		third = decimalShift(third, -lastDecimalPosition)
 		// third = decimalShift(third, secondLastDecimalPosition + firstLastDecimalPosition)
-		console.log('third', third)
+		// console.log('third', third)
 
 		// third.splice()
 		// third.splice(third.length - decimalthirdno, "0", ".");
