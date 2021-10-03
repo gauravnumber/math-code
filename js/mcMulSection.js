@@ -14,10 +14,7 @@ export function mcMulSection(first, second) {
 	var lengthno,
 		i, j,
 		secondLastIndex,
-		// decimalthirdno,
 		firstpos, secondpos,
-		// firstslice, secondslice,
-		// firsthalf, secondhalf,
 		third,
 		firstLastDecimalPosition,
 		secondLastDecimalPosition,
@@ -34,13 +31,8 @@ export function mcMulSection(first, second) {
 	first = split(first);
 	second = split(second);
 
-	// console.log('second', second)
-	// return 'end'
-
 	first = removeZeroFromLeft(first).split("")
 	second = removeZeroFromLeft(second).split("")
-
-	// console.log('second.join("")', second.join(""))
 
 	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
@@ -88,119 +80,48 @@ export function mcMulSection(first, second) {
 	firstpos = decimalPosition(first)
 	secondpos = decimalPosition(second)
 
-	// console.log('isDecimal(first)', isDecimal(first))
-	// console.log('isDecimal(second)', isDecimal(second))
-	// console.log('second.join("")', second.join(""))
-
 	if (!isDecimal(first) && !isDecimal(second)) {
-		// return 'hi'
 		lengthno = second.length;
 		secondLastIndex = second.length - 1;
 		first = first.join("");
+
 		for (i = 0; i < lengthno; i++, secondLastIndex--) {
 			third[i] = mcMulOne(first, Number(second[secondLastIndex]));
 			for (j = 0; j < i; j++)
 				third[i] = third[i].concat("0");
 		}
+		
 		third = mcAdd.apply(null, third);
+
 		return third;
 	} else if (isDecimal(first) && isDecimal(second)) {
-		// return "wow"
 		firstLastDecimalPosition = first.length - firstpos - 1
 		secondLastDecimalPosition = second.length - secondpos - 1
 		lastDecimalPosition = firstLastDecimalPosition + secondLastDecimalPosition
 
-		// console.log('first', first.join(""))
-		// console.log('second', second.join(""))
-		// // console.log('firstpos', firstpos)
-		// // console.log('secondpos', secondpos)
-		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
-
-
-
-		// if (!isDecimal(first)) {
-		// 	first = first.join("");
-		// 	firstpos = first.length;
-		// 	first = first.concat(".0");
-		// 	first = first.split("");
-		// } else if (!isDecimal(second)) {
-		// 	second = second.join("");
-		// 	secondpos = second.length;
-		// 	second = second.concat(".0");
-		// 	second = second.split("");
-		// }
-
-		// firstslice = first.slice(firstpos + 1);
-		// secondslice = second.slice(secondpos + 1);
-
-		// console.log('firstslice.join("")', firstslice.join(""))
-		// console.log('secondslice.join("")', secondslice.join(""))
-		
-		// firsthalf = first.slice("0", firstpos);
-		// secondhalf = second.slice("0", secondpos);
-
-		// console.log('firsthalf.join("")', firsthalf.join(""))
-		// console.log('secondhalf.join("")', secondhalf.join(""))
-		
-		// first = firsthalf.concat(firstslice);
-		// second = secondhalf.concat(secondslice);
-
-		// console.log('firsthalf.join("")', firsthalf.join(""))
-		// console.log('secondhalf.join("")', secondhalf.join(""))
-
-		
 		first.splice(firstpos, 1)
 		second.splice(secondpos, 1)
 		
-		first = first.join("");
-		second = second.join("");
+		// first = first.join("");
+		// second = second.join("");
 
-		// console.log('first', first)
-		// console.log('second', second)
-
-		// console.log('firstpos', firstpos)
-		// console.log('secondpos', secondpos)
-
-		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
-		// console.log('secondLastDecimalPosition', secondLastDecimalPosition)
-		
 		third = mcMulSection(first, second);
-		// console.log('third', third)
-
-		// third = third.split("");
-		// decimalthirdno = firstslice.length + secondslice.length;
-
-		// console.log('decimalthirdno', decimalthirdno)
 		third = decimalShift(third, -lastDecimalPosition)
-		// third = decimalShift(third, secondLastDecimalPosition + firstLastDecimalPosition)
-		// console.log('third', third)
-
-		// third.splice()
-		// third.splice(third.length - decimalthirdno, "0", ".");
-
-		//? removeDecimalAndZeroFromRight()
-		// while (third[third.length - 1] == 0)
-		// 	third.pop();
-		// if (third[third.length - 1] == ".")
-		// 	third.pop();
-		// third = third.join("");
-		// return third;
 		third = removeZeroFromRight(third)
 
 		return third
 	} else if (isDecimal(first) && !isDecimal(second)) {
 		first.splice(firstpos, 1)
-		firstLastDecimalPosition = first.length - firstpos - 1
 		third = mcMulSection(first, second).split("")
+
+		firstLastDecimalPosition = first.length - firstpos - 1
 		positionOfDecimalAfterCalculation = third.length - firstLastDecimalPosition - 1
 
 		third.splice(positionOfDecimalAfterCalculation, 0, ".")
 
 		third = removeZeroFromRight(third)
 
-
 		return third
-		// return third.join("")
 	}
 	else if (!isDecimal(first) && isDecimal(second)) {
 		second.splice(secondpos, 1)
@@ -215,61 +136,6 @@ export function mcMulSection(first, second) {
 
 		return third
 	}
-
-	// else {
-	// 	// both decimal
-	// 	return 'both decimal'
-	// }
-	// else if (isDecimal(first) || isDecimal(second)) {
-	// 	// let firstLastDigit = first.length - firstpos - 1
-	// 	// let secondLastDigit = second.length - secondpos - 1
-
-	// 	// console.log('first', first.join(""))
-	// 	// console.log('second', second.join(""))
-	// 	// // console.log('firstpos', firstpos)
-	// 	// // console.log('secondpos', secondpos)
-	// 	// console.log('firstLastDigit', firstLastDigit)
-	// 	// console.log('secondLastDigit', secondLastDigit)
-
-	// 	if (!isDecimal(first)) {
-	// 		first = first.join("");
-	// 		firstpos = first.length;
-	// 		first = first.concat(".0");
-	// 		first = first.split("");
-	// 	} else if (!isDecimal(second)) {
-	// 		second = second.join("");
-	// 		secondpos = second.length;
-	// 		second = second.concat(".0");
-	// 		second = second.split("");
-	// 	}
-
-	// 	firstslice = first.slice(firstpos + 1);
-	// 	secondslice = second.slice(secondpos + 1);
-	// 	firsthalf = first.slice("0", firstpos);
-	// 	secondhalf = second.slice("0", secondpos);
-	// 	first = firsthalf.concat(firstslice);
-	// 	second = secondhalf.concat(secondslice);
-
-	// 	console.log('firsthalf.join("")', firsthalf.join(""))
-	// 	console.log('secondhalf.join("")', secondhalf.join(""))
-
-	// 	first = first.join("");
-	// 	second = second.join("");
-
-	// 	third = mcMulSection(first, second);
-
-	// 	third = third.split("");
-	// 	decimalthirdno = firstslice.length + secondslice.length;
-	// 	third.splice(third.length - decimalthirdno, "0", ".");
-
-	// 	//? removeDecimalAndZeroFromRight()
-	// 	while (third[third.length - 1] == 0)
-	// 		third.pop();
-	// 	if (third[third.length - 1] == ".")
-	// 		third.pop();
-	// 	third = third.join("");
-	// 	return third;
-	// }
 
 	return "Something went wrong";
 }
