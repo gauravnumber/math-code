@@ -153,62 +153,25 @@ export function mcMulSection(first, second) {
 		third = third.join("");
 		return third;
 	} else if(isDecimal(first) && !isDecimal(second)) {
-		// console.log('first.join("")', first.join(""))
-		// console.log('second.join("")', second.join(""))
-		// console.log('firstpos', firstpos)
-
-		
 		first.splice(firstpos, 1)
-		// console.log('first.join("")', first.join(""))
-		// console.log('second.join("")', second.join(""))
-		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
-		
-		third = mcMulSection(first, second).split("")
 		firstLastDecimalPosition = first.length - firstpos - 1
+		third = mcMulSection(first, second).split("")
 		positionOfDecimalAfterCalculation = third.length - firstLastDecimalPosition - 1
-		// console.log('third', third)
-		// let temp = third.length - firstLastDecimalPosition
-		// console.log('temp', temp)
-		// console.log('first.join("")', first.join(""))
-		// console.log('second.join("")', second.join(""))
 
 		third.splice(positionOfDecimalAfterCalculation, 0, ".")
 
-		// third.splice(firstpos, 0, ".")
-		// console.log('third.join("")', third.join(""))
 		return third.join("")
-
-
-
-		
-		// return '1st decimal, 2nd not'
 	}
 	else if(!isDecimal(first) && isDecimal(second)) {
-		// console.log('first.join("")', first.join(""))
-		// console.log('second.join("")', second.join(""))
-		// console.log('hi');
-
 		second.splice(secondpos, 1)
-		// console.log('first.join("")', first.join(""))
-		// console.log('second.join("")', second.join(""))
-		// console.log('firstLastDecimalPosition', firstLastDecimalPosition)
-
 		third = mcMulSection(first, second).split("")
-		// console.log('third.join("")', third.join(""))
+
 		secondLastDecimalPosition = second.length - secondpos - 1
 		positionOfDecimalAfterCalculation = third.length - secondLastDecimalPosition - 1
-		// console.log('positionOfDecimalAfterCalculation', positionOfDecimalAfterCalculation)
-
-		// console.log('first.join("")', first.join(""))
-		// console.log('second.join("")', second.join(""))
 
 		third.splice(positionOfDecimalAfterCalculation, 0, ".")
-		// third.splice(secondpos, 0, ".")
-		// console.log('third.join("")', third.join(""))
-		return third.join("")
 
-		// return second.join("")
-		// return '1st not decimal, 2nd decimal'
+		return third.join("")
 	} else {
 		// both decimal
 		return 'both decimal'
