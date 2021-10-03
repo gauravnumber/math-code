@@ -12,13 +12,20 @@ import { div } from './js/div.js'
 // import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 import decimalPosition from './js/.internal/decimalPosition.js'
 import decimalShift from './js/.internal/decimalShift.js'
+import isDecimal from './js/.internal/isDecimal.js'
 // import isZero from './js/.internal/isZero.js'
 
 // const temp = singleDigitDiv("1", "1000000000000")
 // console.log(mul("23.232", temp)) 
 
-console.log(mul("2342.2323", "0.00001"));
+console.log(mul("234245.2323", "1"));
+// console.log(mul("2342.2323", "0.0001"));
+// console.log(isDecimal("0.0001"));
+// console.log(isDecimal("2342.2323"));
+
+// console.log(mul("212", "2"));
 // console.log(mul("2342.2323", "0.0000000000000000000001"));
+// console.log(mul("12343.2323", "100000"));
 
 // for (let index = -20; index <= 20; index++) {
 //   console.log("index:" + index + " " + decimalShift("12345", index));
@@ -60,7 +67,6 @@ console.log(mul("2342.2323", "0.00001"));
 // }
 
 // console.log(decimalShift("123456.789", "3"))  // -7 4
-// console.log(mul("12343.2323", "100000"));
 
 // console.log(decimalShift("34", "0")) 
 
