@@ -2,21 +2,25 @@ import { mcMulOne } from './mcMulOne.js';
 import { mcAdd } from './mcAdd.js'
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import removeZeroFromRight from './.internal/removeZeroFromRight.js'
 import isDecimal from './.internal/isDecimal.js'
 import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
 import decimalPosition from './.internal/decimalPosition.js'
+import decimalShift from './.internal/decimalShift.js'
 import split from './.internal/split.js'
 
 export function mcMulSection(first, second) {
 	var lengthno,
 		i, j,
 		secondLastIndex,
-		decimalthirdno,
 		firstpos, secondpos,
-		firstslice, secondslice,
-		firsthalf, secondhalf,
-		third;
+		third,
+		firstLastDecimalPosition,
+		secondLastDecimalPosition,
+		lastDecimalPosition,
+		positionOfDecimalAfterCalculation
+
 	third = [];
 	firstpos = secondpos = -1;
 
@@ -80,49 +84,55 @@ export function mcMulSection(first, second) {
 		lengthno = second.length;
 		secondLastIndex = second.length - 1;
 		first = first.join("");
+
 		for (i = 0; i < lengthno; i++, secondLastIndex--) {
 			third[i] = mcMulOne(first, Number(second[secondLastIndex]));
 			for (j = 0; j < i; j++)
 				third[i] = third[i].concat("0");
 		}
+		
 		third = mcAdd.apply(null, third);
+
 		return third;
-	} else if (isDecimal(first) || isDecimal(second)) {
-		if (!isDecimal(first)) {
-			first = first.join("");
-			firstpos = first.length;
-			first = first.concat(".0");
-			first = first.split("");
-		} else if (!isDecimal(second)) {
-			second = second.join("");
-			secondpos = second.length;
-			second = second.concat(".0");
-			second = second.split("");
-		}
+	} else if (isDecimal(first) && isDecimal(second)) {
+		firstLastDecimalPosition = first.length - firstpos - 1
+		secondLastDecimalPosition = second.length - secondpos - 1
+		lastDecimalPosition = firstLastDecimalPosition + secondLastDecimalPosition
 
-		firstslice = first.slice(firstpos + 1);
-		secondslice = second.slice(secondpos + 1);
-		firsthalf = first.slice("0", firstpos);
-		secondhalf = second.slice("0", secondpos);
-		first = firsthalf.concat(firstslice);
-		second = secondhalf.concat(secondslice);
-
-		first = first.join("");
-		second = second.join("");
+		first.splice(firstpos, 1)
+		second.splice(secondpos, 1)
 
 		third = mcMulSection(first, second);
+		third = decimalShift(third, -lastDecimalPosition)
+		third = removeZeroFromRight(third)
 
-		third = third.split("");
-		decimalthirdno = firstslice.length + secondslice.length;
-		third.splice(third.length - decimalthirdno, "0", ".");
+		return third
+	} else if (isDecimal(first) && !isDecimal(second)) {
+		first.splice(firstpos, 1)
+		third = mcMulSection(first, second).split("")
 
-		//? removeDecimalAndZeroFromRight()
-		while (third[third.length - 1] == 0)
-			third.pop();
-		if (third[third.length - 1] == ".")
-			third.pop();
-		third = third.join("");
-		return third;
+		firstLastDecimalPosition = first.length - firstpos - 1
+		positionOfDecimalAfterCalculation = third.length - firstLastDecimalPosition - 1
+
+		third.splice(positionOfDecimalAfterCalculation, 0, ".")
+
+		third = removeZeroFromRight(third)
+
+		return third
 	}
+	else if (!isDecimal(first) && isDecimal(second)) {
+		second.splice(secondpos, 1)
+		third = mcMulSection(first, second).split("")
+
+		secondLastDecimalPosition = second.length - secondpos - 1
+		positionOfDecimalAfterCalculation = third.length - secondLastDecimalPosition - 1
+
+		third.splice(positionOfDecimalAfterCalculation, 0, ".")
+
+		third = removeZeroFromRight(third)
+
+		return third
+	}
+
 	return "Something went wrong";
 }

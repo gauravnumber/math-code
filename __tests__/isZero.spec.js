@@ -8,6 +8,7 @@ describe('isZero', () => {
     ["0", true],
     ["--7", false],
     ["0.00.", false],
+    ["-0", true],
   ]
 
   it.each(array)('isZero(%s)', (a, expected) => {
