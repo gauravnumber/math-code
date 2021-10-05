@@ -22,11 +22,11 @@ const temp = div("1", "1000000000000")
 console.log(mul("23.232", temp)) 
 
 // import { serve } from "https://deno.land/std/http/server.ts";
-const s = serve({ port: 8000 });
-console.log("http://localhost:8000/");
-for await (const req of s) {
-  req.respond({ body: "Hello World\n" });
-}
+// const s = serve({ port: 8000 });
+// console.log("http://localhost:8000/");
+// for await (const req of s) {
+//   req.respond({ body: "Hello World\n" });
+// }
 
 // console.log(mul("2342.2323", "0.0000001"));
 // console.log(mul("2342.2323", "44768.343"));
