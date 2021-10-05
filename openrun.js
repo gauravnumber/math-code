@@ -1,3 +1,5 @@
+import { serve } from "https://deno.land/std/http/server.ts";
+
 // import { isLt } from './js/isLt.js'
 // import { mcAddSection } from './js/mcAddSection.js'
 // import { mcMulSection } from './js/mcMulSection.js'
@@ -19,6 +21,13 @@ import removeZeroFromLeft from './js/.internal/removeZeroFromLeft.js'
 const temp = div("1", "1000000000000")
 console.log(mul("23.232", temp)) 
 
+// import { serve } from "https://deno.land/std/http/server.ts";
+const s = serve({ port: 8000 });
+console.log("http://localhost:8000/");
+for await (const req of s) {
+  req.respond({ body: "Hello World\n" });
+}
+
 // console.log(mul("2342.2323", "0.0000001"));
 // console.log(mul("2342.2323", "44768.343"));
 // console.log(div("0.00123432323", "12343.2323"));
@@ -33,7 +42,7 @@ console.log(mul("23.232", temp))
 // console.log(isDecimal("2342.2323"));
 
 // console.log(mul("212", "2"));
-console.log(mul("2342.2323", "0.0000000000000000000001"));
+// console.log(mul("2342.2323", "0.0000000000000000000001"));
 
 // console.time()
 // console.log(singleDigitDiv("1667", "1222", "1000")) // 102 digit fit my desktop screen including "."
