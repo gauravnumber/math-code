@@ -1,3 +1,3 @@
-import { div } from './js/div.js'
+import floor from './js/floor.js'
 
-console.log(div("12344445561899921212212323323", "556273382382776626287828267622"))
+console.log(floor("2.4"))
