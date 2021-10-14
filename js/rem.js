@@ -1,4 +1,5 @@
 import floor from './floor.js'
+import { isGt } from './isGt.js'
 
 import { div } from './div.js'
 import { mul } from './mul.js'
@@ -8,19 +9,19 @@ const rem = (dividend, divisor) => {
   let quotient,
     mulTemp,
     subTemp
-  
 
-  console.log('dividend', dividend)
-  console.log('divisor', divisor)
 
-  quotient = div(dividend, divisor)
-  console.log('quotient', quotient)
-  quotient = floor(quotient)
-  console.log('quotient', quotient)
-  mulTemp = mul(divisor, quotient)
-  subTemp = sub(dividend, mulTemp)
+  // console.log('dividend', dividend)
+  // console.log('divisor', divisor)
 
-  return subTemp
+  if (isGt(dividend, divisor)) {
+    quotient = div(dividend, divisor)
+    quotient = floor(quotient)
+    mulTemp = mul(divisor, quotient)
+    subTemp = sub(dividend, mulTemp)
+
+    return subTemp
+  }
 }
 
 export default rem
