@@ -1,7 +1,7 @@
 // import floor from './js/floor.js'
-import ceil from './js/ceil.js'
+import rem from './js/rem.js'
 
-console.log(ceil("32.345"));
+console.log(rem("32", "2"));
 
 // console.log(floor("0"))
 // console.log(floor("-12.87864"))
