@@ -171,36 +171,39 @@ export const div = (dividend, divisor, defaultDecimalDigit = 10) => {
       }
 
       return quotient.join("")
-    } else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
-      // @example 22/7, 123/23, 1234/123, 98987/6754
-      quotient = ""
-      quotient = quotient.split()
+    }
+    // else if (isGt(dividend, divisor) && (dividend.length === divisor.length || dividend.length === divisor.length + 1)) {
+    //   // @example 22/7, 123/23, 1234/123, 98987/6754
+    //   quotient = ""
+    //   quotient = quotient.split()
 
-      for (let i = 1; i <= defaultDecimalDigit + 1; i++) {
-        quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
-        mulTemp = mul(divisor.join(""), quotientTemp)
-        dividend = sub(dividend.join(""), mulTemp)
-        dividend = split(dividend)
-        quotient.push(quotientTemp)
+    //   for (let i = 1; i <= defaultDecimalDigit + 1; i++) {
+    //     quotientTemp = divisibleFor(dividend.join(""), divisor.join(""))
+    //     mulTemp = mul(divisor.join(""), quotientTemp)
+    //     dividend = sub(dividend.join(""), mulTemp)
+    //     dividend = split(dividend)
+    //     quotient.push(quotientTemp)
 
-        for (let i = 1; isLt(dividend, divisor); i++) {
-          dividend.push("0")
-          if (i >= 2) {
-            quotient.push("0")
-          }
-        }
+    //     for (let i = 1; isLt(dividend, divisor); i++) {
+    //       dividend.push("0")
+    //       if (i >= 2) {
+    //         quotient.push("0")
+    //       }
+    //     }
 
-        if (!isDecimal(quotient)) {
-          quotient.push(".")
-        }
+    //     if (!isDecimal(quotient)) {
+    //       quotient.push(".")
+    //     }
 
-        if (isEq(dividend, "0")) {
-          break;
-        }
-      }
+    //     if (isEq(dividend, "0")) {
+    //       break;
+    //     }
+    //   }
 
-      return quotient.join("")
-    } else if (isGt(dividend, divisor)) {
+    //   return quotient.join("")
+    // } 
+
+    else if (isGt(dividend, divisor)) {
       for (let i = 0; i < dividend.length; i++) {
         dividendTemp.push(dividend[i])
 
