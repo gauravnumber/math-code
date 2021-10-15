@@ -1,5 +1,6 @@
 import floor from './floor.js'
 import { isGt } from './isGt.js'
+import { isLt } from './isLt.js'
 
 import { div } from './div.js'
 import { mul } from './mul.js'
@@ -22,6 +23,13 @@ const rem = (dividend, divisor) => {
 
     return subTemp
   }
+
+  if (isLt(dividend, divisor)) {
+    return dividend
+  }
+
+  // if dividend and divisor is equal
+  return "0"
 }
 
 export default rem
