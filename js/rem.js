@@ -11,15 +11,22 @@ const rem = (dividend, divisor) => {
   let quotient,
     mulTemp,
     subTemp,
+    dividendSlice,
     divisorSlice
 
 
   // console.log('dividend', dividend)
   // console.log('divisor', divisor)
 
+  if (isNegative(dividend)) {
+    dividendSlice = dividend.slice(1)
+
+    let remTemp = rem(dividendSlice, divisor)
+    return `-${remTemp}`
+  }
+
   if (isNegative(divisor)) {
     divisorSlice = divisor.slice(1)
-
     return rem(dividend, divisorSlice)
   }
 
