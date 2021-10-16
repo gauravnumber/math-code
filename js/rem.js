@@ -1,3 +1,4 @@
+import isNegative from './.internal/isNegative.js'
 import floor from './floor.js'
 import { isGt } from './isGt.js'
 import { isLt } from './isLt.js'
@@ -9,11 +10,23 @@ import { sub } from './sub.js'
 const rem = (dividend, divisor) => {
   let quotient,
     mulTemp,
-    subTemp
+    subTemp,
+    remTemp,
+    dividendSlice,
+    divisorSlice
 
+  if (isNegative(dividend)) {
+    dividendSlice = dividend.slice(1)
 
-  // console.log('dividend', dividend)
-  // console.log('divisor', divisor)
+    remTemp = rem(dividendSlice, divisor)
+    return `-${remTemp}`
+  }
+
+  if (isNegative(divisor)) {
+    divisorSlice = divisor.slice(1)
+
+    return rem(dividend, divisorSlice)
+  }
 
   if (isGt(dividend, divisor)) {
     quotient = div(dividend, divisor)
