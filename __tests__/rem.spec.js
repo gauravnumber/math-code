@@ -16,10 +16,9 @@ describe('rem', () => {
   //   // ["-0", "0"]
   // ]
 
-  // const negative = [
-  //   ["-3.45", "-3"],
-  //   ["-12.51", "-12"],
-  // ]
+  const negative = [
+    ["345", "-312", "33"],
+  ]
 
 
   it.each(array)('rem(%s, %s)', (a, b, expected) => {
@@ -32,11 +31,11 @@ describe('rem', () => {
   //   })
   // });
 
-  // describe('If number is negative', () => {
-  //   it.each(negative)('rem(%s)', (a, expected) => {
-  //     expect(rem(a)).toBe(expected)
-  //   })
-  // });
+  describe('If number is negative', () => {
+    it.each(negative)('rem(%s, %s)', (a, b, expected) => {
+      expect(rem(a, b)).toEqual(expected)
+    })
+  });
 
 
 });
