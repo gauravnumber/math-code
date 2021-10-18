@@ -8,7 +8,7 @@ import removeZeroFromLeft from '../js/.internal/removeZeroFromLeft.js'
 //   test('should 0003 -> "3"', () => {
 //     expect(removeZeroFromLeft('0003')).toBe('3')
 //   })
-  
+
 // })
 
 describe('removeZeroFromLeft', () => {
@@ -18,7 +18,7 @@ describe('removeZeroFromLeft', () => {
     // ["-000000", "0"],
   ]
 
-  it.each(array)('isZero(%s)', (a, expected) => {
+  it.each(array)('removeZeroFromLeft(%s)', (a, expected) => {
     expect(removeZeroFromLeft(a)).toBe(expected)
   })
 
