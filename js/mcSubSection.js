@@ -3,7 +3,7 @@ import { mcAddSection } from './mcAddSection.js';
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import isNegative from './.internal/isNegative.js'
-import isDecimal from './.internal/isDecimal.js'
+import isDecimal from './isDecimal.js'
 import decimalPosition from './.internal/decimalPosition.js'
 import split from './.internal/split.js'
 
@@ -15,7 +15,7 @@ export function mcSubSection(first, second) {
 		firstslice, secondslice,
 		firsthalf, secondhalf,
 		third
-		// , thirdhalf, thirdslice;
+	// , thirdhalf, thirdslice;
 	third = [];
 	similar = false;
 	firstpos = secondpos = -1;
@@ -26,7 +26,7 @@ export function mcSubSection(first, second) {
 
 	first = split(first)
 	second = split(second)
-	
+
 	first = removeZeroFromLeft(first).split("")
 	second = removeZeroFromLeft(second).split("")
 

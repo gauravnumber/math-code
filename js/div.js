@@ -1,6 +1,6 @@
 import decimalPosition from './.internal/decimalPosition.js'
 import decimalShift from './.internal/decimalShift.js'
-import isDecimal from './.internal/isDecimal.js'
+import isDecimal from './isDecimal.js'
 import isNegative from './.internal/isNegative.js'
 import isZero from './.internal/isZero.js'
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
