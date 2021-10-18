@@ -1,4 +1,4 @@
-import isNegative from './.internal/isNegative.js'
+import isNegative from './isNegative.js'
 import floor from './floor.js'
 import { isGt } from './isGt.js'
 import { isLt } from './isLt.js'

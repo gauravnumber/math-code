@@ -1,5 +1,5 @@
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
-import isNegative from './.internal/isNegative.js'
+import isNegative from './isNegative.js'
 import isDecimal from './isDecimal.js'
 import decimalPosition from './.internal/decimalPosition.js'
 import { isGt } from "./isGt.js"
