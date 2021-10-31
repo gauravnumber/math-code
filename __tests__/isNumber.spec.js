@@ -1,4 +1,4 @@
-import isNumber from '../js/.internal/isNumber.js'
+import isNumber from '../js/isNumber.js'
 
 describe('isNumber', () => {
   const array = [

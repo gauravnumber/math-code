@@ -3,9 +3,9 @@ import { mcAdd } from './mcAdd.js'
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
 import removeZeroFromRight from './.internal/removeZeroFromRight.js'
-import isDecimal from './.internal/isDecimal.js'
-import isNegative from './.internal/isNegative.js'
-import isZero from './.internal/isZero.js'
+import isDecimal from './isDecimal.js'
+import isNegative from './isNegative.js'
+import isZero from './isZero.js'
 import decimalPosition from './.internal/decimalPosition.js'
 import decimalShift from './.internal/decimalShift.js'
 import split from './.internal/split.js'
@@ -90,7 +90,7 @@ export function mcMulSection(first, second) {
 			for (j = 0; j < i; j++)
 				third[i] = third[i].concat("0");
 		}
-		
+
 		third = mcAdd.apply(null, third);
 
 		return third;

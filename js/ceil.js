@@ -1,6 +1,6 @@
 import decimalPosition from './.internal/decimalPosition.js'
-import isDecimal from './.internal/isDecimal.js'
-import isNegative from './.internal/isNegative.js'
+import isDecimal from './isDecimal.js'
+import isNegative from './isNegative.js'
 import split from './.internal/split.js'
 
 import { add } from './add.js'

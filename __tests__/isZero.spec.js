@@ -1,4 +1,4 @@
-import isZero from '../js/.internal/isZero.js'
+import isZero from '../js/isZero.js'
 
 describe('isZero', () => {
   const array = [

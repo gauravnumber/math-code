@@ -1,8 +1,8 @@
 import { mcSubSection } from './mcSubSection.js'
 
 import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
-import isNegative from './.internal/isNegative.js'
-import isDecimal from './.internal/isDecimal.js'
+import isNegative from './isNegative.js'
+import isDecimal from './isDecimal.js'
 import decimalPosition from './.internal/decimalPosition.js'
 import split from './.internal/split.js'
 
@@ -98,7 +98,7 @@ export function mcAddSection(first, second) {
 
 		// console.log('firstslice', firstslice)
 		// console.log('secondslice', secondslice)
-		
+
 		//? eg.
 		//? 23.121, 22.0
 		//? 22.121, 22.000

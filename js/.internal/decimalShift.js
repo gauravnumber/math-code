@@ -1,4 +1,4 @@
-import isDecimal from './isDecimal.js'
+import isDecimal from '../isDecimal.js'
 import decimalPosition from './decimalPosition.js'
 import split from './split.js'
 
