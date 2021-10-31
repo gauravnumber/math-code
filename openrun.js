@@ -1,10 +1,10 @@
-import rem from './js/rem.js'
-import { div } from './js/div.js'
+import abs from './js/abs.js'
 
 // console.log(div("32", "2"));
 // console.log(div("132", "-12"));
 
-console.log(rem("-345", "-312"));
+console.log(abs("34523.237"));
+// console.log(abs("-34523.237"));
 // console.log(rem("-345", "312"));
 // console.log(rem("345", "-312"));
 // console.log(rem("345", "345"));
