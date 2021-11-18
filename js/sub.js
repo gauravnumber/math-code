@@ -1,3 +1,3 @@
-import { mcSubSection } from './mcSubSection.js';
+import { mcSub } from './mcSub.js';
 
-export { mcSubSection as sub }
+export { mcSub as sub }

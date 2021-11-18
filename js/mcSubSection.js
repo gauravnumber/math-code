@@ -1,30 +1,36 @@
 import { mcSubSolve } from './mcSubSolve.js';
 import { mcAddSection } from './mcAddSection.js';
 
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import isNegative from './isNegative.js'
+import isDecimal from './isDecimal.js'
+import decimalPosition from './.internal/decimalPosition.js'
+import split from './.internal/split.js'
+
 export function mcSubSection(first, second) {
 	var lengthno,
 		i, similar,
-		firstLastIndex, secondLastIndex,
-		firstnohold, secondnohold,
-		decimalfirst, decimalsecond, decimalthirdno,
+		decimalthirdno,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
-		third, thirdhalf, thirdslice;
+		third
+	// , thirdhalf, thirdslice;
 	third = [];
-	decimalfirst = false;
-	decimalsecond = false;
 	similar = false;
 	firstpos = secondpos = -1;
-	first = String(first);
-	second = String(second);
-	first = first.split("");
-	second = second.split("");
-	while (Number(first[0]) == 0)
-		first.shift();
-	while (Number(second[0]) == 0)
-		second.shift();
-	if (first[0] == "-" && second[0] == "-") {
+	// first = String(first);
+	// second = String(second);
+	// first = first.split("");
+	// second = second.split("");
+
+	first = split(first)
+	second = split(second)
+
+	first = removeZeroFromLeft(first).split("")
+	second = removeZeroFromLeft(second).split("")
+
+	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
 		second = second.slice(1);
 		first = first.join("");
@@ -33,7 +39,7 @@ export function mcSubSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-	} else if (first[0] != "-" && second[0] == "-") {
+	} else if (!isNegative(first) && isNegative(second)) {
 		second = second.slice(1);
 		first = first.join("");
 		second = second.join("");
@@ -41,7 +47,7 @@ export function mcSubSection(first, second) {
 		third = third.split("");
 		third = third.join("");
 		return third;
-	} else if (first[0] == "-" && second[0] != "-") {
+	} else if (isNegative(first) && !isNegative(second)) {
 		first = first.slice(1);
 		first = first.join("");
 		second = second.join("");
@@ -51,19 +57,11 @@ export function mcSubSection(first, second) {
 		third = third.join("");
 		return third;
 	}
-	for (i = 0; i < first.length; i++)
-		if (first[i] == ".") {
-			decimalfirst = true;
-			firstpos = i;
-			break;
-		}
-	for (i = 0; i < second.length; i++)
-		if (second[i] == ".") {
-			decimalsecond = true;
-			secondpos = i;
-			break;
-		}
-	if (decimalfirst == false && decimalsecond == false) {
+
+	firstpos = decimalPosition(first)
+	secondpos = decimalPosition(second)
+
+	if (!isDecimal(first) && !isDecimal(second)) {
 		if (first.length > second.length) {
 			return mcSubSolve(first.join(""), second.join(""));
 		}
@@ -95,14 +93,13 @@ export function mcSubSection(first, second) {
 			}
 		}
 	}
-	else if (decimalfirst == true || decimalsecond == true) {
-		if (decimalfirst == false) {
+	else if (isDecimal(first) || isDecimal(second)) {
+		if (!isDecimal(first)) {
 			first = first.join("");
 			firstpos = first.length;
 			first = first.concat(".0");
 			first = first.split("");
-		}
-		else if (decimalsecond == false) {
+		} else if (!isDecimal(second)) {
 			second = second.join("");
 			secondpos = second.length;
 			second = second.concat(".0");

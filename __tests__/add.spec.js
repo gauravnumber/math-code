@@ -1,15 +1,22 @@
 import { add } from '../js/add.js'
 
 describe("addition", () => {
-	const array = [
-		[1, 2, "3"],
-		[34, 12, "46"],
-		[12, 12, "24"]
-	]
+	describe('two parameter', () => {
+		const array = [
+			["1", "2", "3"],
+			["34", "12", "46"],
+			["12", "12", "24"],
+			[["2", "4"], "2", "26"],
+		]
 
-	it.each(array)('add(%i, %i)', (a, b, expected) => {
-		expect(add(a, b)).toBe(expected)
-		// expect(add(a, b)).toEqual(expected)
-		// expect(add(a, b)).not.toBe(expected)
-	})
+		it.each(array)('add(%s, %s)', (a, b, expected) => {
+			expect(add(a, b)).toBe(expected)
+		})
+	});
+
+	describe('more than two parameter', () => {
+		it('should add three parameter', () => {
+			expect(add("1232", "2323", "789")).toBe("4344")
+		})
+	});
 })

@@ -5,19 +5,37 @@
  * @returns removing zero form left
  * @example 
  *  input: 001
- *  output: 1
+ *  output: "1"
  */
 
 const removeZeroFromLeft = (value) => {
+  // console.log('value', value)
   if (Object.prototype.toString.call(value) == "[object Array]") {
-    while (Number(value[0]) == 0) {
+    while (Number(value[0]) === 0) {
       value.shift();
     }
-    return value
+
+    // console.log('value', value)
+    // return value.join("")
+    return (typeof value[0] === 'undefined') ? "0" : value.join("")
   } else if (value && typeof value.valueOf() === "string") {
+    //? -000000.00000
+    // if (/-?0*\.?\0*/.test(value)) {
+    //   // console.log("negative zero");
+    //   return "0"
+    // }
     value = value.split("")
     return removeZeroFromLeft(value)
+  } 
+  else if(typeof value === 'number') {
+    return value.toString()
   }
+  
+  // console.log(typeof value, value);
+  // if value is undefined
+  return ""
+  // if value is number
+  // return value.toString()
 }
 
 export default removeZeroFromLeft

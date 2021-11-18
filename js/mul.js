@@ -1,6 +1,3 @@
-// import { mcMulOne } from './mcMulOne.js';
-import { mcMulSection } from './mcMulSection.js'
+import { mcMul } from './mcMul.js'
 
-// console.log(mcMulSection(2,3))
-
-export { mcMulSection as mul}
+export { mcMul as mul }

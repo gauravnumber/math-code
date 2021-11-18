@@ -1,15 +1,15 @@
 {
   "name": "math-code",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "version": "1.0.1",
+  "description": "World most powerful math function.",
   "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "start": "node server.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.14.9",
+    "eslint": "^7.32.0",
     "jest": "^27.0.6"
   }
 }

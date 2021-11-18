@@ -1,76 +1,56 @@
+import removeZeroFromLeft from './.internal/removeZeroFromLeft.js'
+import isNegative from './isNegative.js'
+import isDecimal from './isDecimal.js'
+import decimalPosition from './.internal/decimalPosition.js'
+import split from './.internal/split.js'
+
 export function isEq(first, second) {
 	var lengthno,
 		i,
-		firstLastIndex, secondLastIndex,
-		firstnohold, secondnohold,
-		decimalfirst, decimalsecond,
 		firstpos, secondpos,
 		firstslice, secondslice,
 		firsthalf, secondhalf,
 		third, thirdhalf, thirdslice;
+
 	third = [];
-	decimalfirst = false;
-	decimalsecond = false;
 	firstpos = secondpos = -1;
-	first = String(first);
-	second = String(second);
-	first = first.split("");
-	second = second.split("");
-	while (Number(first[0]) == 0)
-		first.shift();
-	while (Number(second[0]) == 0)
-		second.shift();
-	if (first[0] == "-" && second[0] == "-") {
+
+	first = split(first);
+	second = split(second);
+
+	first = removeZeroFromLeft(first).split("")
+	second = removeZeroFromLeft(second).split("")
+
+	if (isNegative(first) && isNegative(second)) {
 		first = first.slice(1);
 		second = second.slice(1);
 		first = first.join("");
 		second = second.join("");
 		third = isEq(first, second);
 		return third;
-	} else if (first[0] != "-" && second[0] == "-") {
+	} else if (!isNegative(first) && isNegative(second)) {
 		return false;
-	} else if (first[0] == "-" && second[0] != "-") {
+	} else if (isNegative(first) && !isNegative(second)) {
 		return false;
 	}
-	for (i = 0; i < first.length; i++)
-		if (first[i] == ".") {
-			decimalfirst = true;
-			firstpos = i;
-			break;
-		}
-	for (i = 0; i < second.length; i++)
-		if (second[i] == ".") {
-			decimalsecond = true;
-			secondpos = i;
-			break;
-		}
-	while (first[first.length - 1] == 0 && decimalfirst == true) {
+
+	while (first[first.length - 1] == 0 && isDecimal(first)) {
 		first.pop();
 	}
-	while (second[second.length - 1] == 0 && decimalsecond == true) {
+	while (second[second.length - 1] == 0 && isDecimal(second)) {
 		second.pop();
 	}
 	while (first[first.length - 1] == ".") {
 		first.pop();
-		decimalfirst = false;
 	}
 	while (second[second.length - 1] == ".") {
 		second.pop();
-		decimalsecond = false;
 	}
-	for (i = 0; i < first.length; i++)
-		if (first[i] == ".") {
-			decimalfirst = true;
-			firstpos = i;
-			break;
-		}
-	for (i = 0; i < second.length; i++)
-		if (second[i] == ".") {
-			decimalsecond = true;
-			secondpos = i;
-			break;
-		}
-	if (decimalfirst == false && decimalsecond == false) {
+
+	firstpos = decimalPosition(first)
+	secondpos = decimalPosition(second)
+
+	if (!isDecimal(first) && !isDecimal(second)) {
 		if (first.length == second.length) {
 			lengthno = first.length;
 			for (i = 0; i < lengthno; i++) {
@@ -82,11 +62,11 @@ export function isEq(first, second) {
 		} else {
 			return false;
 		}
-	} else if (decimalfirst == true && decimalsecond == false) {
+	} else if (isDecimal(first) && !isDecimal(second)) {
 		return false;
-	} else if (decimalfirst == false && decimalsecond == true) {
+	} else if (!isDecimal(first) && isDecimal(second)) {
 		return false;
-	} else if (decimalfirst == true && decimalsecond == true) {
+	} else if (isDecimal(first) && isDecimal(second)) {
 		firstslice = first.slice(firstpos + 1);
 		secondslice = second.slice(secondpos + 1);
 		firsthalf = first.slice(0, firstpos);
@@ -101,7 +81,7 @@ export function isEq(first, second) {
 			thirdslice = false;
 		}
 		thirdhalf = isEq(firsthalf, secondhalf);
-		if (thirdhalf == thirdslice) {
+		if (thirdhalf && thirdslice) {
 			return true;
 		} else {
 			return false;
